@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Shrink wrap test frames using test.png-->
+<TextureAtlas imagePath="test.png">
+    <SubTexture name="allPartial"    x="0"    y="0"    width="128" height="128" frameX="0"   frameY="0"   frameWidth="128" frameHeight="128"/>
+    <SubTexture name="allfull"       x="128"  y="0"    width="128" height="128" frameX="0"   frameY="0"   frameWidth="128" frameHeight="128"/>
+    <SubTexture name="framePartial"  x="272"  y="16"   width="96"  height="96"  frameX="-16" frameY="-16" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="frameFull"     x="400"  y="16"   width="96"  height="96"  frameX="-16" frameY="-16" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="mix1"          x="528"  y="16"   width="96"  height="96"  frameX="-16" frameY="-16" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="mix2"          x="656"  y="16"   width="96"  height="96"  frameX="-16" frameY="-16" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="mix3"          x="784"  y="16"   width="96"  height="96"  frameX="-16" frameY="-16" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="mix4"          x="912"  y="16"   width="96"  height="96"  frameX="-16" frameY="-16" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="partial1"      x="16"   y="144"  width="96"  height="96"  frameX="-16" frameY="-16" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="partial2"      x="144"  y="144"  width="96"  height="96"  frameX="-16" frameY="-16" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="partial3"      x="272"  y="144"  width="96"  height="96"  frameX="-16" frameY="-16" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="partial4"      x="400"  y="144"  width="96"  height="96"  frameX="-16" frameY="-16" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="full1"         x="528"  y="144"  width="96"  height="96"  frameX="-16" frameY="-16" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="full2"         x="656"  y="144"  width="96"  height="96"  frameX="-16" frameY="-16" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="full3"         x="784"  y="144"  width="96"  height="96"  frameX="-16" frameY="-16" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="full4"         x="912"  y="144"  width="96"  height="96"  frameX="-16" frameY="-16" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="full5"         x="16"   y="272"  width="96"  height="96"  frameX="-16" frameY="-16" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="full6"         x="144"  y="272"  width="96"  height="96"  frameX="-16" frameY="-16" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="full7"         x="272"  y="272"  width="96"  height="96"  frameX="-16" frameY="-16" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="full8"         x="400"  y="272"  width="96"  height="96"  frameX="-16" frameY="-16" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="partial5"      x="528"  y="272"  width="96"  height="96"  frameX="-16" frameY="-16" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="partial6"      x="656"  y="272"  width="96"  height="96"  frameX="-16" frameY="-16" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="partial7"      x="784"  y="272"  width="96"  height="96"  frameX="-16" frameY="-16" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="partial8"      x="912"  y="272"  width="96"  height="96"  frameX="-16" frameY="-16" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="partialCircle" x="10"   y="397"  width="110" height="108" frameX="-11" frameY="-13" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="fullCircle"    x="137"  y="395"  width="108" height="108" frameX="-9"  frameY="-11" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="partialNovel"  x="280"  y="403"  width="85"  height="95"  frameX="-14" frameY="-19" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="fullNovel"     x="408"  y="402"  width="83"  height="95"  frameX="-24" frameY="-18" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="complicated"   x="512"  y="384"  width="128" height="128" frameX="0"   frameY="0"   frameWidth="128" frameHeight="128"/>
+    <SubTexture name="dither"        x="640"  y="384"  width="128" height="128" frameX="0"   frameY="0"   frameWidth="128" frameHeight="128"/>
+    <SubTexture name="noise"         x="768"  y="384"  width="128" height="128" frameX="0"   frameY="0"   frameWidth="128" frameHeight="128"/>
+    <SubTexture name="lines"         x="896"  y="384"  width="128" height="128" frameX="0"   frameY="0"   frameWidth="128" frameHeight="128"/>
+</TextureAtlas>

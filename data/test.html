@@ -1,0 +1,4201 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<style>
+			body {
+				margin: 0px;
+				padding: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<img id="bg" src="test.png" width="4096" height="2048">
+		<div id='d1' style="position:absolute; top:0; left:0; z-index:1">
+			<canvas id="myCanvas" width="4096d" height="2048d"></canvas>
+		</div>
+		<script>
+			var canvas = document.getElementById('myCanvas');
+			var context = canvas.getContext('2d');
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(0.000000, 2.000000);
+			context.lineTo(512.000000, 2.000000);
+			context.lineTo(512.000000, 510.000000);
+			context.lineTo(0.000000, 2.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(0.000000, 2.000000);
+			context.lineTo(512.000000, 510.000000);
+			context.lineTo(0.000000, 510.000000);
+			context.lineTo(0.000000, 2.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(512.000000, 2.000000);
+			context.lineTo(1024.000000, 2.000000);
+			context.lineTo(1024.000000, 510.000000);
+			context.lineTo(512.000000, 2.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(512.000000, 2.000000);
+			context.lineTo(1024.000000, 510.000000);
+			context.lineTo(512.000000, 510.000000);
+			context.lineTo(512.000000, 2.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1088.000000, 66.000000);
+			context.lineTo(1472.000000, 66.000000);
+			context.lineTo(1472.000000, 446.000000);
+			context.lineTo(1088.000000, 66.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1088.000000, 66.000000);
+			context.lineTo(1472.000000, 446.000000);
+			context.lineTo(1088.000000, 446.000000);
+			context.lineTo(1088.000000, 66.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1600.000000, 66.000000);
+			context.lineTo(1984.000000, 66.000000);
+			context.lineTo(1984.000000, 446.000000);
+			context.lineTo(1600.000000, 66.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1600.000000, 66.000000);
+			context.lineTo(1984.000000, 446.000000);
+			context.lineTo(1600.000000, 446.000000);
+			context.lineTo(1600.000000, 66.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2296.000000, 66.000000);
+			context.lineTo(2496.000000, 66.000000);
+			context.lineTo(2496.000000, 446.000000);
+			context.lineTo(2296.000000, 66.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2296.000000, 66.000000);
+			context.lineTo(2496.000000, 446.000000);
+			context.lineTo(2300.000000, 258.000000);
+			context.lineTo(2296.000000, 66.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2300.000000, 258.000000);
+			context.lineTo(2496.000000, 446.000000);
+			context.lineTo(2112.000000, 438.000000);
+			context.lineTo(2300.000000, 258.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2112.000000, 438.000000);
+			context.lineTo(2496.000000, 446.000000);
+			context.lineTo(2112.000000, 446.000000);
+			context.lineTo(2112.000000, 438.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2112.000000, 66.000000);
+			context.lineTo(2296.000000, 66.000000);
+			context.lineTo(2300.000000, 258.000000);
+			context.lineTo(2112.000000, 66.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2112.000000, 66.000000);
+			context.lineTo(2300.000000, 258.000000);
+			context.lineTo(2112.000000, 438.000000);
+			context.lineTo(2112.000000, 66.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2624.000000, 66.000000);
+			context.lineTo(2828.000000, 66.000000);
+			context.lineTo(2824.000000, 258.000000);
+			context.lineTo(2624.000000, 66.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2624.000000, 66.000000);
+			context.lineTo(2824.000000, 258.000000);
+			context.lineTo(2624.000000, 446.000000);
+			context.lineTo(2624.000000, 66.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2624.000000, 446.000000);
+			context.lineTo(2824.000000, 258.000000);
+			context.lineTo(3008.000000, 434.000000);
+			context.lineTo(2624.000000, 446.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2624.000000, 446.000000);
+			context.lineTo(3008.000000, 434.000000);
+			context.lineTo(3008.000000, 446.000000);
+			context.lineTo(2624.000000, 446.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2828.000000, 66.000000);
+			context.lineTo(3008.000000, 66.000000);
+			context.lineTo(3008.000000, 434.000000);
+			context.lineTo(2828.000000, 66.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2828.000000, 66.000000);
+			context.lineTo(3008.000000, 434.000000);
+			context.lineTo(2824.000000, 258.000000);
+			context.lineTo(2828.000000, 66.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3136.000000, 66.000000);
+			context.lineTo(3520.000000, 66.000000);
+			context.lineTo(3520.000000, 262.000000);
+			context.lineTo(3136.000000, 66.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3136.000000, 66.000000);
+			context.lineTo(3520.000000, 262.000000);
+			context.lineTo(3328.000000, 262.000000);
+			context.lineTo(3136.000000, 66.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3136.000000, 66.000000);
+			context.lineTo(3328.000000, 262.000000);
+			context.lineTo(3136.000000, 446.000000);
+			context.lineTo(3136.000000, 66.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(3328.000000, 262.000000);
+			context.lineTo(3520.000000, 262.000000);
+			context.lineTo(3520.000000, 446.000000);
+			context.lineTo(3328.000000, 262.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(3328.000000, 262.000000);
+			context.lineTo(3520.000000, 446.000000);
+			context.lineTo(3136.000000, 446.000000);
+			context.lineTo(3328.000000, 262.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3648.000000, 66.000000);
+			context.lineTo(4032.000000, 66.000000);
+			context.lineTo(4032.000000, 446.000000);
+			context.lineTo(3648.000000, 66.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3648.000000, 66.000000);
+			context.lineTo(4032.000000, 446.000000);
+			context.lineTo(3648.000000, 74.000000);
+			context.lineTo(3648.000000, 66.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3648.000000, 74.000000);
+			context.lineTo(4032.000000, 446.000000);
+			context.lineTo(3836.000000, 266.000000);
+			context.lineTo(3648.000000, 74.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3836.000000, 266.000000);
+			context.lineTo(4032.000000, 446.000000);
+			context.lineTo(3836.000000, 442.000000);
+			context.lineTo(3836.000000, 266.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3836.000000, 442.000000);
+			context.lineTo(4032.000000, 446.000000);
+			context.lineTo(3648.000000, 446.000000);
+			context.lineTo(3836.000000, 442.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(3648.000000, 74.000000);
+			context.lineTo(3836.000000, 266.000000);
+			context.lineTo(3648.000000, 442.000000);
+			context.lineTo(3648.000000, 74.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(3648.000000, 442.000000);
+			context.lineTo(3836.000000, 266.000000);
+			context.lineTo(3836.000000, 442.000000);
+			context.lineTo(3648.000000, 442.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(248.000000, 578.000000);
+			context.lineTo(448.000000, 578.000000);
+			context.lineTo(448.000000, 958.000000);
+			context.lineTo(248.000000, 578.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(248.000000, 578.000000);
+			context.lineTo(448.000000, 958.000000);
+			context.lineTo(248.000000, 770.000000);
+			context.lineTo(248.000000, 578.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(248.000000, 770.000000);
+			context.lineTo(448.000000, 958.000000);
+			context.lineTo(64.000000, 942.000000);
+			context.lineTo(248.000000, 770.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(64.000000, 942.000000);
+			context.lineTo(448.000000, 958.000000);
+			context.lineTo(64.000000, 958.000000);
+			context.lineTo(64.000000, 942.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(576.000000, 578.000000);
+			context.lineTo(780.000000, 578.000000);
+			context.lineTo(780.000000, 770.000000);
+			context.lineTo(576.000000, 578.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(576.000000, 578.000000);
+			context.lineTo(780.000000, 770.000000);
+			context.lineTo(576.000000, 958.000000);
+			context.lineTo(576.000000, 578.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(576.000000, 958.000000);
+			context.lineTo(780.000000, 770.000000);
+			context.lineTo(960.000000, 942.000000);
+			context.lineTo(576.000000, 958.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(576.000000, 958.000000);
+			context.lineTo(960.000000, 942.000000);
+			context.lineTo(960.000000, 958.000000);
+			context.lineTo(576.000000, 958.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1088.000000, 578.000000);
+			context.lineTo(1472.000000, 578.000000);
+			context.lineTo(1472.000000, 770.000000);
+			context.lineTo(1088.000000, 578.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1088.000000, 578.000000);
+			context.lineTo(1472.000000, 770.000000);
+			context.lineTo(1284.000000, 774.000000);
+			context.lineTo(1088.000000, 578.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1088.000000, 578.000000);
+			context.lineTo(1284.000000, 774.000000);
+			context.lineTo(1088.000000, 958.000000);
+			context.lineTo(1088.000000, 578.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1088.000000, 958.000000);
+			context.lineTo(1284.000000, 774.000000);
+			context.lineTo(1104.000000, 954.000000);
+			context.lineTo(1088.000000, 958.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1088.000000, 958.000000);
+			context.lineTo(1104.000000, 954.000000);
+			context.lineTo(1472.000000, 958.000000);
+			context.lineTo(1088.000000, 958.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1600.000000, 578.000000);
+			context.lineTo(1984.000000, 578.000000);
+			context.lineTo(1984.000000, 958.000000);
+			context.lineTo(1600.000000, 578.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1600.000000, 578.000000);
+			context.lineTo(1984.000000, 958.000000);
+			context.lineTo(1600.000000, 590.000000);
+			context.lineTo(1600.000000, 578.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1600.000000, 590.000000);
+			context.lineTo(1984.000000, 958.000000);
+			context.lineTo(1788.000000, 782.000000);
+			context.lineTo(1600.000000, 590.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1788.000000, 782.000000);
+			context.lineTo(1984.000000, 958.000000);
+			context.lineTo(1788.000000, 954.000000);
+			context.lineTo(1788.000000, 782.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1788.000000, 954.000000);
+			context.lineTo(1984.000000, 958.000000);
+			context.lineTo(1600.000000, 958.000000);
+			context.lineTo(1788.000000, 954.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2304.000000, 770.000000);
+			context.lineTo(2152.000000, 918.000000);
+			context.lineTo(2284.000000, 786.000000);
+			context.lineTo(2304.000000, 770.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2112.000000, 578.000000);
+			context.lineTo(2304.000000, 578.000000);
+			context.lineTo(2304.000000, 770.000000);
+			context.lineTo(2112.000000, 578.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2112.000000, 578.000000);
+			context.lineTo(2304.000000, 770.000000);
+			context.lineTo(2284.000000, 786.000000);
+			context.lineTo(2112.000000, 578.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2112.000000, 578.000000);
+			context.lineTo(2284.000000, 786.000000);
+			context.lineTo(2112.000000, 958.000000);
+			context.lineTo(2112.000000, 578.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2112.000000, 958.000000);
+			context.lineTo(2284.000000, 786.000000);
+			context.lineTo(2152.000000, 918.000000);
+			context.lineTo(2112.000000, 958.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2112.000000, 958.000000);
+			context.lineTo(2152.000000, 918.000000);
+			context.lineTo(2156.000000, 918.000000);
+			context.lineTo(2112.000000, 958.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2816.000000, 770.000000);
+			context.lineTo(3008.000000, 946.000000);
+			context.lineTo(2812.000000, 778.000000);
+			context.lineTo(2816.000000, 770.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2812.000000, 778.000000);
+			context.lineTo(3008.000000, 946.000000);
+			context.lineTo(3008.000000, 958.000000);
+			context.lineTo(2812.000000, 778.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2816.000000, 578.000000);
+			context.lineTo(3008.000000, 578.000000);
+			context.lineTo(3008.000000, 946.000000);
+			context.lineTo(2816.000000, 578.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2816.000000, 578.000000);
+			context.lineTo(3008.000000, 946.000000);
+			context.lineTo(2816.000000, 770.000000);
+			context.lineTo(2816.000000, 578.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(3324.000000, 770.000000);
+			context.lineTo(3520.000000, 770.000000);
+			context.lineTo(3520.000000, 958.000000);
+			context.lineTo(3324.000000, 770.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(3324.000000, 770.000000);
+			context.lineTo(3520.000000, 958.000000);
+			context.lineTo(3136.000000, 958.000000);
+			context.lineTo(3324.000000, 770.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(3648.000000, 578.000000);
+			context.lineTo(3668.000000, 594.000000);
+			context.lineTo(3648.000000, 958.000000);
+			context.lineTo(3648.000000, 578.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(3648.000000, 958.000000);
+			context.lineTo(3668.000000, 594.000000);
+			context.lineTo(3840.000000, 770.000000);
+			context.lineTo(3648.000000, 958.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(3648.000000, 958.000000);
+			context.lineTo(3840.000000, 770.000000);
+			context.lineTo(3840.000000, 958.000000);
+			context.lineTo(3648.000000, 958.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(256.000000, 1090.000000);
+			context.lineTo(448.000000, 1090.000000);
+			context.lineTo(448.000000, 1470.000000);
+			context.lineTo(256.000000, 1090.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(256.000000, 1090.000000);
+			context.lineTo(448.000000, 1470.000000);
+			context.lineTo(252.000000, 1282.000000);
+			context.lineTo(256.000000, 1090.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(252.000000, 1282.000000);
+			context.lineTo(448.000000, 1470.000000);
+			context.lineTo(64.000000, 1470.000000);
+			context.lineTo(252.000000, 1282.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(576.000000, 1090.000000);
+			context.lineTo(768.000000, 1090.000000);
+			context.lineTo(772.000000, 1282.000000);
+			context.lineTo(576.000000, 1090.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(576.000000, 1090.000000);
+			context.lineTo(772.000000, 1282.000000);
+			context.lineTo(576.000000, 1470.000000);
+			context.lineTo(576.000000, 1090.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(576.000000, 1470.000000);
+			context.lineTo(772.000000, 1282.000000);
+			context.lineTo(960.000000, 1470.000000);
+			context.lineTo(576.000000, 1470.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1088.000000, 1090.000000);
+			context.lineTo(1472.000000, 1090.000000);
+			context.lineTo(1472.000000, 1278.000000);
+			context.lineTo(1088.000000, 1090.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1088.000000, 1090.000000);
+			context.lineTo(1472.000000, 1278.000000);
+			context.lineTo(1280.000000, 1282.000000);
+			context.lineTo(1088.000000, 1090.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1088.000000, 1090.000000);
+			context.lineTo(1280.000000, 1282.000000);
+			context.lineTo(1088.000000, 1470.000000);
+			context.lineTo(1088.000000, 1090.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1600.000000, 1090.000000);
+			context.lineTo(1984.000000, 1090.000000);
+			context.lineTo(1984.000000, 1470.000000);
+			context.lineTo(1600.000000, 1090.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1600.000000, 1090.000000);
+			context.lineTo(1984.000000, 1470.000000);
+			context.lineTo(1792.000000, 1282.000000);
+			context.lineTo(1600.000000, 1090.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1792.000000, 1282.000000);
+			context.lineTo(1984.000000, 1470.000000);
+			context.lineTo(1792.000000, 1470.000000);
+			context.lineTo(1792.000000, 1282.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2112.000000, 1090.000000);
+			context.lineTo(2316.000000, 1090.000000);
+			context.lineTo(2300.000000, 1298.000000);
+			context.lineTo(2112.000000, 1090.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2112.000000, 1090.000000);
+			context.lineTo(2300.000000, 1298.000000);
+			context.lineTo(2112.000000, 1470.000000);
+			context.lineTo(2112.000000, 1090.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2112.000000, 1470.000000);
+			context.lineTo(2300.000000, 1298.000000);
+			context.lineTo(2128.000000, 1466.000000);
+			context.lineTo(2112.000000, 1470.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2112.000000, 1470.000000);
+			context.lineTo(2128.000000, 1466.000000);
+			context.lineTo(2316.000000, 1470.000000);
+			context.lineTo(2112.000000, 1470.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2808.000000, 1090.000000);
+			context.lineTo(3008.000000, 1090.000000);
+			context.lineTo(3008.000000, 1470.000000);
+			context.lineTo(2808.000000, 1090.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2808.000000, 1090.000000);
+			context.lineTo(3008.000000, 1470.000000);
+			context.lineTo(2820.000000, 1298.000000);
+			context.lineTo(2808.000000, 1090.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2820.000000, 1298.000000);
+			context.lineTo(3008.000000, 1470.000000);
+			context.lineTo(2992.000000, 1466.000000);
+			context.lineTo(2820.000000, 1298.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2992.000000, 1466.000000);
+			context.lineTo(3008.000000, 1470.000000);
+			context.lineTo(2808.000000, 1470.000000);
+			context.lineTo(2992.000000, 1466.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3320.000000, 1282.000000);
+			context.lineTo(3520.000000, 1282.000000);
+			context.lineTo(3520.000000, 1470.000000);
+			context.lineTo(3320.000000, 1282.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3320.000000, 1282.000000);
+			context.lineTo(3520.000000, 1470.000000);
+			context.lineTo(3136.000000, 1458.000000);
+			context.lineTo(3320.000000, 1282.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3136.000000, 1458.000000);
+			context.lineTo(3520.000000, 1470.000000);
+			context.lineTo(3136.000000, 1470.000000);
+			context.lineTo(3136.000000, 1458.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3648.000000, 1090.000000);
+			context.lineTo(3668.000000, 1098.000000);
+			context.lineTo(3648.000000, 1470.000000);
+			context.lineTo(3648.000000, 1090.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3648.000000, 1470.000000);
+			context.lineTo(3668.000000, 1098.000000);
+			context.lineTo(3848.000000, 1290.000000);
+			context.lineTo(3648.000000, 1470.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3648.000000, 1470.000000);
+			context.lineTo(3848.000000, 1290.000000);
+			context.lineTo(3848.000000, 1470.000000);
+			context.lineTo(3648.000000, 1470.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(196.000000, 1590.000000);
+			context.lineTo(328.000000, 1590.000000);
+			context.lineTo(392.000000, 1622.000000);
+			context.lineTo(196.000000, 1590.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(196.000000, 1590.000000);
+			context.lineTo(392.000000, 1622.000000);
+			context.lineTo(160.000000, 1606.000000);
+			context.lineTo(196.000000, 1590.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(160.000000, 1606.000000);
+			context.lineTo(392.000000, 1622.000000);
+			context.lineTo(484.000000, 1738.000000);
+			context.lineTo(160.000000, 1606.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(160.000000, 1606.000000);
+			context.lineTo(484.000000, 1738.000000);
+			context.lineTo(116.000000, 1638.000000);
+			context.lineTo(160.000000, 1606.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(116.000000, 1638.000000);
+			context.lineTo(484.000000, 1738.000000);
+			context.lineTo(484.000000, 1870.000000);
+			context.lineTo(116.000000, 1638.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(116.000000, 1638.000000);
+			context.lineTo(484.000000, 1870.000000);
+			context.lineTo(44.000000, 1738.000000);
+			context.lineTo(116.000000, 1638.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(44.000000, 1738.000000);
+			context.lineTo(484.000000, 1870.000000);
+			context.lineTo(424.000000, 1950.000000);
+			context.lineTo(44.000000, 1738.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(44.000000, 1738.000000);
+			context.lineTo(424.000000, 1950.000000);
+			context.lineTo(44.000000, 1862.000000);
+			context.lineTo(44.000000, 1738.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(44.000000, 1862.000000);
+			context.lineTo(424.000000, 1950.000000);
+			context.lineTo(356.000000, 1998.000000);
+			context.lineTo(44.000000, 1862.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(44.000000, 1862.000000);
+			context.lineTo(356.000000, 1998.000000);
+			context.lineTo(112.000000, 1958.000000);
+			context.lineTo(44.000000, 1862.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(112.000000, 1958.000000);
+			context.lineTo(356.000000, 1998.000000);
+			context.lineTo(308.000000, 2014.000000);
+			context.lineTo(112.000000, 1958.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(112.000000, 1958.000000);
+			context.lineTo(308.000000, 2014.000000);
+			context.lineTo(156.000000, 1990.000000);
+			context.lineTo(112.000000, 1958.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(156.000000, 1990.000000);
+			context.lineTo(308.000000, 2014.000000);
+			context.lineTo(216.000000, 2014.000000);
+			context.lineTo(156.000000, 1990.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(716.000000, 1582.000000);
+			context.lineTo(820.000000, 1582.000000);
+			context.lineTo(864.000000, 1598.000000);
+			context.lineTo(716.000000, 1582.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(716.000000, 1582.000000);
+			context.lineTo(864.000000, 1598.000000);
+			context.lineTo(672.000000, 1598.000000);
+			context.lineTo(716.000000, 1582.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(672.000000, 1598.000000);
+			context.lineTo(864.000000, 1598.000000);
+			context.lineTo(912.000000, 1630.000000);
+			context.lineTo(672.000000, 1598.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(672.000000, 1598.000000);
+			context.lineTo(912.000000, 1630.000000);
+			context.lineTo(624.000000, 1630.000000);
+			context.lineTo(672.000000, 1598.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(624.000000, 1630.000000);
+			context.lineTo(912.000000, 1630.000000);
+			context.lineTo(980.000000, 1742.000000);
+			context.lineTo(624.000000, 1630.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(624.000000, 1630.000000);
+			context.lineTo(980.000000, 1742.000000);
+			context.lineTo(556.000000, 1758.000000);
+			context.lineTo(624.000000, 1630.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(556.000000, 1758.000000);
+			context.lineTo(980.000000, 1742.000000);
+			context.lineTo(980.000000, 1842.000000);
+			context.lineTo(556.000000, 1758.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(556.000000, 1758.000000);
+			context.lineTo(980.000000, 1842.000000);
+			context.lineTo(556.000000, 1822.000000);
+			context.lineTo(556.000000, 1758.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(556.000000, 1822.000000);
+			context.lineTo(980.000000, 1842.000000);
+			context.lineTo(952.000000, 1906.000000);
+			context.lineTo(556.000000, 1822.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(556.000000, 1822.000000);
+			context.lineTo(952.000000, 1906.000000);
+			context.lineTo(572.000000, 1886.000000);
+			context.lineTo(556.000000, 1822.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(572.000000, 1886.000000);
+			context.lineTo(952.000000, 1906.000000);
+			context.lineTo(864.000000, 1986.000000);
+			context.lineTo(572.000000, 1886.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(572.000000, 1886.000000);
+			context.lineTo(864.000000, 1986.000000);
+			context.lineTo(620.000000, 1950.000000);
+			context.lineTo(572.000000, 1886.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(620.000000, 1950.000000);
+			context.lineTo(864.000000, 1986.000000);
+			context.lineTo(796.000000, 2006.000000);
+			context.lineTo(620.000000, 1950.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(620.000000, 1950.000000);
+			context.lineTo(796.000000, 2006.000000);
+			context.lineTo(664.000000, 1982.000000);
+			context.lineTo(620.000000, 1950.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(664.000000, 1982.000000);
+			context.lineTo(796.000000, 2006.000000);
+			context.lineTo(740.000000, 2006.000000);
+			context.lineTo(664.000000, 1982.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1332.000000, 1638.000000);
+			context.lineTo(1360.000000, 1646.000000);
+			context.lineTo(1276.000000, 1642.000000);
+			context.lineTo(1332.000000, 1638.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1276.000000, 1642.000000);
+			context.lineTo(1360.000000, 1646.000000);
+			context.lineTo(1392.000000, 1686.000000);
+			context.lineTo(1276.000000, 1642.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1276.000000, 1642.000000);
+			context.lineTo(1392.000000, 1686.000000);
+			context.lineTo(1252.000000, 1658.000000);
+			context.lineTo(1276.000000, 1642.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1252.000000, 1658.000000);
+			context.lineTo(1392.000000, 1686.000000);
+			context.lineTo(1224.000000, 1722.000000);
+			context.lineTo(1252.000000, 1658.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1224.000000, 1722.000000);
+			context.lineTo(1392.000000, 1686.000000);
+			context.lineTo(1396.000000, 1686.000000);
+			context.lineTo(1224.000000, 1722.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1224.000000, 1722.000000);
+			context.lineTo(1396.000000, 1686.000000);
+			context.lineTo(1240.000000, 1770.000000);
+			context.lineTo(1224.000000, 1722.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1240.000000, 1770.000000);
+			context.lineTo(1396.000000, 1686.000000);
+			context.lineTo(1388.000000, 1694.000000);
+			context.lineTo(1240.000000, 1770.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1240.000000, 1770.000000);
+			context.lineTo(1388.000000, 1694.000000);
+			context.lineTo(1360.000000, 1710.000000);
+			context.lineTo(1240.000000, 1770.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1240.000000, 1770.000000);
+			context.lineTo(1360.000000, 1710.000000);
+			context.lineTo(1280.000000, 1798.000000);
+			context.lineTo(1240.000000, 1770.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1280.000000, 1798.000000);
+			context.lineTo(1360.000000, 1710.000000);
+			context.lineTo(1360.000000, 1726.000000);
+			context.lineTo(1280.000000, 1798.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1280.000000, 1798.000000);
+			context.lineTo(1360.000000, 1726.000000);
+			context.lineTo(1340.000000, 1802.000000);
+			context.lineTo(1280.000000, 1798.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1340.000000, 1802.000000);
+			context.lineTo(1360.000000, 1726.000000);
+			context.lineTo(1384.000000, 1742.000000);
+			context.lineTo(1340.000000, 1802.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1340.000000, 1802.000000);
+			context.lineTo(1384.000000, 1742.000000);
+			context.lineTo(1404.000000, 1758.000000);
+			context.lineTo(1340.000000, 1802.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1340.000000, 1802.000000);
+			context.lineTo(1404.000000, 1758.000000);
+			context.lineTo(1396.000000, 1758.000000);
+			context.lineTo(1340.000000, 1802.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1276.000000, 1614.000000);
+			context.lineTo(1336.000000, 1614.000000);
+			context.lineTo(1336.000000, 1630.000000);
+			context.lineTo(1276.000000, 1614.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1276.000000, 1614.000000);
+			context.lineTo(1336.000000, 1630.000000);
+			context.lineTo(1208.000000, 1646.000000);
+			context.lineTo(1276.000000, 1614.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1208.000000, 1646.000000);
+			context.lineTo(1336.000000, 1630.000000);
+			context.lineTo(1332.000000, 1638.000000);
+			context.lineTo(1208.000000, 1646.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1208.000000, 1646.000000);
+			context.lineTo(1332.000000, 1638.000000);
+			context.lineTo(1276.000000, 1642.000000);
+			context.lineTo(1208.000000, 1646.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1208.000000, 1646.000000);
+			context.lineTo(1276.000000, 1642.000000);
+			context.lineTo(1252.000000, 1658.000000);
+			context.lineTo(1208.000000, 1646.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1208.000000, 1646.000000);
+			context.lineTo(1252.000000, 1658.000000);
+			context.lineTo(1120.000000, 1758.000000);
+			context.lineTo(1208.000000, 1646.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1120.000000, 1758.000000);
+			context.lineTo(1252.000000, 1658.000000);
+			context.lineTo(1224.000000, 1722.000000);
+			context.lineTo(1120.000000, 1758.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1120.000000, 1758.000000);
+			context.lineTo(1224.000000, 1722.000000);
+			context.lineTo(1120.000000, 1802.000000);
+			context.lineTo(1120.000000, 1758.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1120.000000, 1802.000000);
+			context.lineTo(1224.000000, 1722.000000);
+			context.lineTo(1240.000000, 1770.000000);
+			context.lineTo(1120.000000, 1802.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1120.000000, 1802.000000);
+			context.lineTo(1240.000000, 1770.000000);
+			context.lineTo(1132.000000, 1866.000000);
+			context.lineTo(1120.000000, 1802.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1132.000000, 1866.000000);
+			context.lineTo(1240.000000, 1770.000000);
+			context.lineTo(1280.000000, 1798.000000);
+			context.lineTo(1132.000000, 1866.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1132.000000, 1866.000000);
+			context.lineTo(1280.000000, 1798.000000);
+			context.lineTo(1176.000000, 1930.000000);
+			context.lineTo(1132.000000, 1866.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1176.000000, 1930.000000);
+			context.lineTo(1280.000000, 1798.000000);
+			context.lineTo(1340.000000, 1802.000000);
+			context.lineTo(1176.000000, 1930.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1176.000000, 1930.000000);
+			context.lineTo(1340.000000, 1802.000000);
+			context.lineTo(1216.000000, 1962.000000);
+			context.lineTo(1176.000000, 1930.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1216.000000, 1962.000000);
+			context.lineTo(1340.000000, 1802.000000);
+			context.lineTo(1320.000000, 1834.000000);
+			context.lineTo(1216.000000, 1962.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1216.000000, 1962.000000);
+			context.lineTo(1320.000000, 1834.000000);
+			context.lineTo(1260.000000, 1982.000000);
+			context.lineTo(1216.000000, 1962.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1260.000000, 1982.000000);
+			context.lineTo(1320.000000, 1834.000000);
+			context.lineTo(1368.000000, 1866.000000);
+			context.lineTo(1260.000000, 1982.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1260.000000, 1982.000000);
+			context.lineTo(1368.000000, 1866.000000);
+			context.lineTo(1392.000000, 1914.000000);
+			context.lineTo(1260.000000, 1982.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1260.000000, 1982.000000);
+			context.lineTo(1392.000000, 1914.000000);
+			context.lineTo(1324.000000, 1978.000000);
+			context.lineTo(1260.000000, 1982.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1260.000000, 1982.000000);
+			context.lineTo(1324.000000, 1978.000000);
+			context.lineTo(1308.000000, 1982.000000);
+			context.lineTo(1260.000000, 1982.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1460.000000, 1650.000000);
+			context.lineTo(1460.000000, 1666.000000);
+			context.lineTo(1396.000000, 1686.000000);
+			context.lineTo(1460.000000, 1650.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1396.000000, 1686.000000);
+			context.lineTo(1460.000000, 1666.000000);
+			context.lineTo(1438.000000, 1778.000000);
+			context.lineTo(1396.000000, 1686.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1396.000000, 1686.000000);
+			context.lineTo(1438.000000, 1778.000000);
+			context.lineTo(1388.000000, 1694.000000);
+			context.lineTo(1396.000000, 1686.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1388.000000, 1694.000000);
+			context.lineTo(1438.000000, 1778.000000);
+			context.lineTo(1360.000000, 1710.000000);
+			context.lineTo(1388.000000, 1694.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1360.000000, 1710.000000);
+			context.lineTo(1438.000000, 1778.000000);
+			context.lineTo(1360.000000, 1726.000000);
+			context.lineTo(1360.000000, 1710.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1360.000000, 1726.000000);
+			context.lineTo(1438.000000, 1778.000000);
+			context.lineTo(1384.000000, 1742.000000);
+			context.lineTo(1360.000000, 1726.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1384.000000, 1742.000000);
+			context.lineTo(1438.000000, 1778.000000);
+			context.lineTo(1404.000000, 1758.000000);
+			context.lineTo(1384.000000, 1742.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1404.000000, 1758.000000);
+			context.lineTo(1438.000000, 1778.000000);
+			context.lineTo(1428.000000, 1774.000000);
+			context.lineTo(1404.000000, 1758.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1788.000000, 1610.000000);
+			context.lineTo(1860.000000, 1610.000000);
+			context.lineTo(1852.000000, 1638.000000);
+			context.lineTo(1788.000000, 1610.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1788.000000, 1610.000000);
+			context.lineTo(1852.000000, 1638.000000);
+			context.lineTo(1720.000000, 1642.000000);
+			context.lineTo(1788.000000, 1610.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1720.000000, 1642.000000);
+			context.lineTo(1852.000000, 1638.000000);
+			context.lineTo(1840.000000, 1642.000000);
+			context.lineTo(1720.000000, 1642.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1720.000000, 1642.000000);
+			context.lineTo(1840.000000, 1642.000000);
+			context.lineTo(1788.000000, 1650.000000);
+			context.lineTo(1720.000000, 1642.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1720.000000, 1642.000000);
+			context.lineTo(1788.000000, 1650.000000);
+			context.lineTo(1632.000000, 1722.000000);
+			context.lineTo(1720.000000, 1642.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1632.000000, 1722.000000);
+			context.lineTo(1788.000000, 1650.000000);
+			context.lineTo(1748.000000, 1714.000000);
+			context.lineTo(1632.000000, 1722.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1632.000000, 1722.000000);
+			context.lineTo(1748.000000, 1714.000000);
+			context.lineTo(1632.000000, 1866.000000);
+			context.lineTo(1632.000000, 1722.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1632.000000, 1866.000000);
+			context.lineTo(1748.000000, 1714.000000);
+			context.lineTo(1748.000000, 1746.000000);
+			context.lineTo(1632.000000, 1866.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1632.000000, 1866.000000);
+			context.lineTo(1748.000000, 1746.000000);
+			context.lineTo(1684.000000, 1930.000000);
+			context.lineTo(1632.000000, 1866.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1684.000000, 1930.000000);
+			context.lineTo(1748.000000, 1746.000000);
+			context.lineTo(1796.000000, 1794.000000);
+			context.lineTo(1684.000000, 1930.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1684.000000, 1930.000000);
+			context.lineTo(1796.000000, 1794.000000);
+			context.lineTo(1724.000000, 1962.000000);
+			context.lineTo(1684.000000, 1930.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1724.000000, 1962.000000);
+			context.lineTo(1796.000000, 1794.000000);
+			context.lineTo(1860.000000, 1802.000000);
+			context.lineTo(1724.000000, 1962.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1724.000000, 1962.000000);
+			context.lineTo(1860.000000, 1802.000000);
+			context.lineTo(1840.000000, 1834.000000);
+			context.lineTo(1724.000000, 1962.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1724.000000, 1962.000000);
+			context.lineTo(1840.000000, 1834.000000);
+			context.lineTo(1764.000000, 1982.000000);
+			context.lineTo(1724.000000, 1962.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1764.000000, 1982.000000);
+			context.lineTo(1840.000000, 1834.000000);
+			context.lineTo(1888.000000, 1866.000000);
+			context.lineTo(1764.000000, 1982.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1764.000000, 1982.000000);
+			context.lineTo(1888.000000, 1866.000000);
+			context.lineTo(1912.000000, 1914.000000);
+			context.lineTo(1764.000000, 1982.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1764.000000, 1982.000000);
+			context.lineTo(1912.000000, 1914.000000);
+			context.lineTo(1832.000000, 1982.000000);
+			context.lineTo(1764.000000, 1982.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1964.000000, 1658.000000);
+			context.lineTo(1964.000000, 1754.000000);
+			context.lineTo(1900.000000, 1686.000000);
+			context.lineTo(1964.000000, 1658.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1900.000000, 1686.000000);
+			context.lineTo(1964.000000, 1754.000000);
+			context.lineTo(1952.000000, 1774.000000);
+			context.lineTo(1900.000000, 1686.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1900.000000, 1686.000000);
+			context.lineTo(1952.000000, 1774.000000);
+			context.lineTo(1848.000000, 1718.000000);
+			context.lineTo(1900.000000, 1686.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1848.000000, 1718.000000);
+			context.lineTo(1952.000000, 1774.000000);
+			context.lineTo(1904.000000, 1754.000000);
+			context.lineTo(1848.000000, 1718.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(1904.000000, 1754.000000);
+			context.lineTo(1952.000000, 1774.000000);
+			context.lineTo(1932.000000, 1774.000000);
+			context.lineTo(1904.000000, 1754.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1852.000000, 1638.000000);
+			context.lineTo(1896.000000, 1686.000000);
+			context.lineTo(1840.000000, 1642.000000);
+			context.lineTo(1852.000000, 1638.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1840.000000, 1642.000000);
+			context.lineTo(1896.000000, 1686.000000);
+			context.lineTo(1788.000000, 1650.000000);
+			context.lineTo(1840.000000, 1642.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1788.000000, 1650.000000);
+			context.lineTo(1896.000000, 1686.000000);
+			context.lineTo(1748.000000, 1714.000000);
+			context.lineTo(1788.000000, 1650.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1748.000000, 1714.000000);
+			context.lineTo(1896.000000, 1686.000000);
+			context.lineTo(1900.000000, 1686.000000);
+			context.lineTo(1748.000000, 1714.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1748.000000, 1714.000000);
+			context.lineTo(1900.000000, 1686.000000);
+			context.lineTo(1748.000000, 1746.000000);
+			context.lineTo(1748.000000, 1714.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1748.000000, 1746.000000);
+			context.lineTo(1900.000000, 1686.000000);
+			context.lineTo(1848.000000, 1718.000000);
+			context.lineTo(1748.000000, 1746.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1748.000000, 1746.000000);
+			context.lineTo(1848.000000, 1718.000000);
+			context.lineTo(1796.000000, 1794.000000);
+			context.lineTo(1748.000000, 1746.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1848.000000, 1718.000000);
+			context.lineTo(1904.000000, 1754.000000);
+			context.lineTo(1900.000000, 1754.000000);
+			context.lineTo(1848.000000, 1718.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1796.000000, 1794.000000);
+			context.lineTo(1848.000000, 1718.000000);
+			context.lineTo(1900.000000, 1754.000000);
+			context.lineTo(1796.000000, 1794.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1796.000000, 1794.000000);
+			context.lineTo(1900.000000, 1754.000000);
+			context.lineTo(1860.000000, 1802.000000);
+			context.lineTo(1796.000000, 1794.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(1860.000000, 1802.000000);
+			context.lineTo(1900.000000, 1754.000000);
+			context.lineTo(1888.000000, 1770.000000);
+			context.lineTo(1860.000000, 1802.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2256.000000, 1538.000000);
+			context.lineTo(2380.000000, 1538.000000);
+			context.lineTo(2292.000000, 1586.000000);
+			context.lineTo(2256.000000, 1538.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2256.000000, 1538.000000);
+			context.lineTo(2292.000000, 1586.000000);
+			context.lineTo(2272.000000, 1566.000000);
+			context.lineTo(2256.000000, 1538.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2328.000000, 1586.000000);
+			context.lineTo(2440.000000, 1586.000000);
+			context.lineTo(2344.000000, 1670.000000);
+			context.lineTo(2328.000000, 1586.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2328.000000, 1586.000000);
+			context.lineTo(2344.000000, 1670.000000);
+			context.lineTo(2328.000000, 1590.000000);
+			context.lineTo(2328.000000, 1586.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2328.000000, 1590.000000);
+			context.lineTo(2344.000000, 1670.000000);
+			context.lineTo(2332.000000, 1630.000000);
+			context.lineTo(2328.000000, 1590.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2164.000000, 1590.000000);
+			context.lineTo(2184.000000, 1590.000000);
+			context.lineTo(2200.000000, 1606.000000);
+			context.lineTo(2164.000000, 1590.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2164.000000, 1590.000000);
+			context.lineTo(2200.000000, 1606.000000);
+			context.lineTo(2088.000000, 1642.000000);
+			context.lineTo(2164.000000, 1590.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2088.000000, 1642.000000);
+			context.lineTo(2200.000000, 1606.000000);
+			context.lineTo(2208.000000, 1606.000000);
+			context.lineTo(2088.000000, 1642.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2088.000000, 1642.000000);
+			context.lineTo(2208.000000, 1606.000000);
+			context.lineTo(2164.000000, 1646.000000);
+			context.lineTo(2088.000000, 1642.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2164.000000, 1646.000000);
+			context.lineTo(2208.000000, 1606.000000);
+			context.lineTo(2204.000000, 1622.000000);
+			context.lineTo(2164.000000, 1646.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2164.000000, 1646.000000);
+			context.lineTo(2204.000000, 1622.000000);
+			context.lineTo(2180.000000, 1654.000000);
+			context.lineTo(2164.000000, 1646.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2180.000000, 1654.000000);
+			context.lineTo(2204.000000, 1622.000000);
+			context.lineTo(2208.000000, 1638.000000);
+			context.lineTo(2180.000000, 1654.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2180.000000, 1654.000000);
+			context.lineTo(2208.000000, 1638.000000);
+			context.lineTo(2196.000000, 1658.000000);
+			context.lineTo(2180.000000, 1654.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2208.000000, 1638.000000);
+			context.lineTo(2220.000000, 1650.000000);
+			context.lineTo(2212.000000, 1650.000000);
+			context.lineTo(2208.000000, 1638.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2196.000000, 1658.000000);
+			context.lineTo(2208.000000, 1638.000000);
+			context.lineTo(2212.000000, 1650.000000);
+			context.lineTo(2196.000000, 1658.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2288.000000, 1630.000000);
+			context.lineTo(2308.000000, 1630.000000);
+			context.lineTo(2308.000000, 1674.000000);
+			context.lineTo(2288.000000, 1630.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2288.000000, 1630.000000);
+			context.lineTo(2308.000000, 1674.000000);
+			context.lineTo(2260.000000, 1646.000000);
+			context.lineTo(2288.000000, 1630.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2260.000000, 1646.000000);
+			context.lineTo(2308.000000, 1674.000000);
+			context.lineTo(2228.000000, 1666.000000);
+			context.lineTo(2260.000000, 1646.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2228.000000, 1666.000000);
+			context.lineTo(2308.000000, 1674.000000);
+			context.lineTo(2272.000000, 1726.000000);
+			context.lineTo(2228.000000, 1666.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2228.000000, 1666.000000);
+			context.lineTo(2272.000000, 1726.000000);
+			context.lineTo(2212.000000, 1678.000000);
+			context.lineTo(2228.000000, 1666.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2212.000000, 1678.000000);
+			context.lineTo(2272.000000, 1726.000000);
+			context.lineTo(2216.000000, 1686.000000);
+			context.lineTo(2212.000000, 1678.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2216.000000, 1686.000000);
+			context.lineTo(2272.000000, 1726.000000);
+			context.lineTo(2256.000000, 1702.000000);
+			context.lineTo(2216.000000, 1686.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2256.000000, 1702.000000);
+			context.lineTo(2272.000000, 1726.000000);
+			context.lineTo(2248.000000, 1718.000000);
+			context.lineTo(2256.000000, 1702.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2388.000000, 1646.000000);
+			context.lineTo(2440.000000, 1646.000000);
+			context.lineTo(2424.000000, 1662.000000);
+			context.lineTo(2388.000000, 1646.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2388.000000, 1646.000000);
+			context.lineTo(2424.000000, 1662.000000);
+			context.lineTo(2388.000000, 1674.000000);
+			context.lineTo(2388.000000, 1646.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2388.000000, 1674.000000);
+			context.lineTo(2424.000000, 1662.000000);
+			context.lineTo(2392.000000, 1678.000000);
+			context.lineTo(2388.000000, 1674.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2048.000000, 1654.000000);
+			context.lineTo(2072.000000, 1662.000000);
+			context.lineTo(2048.000000, 1714.000000);
+			context.lineTo(2048.000000, 1654.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2048.000000, 1714.000000);
+			context.lineTo(2072.000000, 1662.000000);
+			context.lineTo(2092.000000, 1678.000000);
+			context.lineTo(2048.000000, 1714.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2496.000000, 1658.000000);
+			context.lineTo(2560.000000, 1670.000000);
+			context.lineTo(2480.000000, 1674.000000);
+			context.lineTo(2496.000000, 1658.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2480.000000, 1674.000000);
+			context.lineTo(2560.000000, 1670.000000);
+			context.lineTo(2460.000000, 1774.000000);
+			context.lineTo(2480.000000, 1674.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2480.000000, 1674.000000);
+			context.lineTo(2460.000000, 1774.000000);
+			context.lineTo(2456.000000, 1706.000000);
+			context.lineTo(2480.000000, 1674.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2456.000000, 1706.000000);
+			context.lineTo(2460.000000, 1774.000000);
+			context.lineTo(2392.000000, 1710.000000);
+			context.lineTo(2456.000000, 1706.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2392.000000, 1710.000000);
+			context.lineTo(2460.000000, 1774.000000);
+			context.lineTo(2420.000000, 1774.000000);
+			context.lineTo(2392.000000, 1710.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2392.000000, 1710.000000);
+			context.lineTo(2420.000000, 1774.000000);
+			context.lineTo(2392.000000, 1770.000000);
+			context.lineTo(2392.000000, 1710.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2392.000000, 1770.000000);
+			context.lineTo(2420.000000, 1774.000000);
+			context.lineTo(2400.000000, 1834.000000);
+			context.lineTo(2392.000000, 1770.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2392.000000, 1770.000000);
+			context.lineTo(2400.000000, 1834.000000);
+			context.lineTo(2396.000000, 1806.000000);
+			context.lineTo(2392.000000, 1770.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2396.000000, 1806.000000);
+			context.lineTo(2400.000000, 1834.000000);
+			context.lineTo(2396.000000, 1826.000000);
+			context.lineTo(2396.000000, 1806.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2180.000000, 1698.000000);
+			context.lineTo(2188.000000, 1706.000000);
+			context.lineTo(2148.000000, 1714.000000);
+			context.lineTo(2180.000000, 1698.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2148.000000, 1714.000000);
+			context.lineTo(2188.000000, 1706.000000);
+			context.lineTo(2176.000000, 1718.000000);
+			context.lineTo(2148.000000, 1714.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2140.000000, 1746.000000);
+			context.lineTo(2164.000000, 1750.000000);
+			context.lineTo(2152.000000, 1778.000000);
+			context.lineTo(2140.000000, 1746.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2152.000000, 1778.000000);
+			context.lineTo(2164.000000, 1750.000000);
+			context.lineTo(2172.000000, 1750.000000);
+			context.lineTo(2152.000000, 1778.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2152.000000, 1778.000000);
+			context.lineTo(2172.000000, 1750.000000);
+			context.lineTo(2172.000000, 1806.000000);
+			context.lineTo(2152.000000, 1778.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2172.000000, 1750.000000);
+			context.lineTo(2176.000000, 1766.000000);
+			context.lineTo(2180.000000, 1766.000000);
+			context.lineTo(2172.000000, 1750.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2172.000000, 1806.000000);
+			context.lineTo(2172.000000, 1750.000000);
+			context.lineTo(2180.000000, 1766.000000);
+			context.lineTo(2172.000000, 1806.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2172.000000, 1806.000000);
+			context.lineTo(2180.000000, 1766.000000);
+			context.lineTo(2172.000000, 1770.000000);
+			context.lineTo(2172.000000, 1806.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2172.000000, 1806.000000);
+			context.lineTo(2172.000000, 1770.000000);
+			context.lineTo(2220.000000, 1774.000000);
+			context.lineTo(2172.000000, 1806.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2180.000000, 1766.000000);
+			context.lineTo(2204.000000, 1766.000000);
+			context.lineTo(2220.000000, 1774.000000);
+			context.lineTo(2180.000000, 1766.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2180.000000, 1766.000000);
+			context.lineTo(2220.000000, 1774.000000);
+			context.lineTo(2172.000000, 1770.000000);
+			context.lineTo(2180.000000, 1766.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2436.000000, 1774.000000);
+			context.lineTo(2460.000000, 1774.000000);
+			context.lineTo(2448.000000, 1778.000000);
+			context.lineTo(2436.000000, 1774.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2124.000000, 1794.000000);
+			context.lineTo(2132.000000, 1802.000000);
+			context.lineTo(2116.000000, 1802.000000);
+			context.lineTo(2124.000000, 1794.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2116.000000, 1802.000000);
+			context.lineTo(2132.000000, 1802.000000);
+			context.lineTo(2132.000000, 1846.000000);
+			context.lineTo(2116.000000, 1802.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2116.000000, 1802.000000);
+			context.lineTo(2132.000000, 1846.000000);
+			context.lineTo(2128.000000, 1846.000000);
+			context.lineTo(2116.000000, 1802.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2116.000000, 1802.000000);
+			context.lineTo(2128.000000, 1846.000000);
+			context.lineTo(2088.000000, 1862.000000);
+			context.lineTo(2116.000000, 1802.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2088.000000, 1862.000000);
+			context.lineTo(2128.000000, 1846.000000);
+			context.lineTo(2108.000000, 1862.000000);
+			context.lineTo(2088.000000, 1862.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2280.000000, 1806.000000);
+			context.lineTo(2312.000000, 1806.000000);
+			context.lineTo(2312.000000, 1826.000000);
+			context.lineTo(2280.000000, 1806.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2280.000000, 1806.000000);
+			context.lineTo(2312.000000, 1826.000000);
+			context.lineTo(2216.000000, 1822.000000);
+			context.lineTo(2280.000000, 1806.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2216.000000, 1822.000000);
+			context.lineTo(2312.000000, 1826.000000);
+			context.lineTo(2208.000000, 1838.000000);
+			context.lineTo(2216.000000, 1822.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2208.000000, 1838.000000);
+			context.lineTo(2312.000000, 1826.000000);
+			context.lineTo(2324.000000, 1826.000000);
+			context.lineTo(2208.000000, 1838.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2208.000000, 1838.000000);
+			context.lineTo(2324.000000, 1826.000000);
+			context.lineTo(2264.000000, 1858.000000);
+			context.lineTo(2208.000000, 1838.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2208.000000, 1838.000000);
+			context.lineTo(2264.000000, 1858.000000);
+			context.lineTo(2196.000000, 1902.000000);
+			context.lineTo(2208.000000, 1838.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2196.000000, 1902.000000);
+			context.lineTo(2264.000000, 1858.000000);
+			context.lineTo(2256.000000, 1874.000000);
+			context.lineTo(2196.000000, 1902.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2196.000000, 1902.000000);
+			context.lineTo(2256.000000, 1874.000000);
+			context.lineTo(2212.000000, 1918.000000);
+			context.lineTo(2196.000000, 1902.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2212.000000, 1918.000000);
+			context.lineTo(2256.000000, 1874.000000);
+			context.lineTo(2272.000000, 1894.000000);
+			context.lineTo(2212.000000, 1918.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2212.000000, 1918.000000);
+			context.lineTo(2272.000000, 1894.000000);
+			context.lineTo(2280.000000, 1894.000000);
+			context.lineTo(2212.000000, 1918.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2212.000000, 1918.000000);
+			context.lineTo(2280.000000, 1894.000000);
+			context.lineTo(2268.000000, 1898.000000);
+			context.lineTo(2212.000000, 1918.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2212.000000, 1918.000000);
+			context.lineTo(2268.000000, 1898.000000);
+			context.lineTo(2280.000000, 1938.000000);
+			context.lineTo(2212.000000, 1918.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2280.000000, 1938.000000);
+			context.lineTo(2268.000000, 1898.000000);
+			context.lineTo(2296.000000, 1902.000000);
+			context.lineTo(2280.000000, 1938.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2280.000000, 1938.000000);
+			context.lineTo(2296.000000, 1902.000000);
+			context.lineTo(2304.000000, 1910.000000);
+			context.lineTo(2280.000000, 1938.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2280.000000, 1938.000000);
+			context.lineTo(2304.000000, 1910.000000);
+			context.lineTo(2304.000000, 1938.000000);
+			context.lineTo(2280.000000, 1938.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2560.000000, 1858.000000);
+			context.lineTo(2560.000000, 1998.000000);
+			context.lineTo(2544.000000, 1874.000000);
+			context.lineTo(2560.000000, 1858.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2544.000000, 1874.000000);
+			context.lineTo(2560.000000, 1998.000000);
+			context.lineTo(2488.000000, 1950.000000);
+			context.lineTo(2544.000000, 1874.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2488.000000, 1950.000000);
+			context.lineTo(2560.000000, 1998.000000);
+			context.lineTo(2468.000000, 1974.000000);
+			context.lineTo(2488.000000, 1950.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2468.000000, 1974.000000);
+			context.lineTo(2560.000000, 1998.000000);
+			context.lineTo(2468.000000, 1978.000000);
+			context.lineTo(2468.000000, 1974.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2468.000000, 1978.000000);
+			context.lineTo(2560.000000, 1998.000000);
+			context.lineTo(2452.000000, 1998.000000);
+			context.lineTo(2468.000000, 1978.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2300.000000, 1882.000000);
+			context.lineTo(2308.000000, 1890.000000);
+			context.lineTo(2280.000000, 1894.000000);
+			context.lineTo(2300.000000, 1882.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2280.000000, 1894.000000);
+			context.lineTo(2308.000000, 1890.000000);
+			context.lineTo(2296.000000, 1902.000000);
+			context.lineTo(2280.000000, 1894.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2280.000000, 1894.000000);
+			context.lineTo(2296.000000, 1902.000000);
+			context.lineTo(2268.000000, 1898.000000);
+			context.lineTo(2280.000000, 1894.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2392.000000, 1882.000000);
+			context.lineTo(2400.000000, 1890.000000);
+			context.lineTo(2352.000000, 1886.000000);
+			context.lineTo(2392.000000, 1882.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2352.000000, 1886.000000);
+			context.lineTo(2400.000000, 1890.000000);
+			context.lineTo(2384.000000, 1942.000000);
+			context.lineTo(2352.000000, 1886.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2400.000000, 1890.000000);
+			context.lineTo(2404.000000, 1890.000000);
+			context.lineTo(2396.000000, 1894.000000);
+			context.lineTo(2400.000000, 1890.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2384.000000, 1942.000000);
+			context.lineTo(2400.000000, 1890.000000);
+			context.lineTo(2396.000000, 1894.000000);
+			context.lineTo(2384.000000, 1942.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2384.000000, 1942.000000);
+			context.lineTo(2396.000000, 1894.000000);
+			context.lineTo(2400.000000, 1894.000000);
+			context.lineTo(2384.000000, 1942.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2384.000000, 1942.000000);
+			context.lineTo(2400.000000, 1894.000000);
+			context.lineTo(2392.000000, 1898.000000);
+			context.lineTo(2384.000000, 1942.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2384.000000, 1942.000000);
+			context.lineTo(2392.000000, 1898.000000);
+			context.lineTo(2396.000000, 1946.000000);
+			context.lineTo(2384.000000, 1942.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2396.000000, 1946.000000);
+			context.lineTo(2392.000000, 1898.000000);
+			context.lineTo(2452.000000, 1902.000000);
+			context.lineTo(2396.000000, 1946.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2420.000000, 1882.000000);
+			context.lineTo(2480.000000, 1886.000000);
+			context.lineTo(2404.000000, 1890.000000);
+			context.lineTo(2420.000000, 1882.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2404.000000, 1890.000000);
+			context.lineTo(2480.000000, 1886.000000);
+			context.lineTo(2476.000000, 1890.000000);
+			context.lineTo(2404.000000, 1890.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2404.000000, 1890.000000);
+			context.lineTo(2476.000000, 1890.000000);
+			context.lineTo(2396.000000, 1894.000000);
+			context.lineTo(2404.000000, 1890.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2396.000000, 1894.000000);
+			context.lineTo(2476.000000, 1890.000000);
+			context.lineTo(2400.000000, 1894.000000);
+			context.lineTo(2396.000000, 1894.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2476.000000, 1890.000000);
+			context.lineTo(2452.000000, 1902.000000);
+			context.lineTo(2400.000000, 1894.000000);
+			context.lineTo(2476.000000, 1890.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2400.000000, 1894.000000);
+			context.lineTo(2452.000000, 1902.000000);
+			context.lineTo(2392.000000, 1898.000000);
+			context.lineTo(2400.000000, 1894.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2392.000000, 1978.000000);
+			context.lineTo(2404.000000, 1986.000000);
+			context.lineTo(2376.000000, 1986.000000);
+			context.lineTo(2392.000000, 1978.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2376.000000, 1986.000000);
+			context.lineTo(2404.000000, 1986.000000);
+			context.lineTo(2440.000000, 2046.000000);
+			context.lineTo(2376.000000, 1986.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2376.000000, 1986.000000);
+			context.lineTo(2440.000000, 2046.000000);
+			context.lineTo(2336.000000, 2042.000000);
+			context.lineTo(2376.000000, 1986.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(2336.000000, 2042.000000);
+			context.lineTo(2440.000000, 2046.000000);
+			context.lineTo(2256.000000, 2046.000000);
+			context.lineTo(2336.000000, 2042.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2096.000000, 1538.000000);
+			context.lineTo(2160.000000, 1538.000000);
+			context.lineTo(2118.000000, 1582.000000);
+			context.lineTo(2096.000000, 1538.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2096.000000, 1538.000000);
+			context.lineTo(2118.000000, 1582.000000);
+			context.lineTo(2112.000000, 1570.000000);
+			context.lineTo(2096.000000, 1538.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2484.000000, 1538.000000);
+			context.lineTo(2528.000000, 1538.000000);
+			context.lineTo(2560.000000, 1566.000000);
+			context.lineTo(2484.000000, 1538.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2484.000000, 1538.000000);
+			context.lineTo(2560.000000, 1566.000000);
+			context.lineTo(2536.000000, 1586.000000);
+			context.lineTo(2484.000000, 1538.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2536.000000, 1586.000000);
+			context.lineTo(2560.000000, 1566.000000);
+			context.lineTo(2560.000000, 1610.000000);
+			context.lineTo(2536.000000, 1586.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2536.000000, 1586.000000);
+			context.lineTo(2560.000000, 1610.000000);
+			context.lineTo(2560.000000, 1614.000000);
+			context.lineTo(2536.000000, 1586.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2560.000000, 1614.000000);
+			context.lineTo(2560.000000, 1610.000000);
+			context.lineTo(2556.000000, 1614.000000);
+			context.lineTo(2560.000000, 1614.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2246.000000, 1566.000000);
+			context.lineTo(2256.000000, 1646.000000);
+			context.lineTo(2228.000000, 1586.000000);
+			context.lineTo(2246.000000, 1566.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2228.000000, 1586.000000);
+			context.lineTo(2256.000000, 1646.000000);
+			context.lineTo(2224.000000, 1590.000000);
+			context.lineTo(2228.000000, 1586.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2224.000000, 1590.000000);
+			context.lineTo(2256.000000, 1646.000000);
+			context.lineTo(2208.000000, 1606.000000);
+			context.lineTo(2224.000000, 1590.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2208.000000, 1606.000000);
+			context.lineTo(2256.000000, 1646.000000);
+			context.lineTo(2204.000000, 1622.000000);
+			context.lineTo(2208.000000, 1606.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2204.000000, 1622.000000);
+			context.lineTo(2256.000000, 1646.000000);
+			context.lineTo(2208.000000, 1638.000000);
+			context.lineTo(2204.000000, 1622.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2208.000000, 1638.000000);
+			context.lineTo(2256.000000, 1646.000000);
+			context.lineTo(2220.000000, 1650.000000);
+			context.lineTo(2208.000000, 1638.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2220.000000, 1650.000000);
+			context.lineTo(2256.000000, 1646.000000);
+			context.lineTo(2260.000000, 1646.000000);
+			context.lineTo(2220.000000, 1650.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2220.000000, 1650.000000);
+			context.lineTo(2260.000000, 1646.000000);
+			context.lineTo(2228.000000, 1666.000000);
+			context.lineTo(2220.000000, 1650.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2220.000000, 1650.000000);
+			context.lineTo(2228.000000, 1666.000000);
+			context.lineTo(2240.000000, 1662.000000);
+			context.lineTo(2220.000000, 1650.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2486.000000, 1614.000000);
+			context.lineTo(2508.000000, 1630.000000);
+			context.lineTo(2440.000000, 1646.000000);
+			context.lineTo(2486.000000, 1614.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2440.000000, 1646.000000);
+			context.lineTo(2508.000000, 1630.000000);
+			context.lineTo(2504.000000, 1646.000000);
+			context.lineTo(2440.000000, 1646.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2440.000000, 1646.000000);
+			context.lineTo(2504.000000, 1646.000000);
+			context.lineTo(2424.000000, 1662.000000);
+			context.lineTo(2440.000000, 1646.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2424.000000, 1662.000000);
+			context.lineTo(2504.000000, 1646.000000);
+			context.lineTo(2496.000000, 1658.000000);
+			context.lineTo(2424.000000, 1662.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2424.000000, 1662.000000);
+			context.lineTo(2496.000000, 1658.000000);
+			context.lineTo(2392.000000, 1678.000000);
+			context.lineTo(2424.000000, 1662.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2392.000000, 1678.000000);
+			context.lineTo(2496.000000, 1658.000000);
+			context.lineTo(2380.000000, 1686.000000);
+			context.lineTo(2392.000000, 1678.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2380.000000, 1686.000000);
+			context.lineTo(2496.000000, 1658.000000);
+			context.lineTo(2480.000000, 1674.000000);
+			context.lineTo(2380.000000, 1686.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2380.000000, 1686.000000);
+			context.lineTo(2480.000000, 1674.000000);
+			context.lineTo(2360.000000, 1702.000000);
+			context.lineTo(2380.000000, 1686.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2360.000000, 1702.000000);
+			context.lineTo(2480.000000, 1674.000000);
+			context.lineTo(2456.000000, 1706.000000);
+			context.lineTo(2360.000000, 1702.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2360.000000, 1702.000000);
+			context.lineTo(2456.000000, 1706.000000);
+			context.lineTo(2392.000000, 1710.000000);
+			context.lineTo(2360.000000, 1702.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2190.000000, 1678.000000);
+			context.lineTo(2212.000000, 1678.000000);
+			context.lineTo(2216.000000, 1686.000000);
+			context.lineTo(2190.000000, 1678.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2190.000000, 1678.000000);
+			context.lineTo(2216.000000, 1686.000000);
+			context.lineTo(2180.000000, 1694.000000);
+			context.lineTo(2190.000000, 1678.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2180.000000, 1694.000000);
+			context.lineTo(2216.000000, 1686.000000);
+			context.lineTo(2256.000000, 1702.000000);
+			context.lineTo(2180.000000, 1694.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2180.000000, 1694.000000);
+			context.lineTo(2256.000000, 1702.000000);
+			context.lineTo(2180.000000, 1698.000000);
+			context.lineTo(2180.000000, 1694.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2180.000000, 1698.000000);
+			context.lineTo(2256.000000, 1702.000000);
+			context.lineTo(2248.000000, 1718.000000);
+			context.lineTo(2180.000000, 1698.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2180.000000, 1698.000000);
+			context.lineTo(2248.000000, 1718.000000);
+			context.lineTo(2188.000000, 1706.000000);
+			context.lineTo(2180.000000, 1698.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2188.000000, 1706.000000);
+			context.lineTo(2248.000000, 1718.000000);
+			context.lineTo(2240.000000, 1718.000000);
+			context.lineTo(2188.000000, 1706.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2188.000000, 1706.000000);
+			context.lineTo(2240.000000, 1718.000000);
+			context.lineTo(2176.000000, 1718.000000);
+			context.lineTo(2188.000000, 1706.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2176.000000, 1718.000000);
+			context.lineTo(2240.000000, 1718.000000);
+			context.lineTo(2204.000000, 1766.000000);
+			context.lineTo(2176.000000, 1718.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2176.000000, 1718.000000);
+			context.lineTo(2204.000000, 1766.000000);
+			context.lineTo(2172.000000, 1750.000000);
+			context.lineTo(2176.000000, 1718.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2172.000000, 1750.000000);
+			context.lineTo(2204.000000, 1766.000000);
+			context.lineTo(2180.000000, 1766.000000);
+			context.lineTo(2172.000000, 1750.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2172.000000, 1750.000000);
+			context.lineTo(2180.000000, 1766.000000);
+			context.lineTo(2176.000000, 1766.000000);
+			context.lineTo(2172.000000, 1750.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2308.000000, 1674.000000);
+			context.lineTo(2372.000000, 1762.000000);
+			context.lineTo(2272.000000, 1726.000000);
+			context.lineTo(2308.000000, 1674.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2272.000000, 1726.000000);
+			context.lineTo(2372.000000, 1762.000000);
+			context.lineTo(2312.000000, 1766.000000);
+			context.lineTo(2272.000000, 1726.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2272.000000, 1726.000000);
+			context.lineTo(2312.000000, 1766.000000);
+			context.lineTo(2252.000000, 1766.000000);
+			context.lineTo(2272.000000, 1726.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2114.000000, 1694.000000);
+			context.lineTo(2140.000000, 1746.000000);
+			context.lineTo(2124.000000, 1794.000000);
+			context.lineTo(2114.000000, 1694.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2124.000000, 1794.000000);
+			context.lineTo(2140.000000, 1746.000000);
+			context.lineTo(2132.000000, 1802.000000);
+			context.lineTo(2124.000000, 1794.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2132.000000, 1802.000000);
+			context.lineTo(2140.000000, 1746.000000);
+			context.lineTo(2152.000000, 1778.000000);
+			context.lineTo(2132.000000, 1802.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2132.000000, 1802.000000);
+			context.lineTo(2152.000000, 1778.000000);
+			context.lineTo(2132.000000, 1846.000000);
+			context.lineTo(2132.000000, 1802.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2132.000000, 1846.000000);
+			context.lineTo(2152.000000, 1778.000000);
+			context.lineTo(2172.000000, 1806.000000);
+			context.lineTo(2132.000000, 1846.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2132.000000, 1846.000000);
+			context.lineTo(2172.000000, 1806.000000);
+			context.lineTo(2132.000000, 1862.000000);
+			context.lineTo(2132.000000, 1846.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2132.000000, 1862.000000);
+			context.lineTo(2172.000000, 1806.000000);
+			context.lineTo(2132.000000, 1866.000000);
+			context.lineTo(2132.000000, 1862.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2132.000000, 1866.000000);
+			context.lineTo(2172.000000, 1806.000000);
+			context.lineTo(2140.000000, 1914.000000);
+			context.lineTo(2132.000000, 1866.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2420.000000, 1774.000000);
+			context.lineTo(2436.000000, 1774.000000);
+			context.lineTo(2448.000000, 1778.000000);
+			context.lineTo(2420.000000, 1774.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2420.000000, 1774.000000);
+			context.lineTo(2448.000000, 1778.000000);
+			context.lineTo(2400.000000, 1834.000000);
+			context.lineTo(2420.000000, 1774.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2400.000000, 1834.000000);
+			context.lineTo(2448.000000, 1778.000000);
+			context.lineTo(2400.000000, 1850.000000);
+			context.lineTo(2400.000000, 1834.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2400.000000, 1850.000000);
+			context.lineTo(2448.000000, 1778.000000);
+			context.lineTo(2500.000000, 1810.000000);
+			context.lineTo(2400.000000, 1850.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2400.000000, 1850.000000);
+			context.lineTo(2500.000000, 1810.000000);
+			context.lineTo(2392.000000, 1882.000000);
+			context.lineTo(2400.000000, 1850.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2392.000000, 1882.000000);
+			context.lineTo(2500.000000, 1810.000000);
+			context.lineTo(2420.000000, 1882.000000);
+			context.lineTo(2392.000000, 1882.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2392.000000, 1882.000000);
+			context.lineTo(2420.000000, 1882.000000);
+			context.lineTo(2400.000000, 1890.000000);
+			context.lineTo(2392.000000, 1882.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2400.000000, 1890.000000);
+			context.lineTo(2420.000000, 1882.000000);
+			context.lineTo(2404.000000, 1890.000000);
+			context.lineTo(2400.000000, 1890.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2324.000000, 1826.000000);
+			context.lineTo(2332.000000, 1842.000000);
+			context.lineTo(2264.000000, 1858.000000);
+			context.lineTo(2324.000000, 1826.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2264.000000, 1858.000000);
+			context.lineTo(2332.000000, 1842.000000);
+			context.lineTo(2308.000000, 1874.000000);
+			context.lineTo(2264.000000, 1858.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2264.000000, 1858.000000);
+			context.lineTo(2308.000000, 1874.000000);
+			context.lineTo(2256.000000, 1874.000000);
+			context.lineTo(2264.000000, 1858.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2256.000000, 1874.000000);
+			context.lineTo(2308.000000, 1874.000000);
+			context.lineTo(2300.000000, 1882.000000);
+			context.lineTo(2256.000000, 1874.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2256.000000, 1874.000000);
+			context.lineTo(2300.000000, 1882.000000);
+			context.lineTo(2272.000000, 1894.000000);
+			context.lineTo(2256.000000, 1874.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2272.000000, 1894.000000);
+			context.lineTo(2300.000000, 1882.000000);
+			context.lineTo(2280.000000, 1894.000000);
+			context.lineTo(2272.000000, 1894.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2048.000000, 1898.000000);
+			context.lineTo(2116.000000, 1954.000000);
+			context.lineTo(2048.000000, 1982.000000);
+			context.lineTo(2048.000000, 1898.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2242.000000, 1974.000000);
+			context.lineTo(2256.000000, 1990.000000);
+			context.lineTo(2232.000000, 1990.000000);
+			context.lineTo(2242.000000, 1974.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2232.000000, 1990.000000);
+			context.lineTo(2256.000000, 1990.000000);
+			context.lineTo(2288.000000, 2042.000000);
+			context.lineTo(2232.000000, 1990.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2232.000000, 1990.000000);
+			context.lineTo(2288.000000, 2042.000000);
+			context.lineTo(2196.000000, 2046.000000);
+			context.lineTo(2232.000000, 1990.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2196.000000, 2046.000000);
+			context.lineTo(2288.000000, 2042.000000);
+			context.lineTo(2336.000000, 2042.000000);
+			context.lineTo(2196.000000, 2046.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2196.000000, 2046.000000);
+			context.lineTo(2336.000000, 2042.000000);
+			context.lineTo(2256.000000, 2046.000000);
+			context.lineTo(2196.000000, 2046.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(2196.000000, 2046.000000);
+			context.lineTo(2256.000000, 2046.000000);
+			context.lineTo(2440.000000, 2046.000000);
+			context.lineTo(2196.000000, 2046.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3628.000000, 1538.000000);
+			context.lineTo(3704.000000, 1538.000000);
+			context.lineTo(3648.000000, 1666.000000);
+			context.lineTo(3628.000000, 1538.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3628.000000, 1538.000000);
+			context.lineTo(3648.000000, 1666.000000);
+			context.lineTo(3584.000000, 1646.000000);
+			context.lineTo(3628.000000, 1538.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3584.000000, 1646.000000);
+			context.lineTo(3648.000000, 1666.000000);
+			context.lineTo(3656.000000, 1682.000000);
+			context.lineTo(3584.000000, 1646.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3584.000000, 1646.000000);
+			context.lineTo(3656.000000, 1682.000000);
+			context.lineTo(3584.000000, 1658.000000);
+			context.lineTo(3584.000000, 1646.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3584.000000, 1658.000000);
+			context.lineTo(3656.000000, 1682.000000);
+			context.lineTo(3684.000000, 1746.000000);
+			context.lineTo(3584.000000, 1658.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3584.000000, 1658.000000);
+			context.lineTo(3684.000000, 1746.000000);
+			context.lineTo(3612.000000, 1722.000000);
+			context.lineTo(3584.000000, 1658.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3612.000000, 1722.000000);
+			context.lineTo(3684.000000, 1746.000000);
+			context.lineTo(3748.000000, 1842.000000);
+			context.lineTo(3612.000000, 1722.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3612.000000, 1722.000000);
+			context.lineTo(3748.000000, 1842.000000);
+			context.lineTo(3692.000000, 1850.000000);
+			context.lineTo(3612.000000, 1722.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3692.000000, 1850.000000);
+			context.lineTo(3748.000000, 1842.000000);
+			context.lineTo(3764.000000, 1906.000000);
+			context.lineTo(3692.000000, 1850.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3692.000000, 1850.000000);
+			context.lineTo(3764.000000, 1906.000000);
+			context.lineTo(3712.000000, 1914.000000);
+			context.lineTo(3692.000000, 1850.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3712.000000, 1914.000000);
+			context.lineTo(3764.000000, 1906.000000);
+			context.lineTo(3756.000000, 1970.000000);
+			context.lineTo(3712.000000, 1914.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3712.000000, 1914.000000);
+			context.lineTo(3756.000000, 1970.000000);
+			context.lineTo(3660.000000, 2042.000000);
+			context.lineTo(3712.000000, 1914.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3660.000000, 2042.000000);
+			context.lineTo(3756.000000, 1970.000000);
+			context.lineTo(3720.000000, 2046.000000);
+			context.lineTo(3660.000000, 2042.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3660.000000, 2042.000000);
+			context.lineTo(3720.000000, 2046.000000);
+			context.lineTo(3628.000000, 2046.000000);
+			context.lineTo(3660.000000, 2042.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3628.000000, 2046.000000);
+			context.lineTo(3720.000000, 2046.000000);
+			context.lineTo(4096.000000, 2046.000000);
+			context.lineTo(3628.000000, 2046.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3832.000000, 1538.000000);
+			context.lineTo(4096.000000, 1538.000000);
+			context.lineTo(4096.000000, 1574.000000);
+			context.lineTo(3832.000000, 1538.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3832.000000, 1538.000000);
+			context.lineTo(4096.000000, 1574.000000);
+			context.lineTo(3836.000000, 1574.000000);
+			context.lineTo(3832.000000, 1538.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3836.000000, 1602.000000);
+			context.lineTo(4096.000000, 1602.000000);
+			context.lineTo(4096.000000, 1638.000000);
+			context.lineTo(3836.000000, 1602.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3836.000000, 1602.000000);
+			context.lineTo(4096.000000, 1638.000000);
+			context.lineTo(3836.000000, 1638.000000);
+			context.lineTo(3836.000000, 1602.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3836.000000, 1666.000000);
+			context.lineTo(4096.000000, 1666.000000);
+			context.lineTo(4096.000000, 1702.000000);
+			context.lineTo(3836.000000, 1666.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3836.000000, 1666.000000);
+			context.lineTo(4096.000000, 1702.000000);
+			context.lineTo(3836.000000, 1702.000000);
+			context.lineTo(3836.000000, 1666.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3836.000000, 1730.000000);
+			context.lineTo(4096.000000, 1730.000000);
+			context.lineTo(4096.000000, 1766.000000);
+			context.lineTo(3836.000000, 1730.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3836.000000, 1730.000000);
+			context.lineTo(4096.000000, 1766.000000);
+			context.lineTo(3836.000000, 1766.000000);
+			context.lineTo(3836.000000, 1730.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3872.000000, 1794.000000);
+			context.lineTo(3924.000000, 1794.000000);
+			context.lineTo(3924.000000, 2042.000000);
+			context.lineTo(3872.000000, 1794.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3872.000000, 1794.000000);
+			context.lineTo(3924.000000, 2042.000000);
+			context.lineTo(3872.000000, 2042.000000);
+			context.lineTo(3872.000000, 1794.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3872.000000, 2042.000000);
+			context.lineTo(3924.000000, 2042.000000);
+			context.lineTo(3948.000000, 2042.000000);
+			context.lineTo(3872.000000, 2042.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3872.000000, 2042.000000);
+			context.lineTo(3948.000000, 2042.000000);
+			context.lineTo(3832.000000, 2046.000000);
+			context.lineTo(3872.000000, 2042.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3832.000000, 2046.000000);
+			context.lineTo(3948.000000, 2042.000000);
+			context.lineTo(3920.000000, 2046.000000);
+			context.lineTo(3832.000000, 2046.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3832.000000, 2046.000000);
+			context.lineTo(3920.000000, 2046.000000);
+			context.lineTo(4096.000000, 2046.000000);
+			context.lineTo(3832.000000, 2046.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3948.000000, 1794.000000);
+			context.lineTo(4000.000000, 1794.000000);
+			context.lineTo(4000.000000, 2042.000000);
+			context.lineTo(3948.000000, 1794.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3948.000000, 1794.000000);
+			context.lineTo(4000.000000, 2042.000000);
+			context.lineTo(3948.000000, 2042.000000);
+			context.lineTo(3948.000000, 1794.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3948.000000, 2042.000000);
+			context.lineTo(4000.000000, 2042.000000);
+			context.lineTo(4024.000000, 2042.000000);
+			context.lineTo(3948.000000, 2042.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3948.000000, 2042.000000);
+			context.lineTo(4024.000000, 2042.000000);
+			context.lineTo(3920.000000, 2046.000000);
+			context.lineTo(3948.000000, 2042.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3920.000000, 2046.000000);
+			context.lineTo(4024.000000, 2042.000000);
+			context.lineTo(3996.000000, 2046.000000);
+			context.lineTo(3920.000000, 2046.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(3920.000000, 2046.000000);
+			context.lineTo(3996.000000, 2046.000000);
+			context.lineTo(4096.000000, 2046.000000);
+			context.lineTo(3920.000000, 2046.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(4024.000000, 1794.000000);
+			context.lineTo(4076.000000, 1794.000000);
+			context.lineTo(4076.000000, 2018.000000);
+			context.lineTo(4024.000000, 1794.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(4024.000000, 1794.000000);
+			context.lineTo(4076.000000, 2018.000000);
+			context.lineTo(4024.000000, 2042.000000);
+			context.lineTo(4024.000000, 1794.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(4024.000000, 2042.000000);
+			context.lineTo(4076.000000, 2018.000000);
+			context.lineTo(4096.000000, 2046.000000);
+			context.lineTo(4024.000000, 2042.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(0, 255, 255, .5)"
+			context.strokeStyle="rgba(0, 255, 255, 1)"
+			context.beginPath();
+			context.moveTo(4024.000000, 2042.000000);
+			context.lineTo(4096.000000, 2046.000000);
+			context.lineTo(3996.000000, 2046.000000);
+			context.lineTo(4024.000000, 2042.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(3720.000000, 1538.000000);
+			context.lineTo(3764.000000, 1538.000000);
+			context.lineTo(3748.000000, 1570.000000);
+			context.lineTo(3720.000000, 1538.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(3720.000000, 1538.000000);
+			context.lineTo(3748.000000, 1570.000000);
+			context.lineTo(3688.000000, 1602.000000);
+			context.lineTo(3720.000000, 1538.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(3688.000000, 1602.000000);
+			context.lineTo(3748.000000, 1570.000000);
+			context.lineTo(3728.000000, 1634.000000);
+			context.lineTo(3688.000000, 1602.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(3688.000000, 1602.000000);
+			context.lineTo(3728.000000, 1634.000000);
+			context.lineTo(3688.000000, 1666.000000);
+			context.lineTo(3688.000000, 1602.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(3688.000000, 1666.000000);
+			context.lineTo(3728.000000, 1634.000000);
+			context.lineTo(3752.000000, 1698.000000);
+			context.lineTo(3688.000000, 1666.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(3688.000000, 1666.000000);
+			context.lineTo(3752.000000, 1698.000000);
+			context.lineTo(3764.000000, 1794.000000);
+			context.lineTo(3688.000000, 1666.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(3764.000000, 1794.000000);
+			context.lineTo(3752.000000, 1698.000000);
+			context.lineTo(3772.000000, 1730.000000);
+			context.lineTo(3764.000000, 1794.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(3764.000000, 1794.000000);
+			context.lineTo(3772.000000, 1730.000000);
+			context.lineTo(3824.000000, 1842.000000);
+			context.lineTo(3764.000000, 1794.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(3764.000000, 1794.000000);
+			context.lineTo(3824.000000, 1842.000000);
+			context.lineTo(3792.000000, 1922.000000);
+			context.lineTo(3764.000000, 1794.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(3792.000000, 1922.000000);
+			context.lineTo(3824.000000, 1842.000000);
+			context.lineTo(3832.000000, 1874.000000);
+			context.lineTo(3792.000000, 1922.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(3792.000000, 1922.000000);
+			context.lineTo(3832.000000, 1874.000000);
+			context.lineTo(3788.000000, 1938.000000);
+			context.lineTo(3792.000000, 1922.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(3788.000000, 1938.000000);
+			context.lineTo(3832.000000, 1874.000000);
+			context.lineTo(3812.000000, 2002.000000);
+			context.lineTo(3788.000000, 1938.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(3788.000000, 1938.000000);
+			context.lineTo(3812.000000, 2002.000000);
+			context.lineTo(3768.000000, 2002.000000);
+			context.lineTo(3788.000000, 1938.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(3768.000000, 2002.000000);
+			context.lineTo(3812.000000, 2002.000000);
+			context.lineTo(3792.000000, 2046.000000);
+			context.lineTo(3768.000000, 2002.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(3768.000000, 2002.000000);
+			context.lineTo(3792.000000, 2046.000000);
+			context.lineTo(3748.000000, 2046.000000);
+			context.lineTo(3768.000000, 2002.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(3748.000000, 2046.000000);
+			context.lineTo(3792.000000, 2046.000000);
+			context.lineTo(4096.000000, 2046.000000);
+			context.lineTo(3748.000000, 2046.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(3840.000000, 1706.000000);
+			context.lineTo(4096.000000, 1706.000000);
+			context.lineTo(4096.000000, 1726.000000);
+			context.lineTo(3840.000000, 1706.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(3840.000000, 1706.000000);
+			context.lineTo(4096.000000, 1726.000000);
+			context.lineTo(3840.000000, 1726.000000);
+			context.lineTo(3840.000000, 1706.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(4000.000000, 1794.000000);
+			context.lineTo(4024.000000, 1794.000000);
+			context.lineTo(4024.000000, 2042.000000);
+			context.lineTo(4000.000000, 1794.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.fillStyle="rgba(255, 255, 0, .5)"
+			context.strokeStyle="rgba(255, 255, 0, 1)"
+			context.beginPath();
+			context.moveTo(4000.000000, 1794.000000);
+			context.lineTo(4024.000000, 2042.000000);
+			context.lineTo(4000.000000, 2042.000000);
+			context.lineTo(4000.000000, 1794.000000);
+			context.closePath();
+			context.fill();
+			context.stroke();
+		</script>
+	</body>
+</html>
