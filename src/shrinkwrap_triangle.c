@@ -53,7 +53,7 @@ shrinkwrap_geometryp triangulate(const curvesp curves) {
         shrinkwrap_geometryp shrinkWrap = createShrinkWrap(numVerts);
         addVertices(shrinkWrap, curves);
         // Iterate through each curve
-        curve_nodep left = curves->head->next;
+        curve_node * left = curves->head->next;
         while(left) {
                 if (left->curve->alphaType == ALPHA_ZERO) {
                         goto nextCurve;
@@ -230,10 +230,10 @@ int selfIntersection(const curve_point * l, curve_point * r, const curve_point *
 
 // Sequentially visit curves and their points and add incrementing indices.
 uint32_t assignIndices(curvesp curves) {
-        curve_nodep node = curves->head->next;
+        curve_node * node = curves->head->next;
         uint32_t index = 0;
         while(node) {
-                curve_pointp point = node->point;
+                curve_point * point = node->point;
                 while(point) {
                         point->index = index;
                         index++;
@@ -255,9 +255,9 @@ shrinkwrap_geometryp createShrinkWrap(uint32_t numVertices) {
 
 // Visit each curve and their points and add vertices to shrinkwrap.
 void addVertices(shrinkwrap_geometryp shrinkWrap, curvesp curves) {
-        curve_nodep node = curves->head->next;
+        curve_node * node = curves->head->next;
         while(node) {
-                curve_pointp point = node->point;
+                curve_point * point = node->point;
                 while(point) {
                         vertp v = addVert(shrinkWrap->vertices);
                         v->x = point->vertex.x;

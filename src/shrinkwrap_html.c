@@ -92,7 +92,7 @@ void htmlDrawTriangles(FILE * output, array_descp vertArray, array_descp indexAr
 void htmlDrawCurve(FILE * output, curvep curve, float posX, float posY) {
         static const char * const c_colours[] = {"0, 255, 255", "0, 255, 0", "0, 0, 255",
                 "255, 0, 0"};
-        curve_pointp point = curve->pointList;
+        curve_point * point = curve->pointList;
         const char * const colour = c_colours[curve->alphaType];
         fprintf(output, "\t\t\tcontext.fillStyle=\"rgba(%s, 1)\"\n", colour);
         fprintf(output, "\t\t\tcontext.beginPath();\n");
@@ -133,7 +133,7 @@ void htmlDrawCurve(FILE * output, curvep curve, float posX, float posY) {
 }
 
 void htmlDrawCurves(FILE * output, curvesp curves, float x, float y) {
-        curve_nodep curveNode = curves->head->next;
+        curve_node * curveNode = curves->head->next;
         while (curveNode) {
                 curvep curve = curveNode->curve;
                 htmlDrawCurve(output, curve, x, y);

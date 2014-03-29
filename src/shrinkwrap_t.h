@@ -46,16 +46,6 @@ typedef shrinkwrap_geometryp shrinkwrap_geometry_list;
 
 // Forward declarations
 ///////////////////////////////
-struct line_border_struct;
-typedef struct line_border_struct line_border;
-typedef line_border * line_borderp;
-typedef line_borderp line_border_list;
-
-struct image_line_struct;
-typedef struct image_line_struct image_line;
-typedef image_line * image_linep;
-typedef image_linep image_line_array;
-
 struct curves_struct;
 typedef struct curves_struct curves;
 typedef curves * curvesp;

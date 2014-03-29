@@ -27,67 +27,67 @@
 
 // Internal functions (forward declaration)
 ///////////////////////////////////////////////////////////////////////////////
-curve_pointp newPoint(float x, float y, curve_nodep scanline);
-curve_pointp initCurve(curvep curve, float x, float y, curvesp curves, alpha_type alphaType);
-curve_pointp getLastPoint(curvep curve);
+curve_point * newPoint(float x, float y, curve_node * scanline);
+curve_point * initCurve(curve * curve, float x, float y, curves * curves, alpha_type alphaType);
+curve_point * getLastPoint(curve * curve);
 int isFirstPoint(const curve_point * point, const curve * curve);
 int isLastPoint(const curve_point * point);
-curve_pointp appendCurvePoint(curve_pointp lastPoint, curvesp curves, float x, float y);
-curve_pointp appendCurvePoint2(curvep curve, curvesp curves, float x, float y);
-curve_pointp prependCurvePoint(curve_nodep node, float x, float y, curvesp curves);
-curvep destroyCurveDesc(curvep desc);
-curvesp createCurveGeometry(size_t scanlines);
-curvesp destroyCurveGeometry(curvesp geometry);
-curve_nodep createCurveNode(curvep curve, curve_pointp point);
-curve_nodep addCurveToScanline2(curvesp geometry, size_t index, curvep curve, curve_pointp point, int biasLeft);
-curve_nodep addCurveToScanline(curvesp geometry, size_t index, curvep curve, curve_pointp point);
-void removeCurveFromScanline(curve_nodep scanlinelist, curvep curve, curve_pointp point);
-void addCurveToGeometry(curvesp geometry, curvep curve, curve_pointp point);
-curve_nodep findCurveAt(curvesp curves, pxl_pos x, pxl_pos y);
+curve_point * appendCurvePoint(curve_point * lastPoint, curves * curves, float x, float y);
+curve_point * appendCurvePoint2(curve * curve, curves * curves, float x, float y);
+curve_point * prependCurvePoint(curve_node * node, float x, float y, curves * curves);
+curve * destroyCurveDesc(curve * desc);
+curves * createCurveGeometry(size_t scanlines);
+curves * destroyCurveGeometry(curves * geometry);
+curve_node * createCurveNode(curve * curve, curve_point * point);
+curve_node * addCurveToScanline2(curves * geometry, size_t index, curve * curve, curve_point * point, int biasLeft);
+curve_node * addCurveToScanline(curves * geometry, size_t index, curve * curve, curve_point * point);
+void removeCurveFromScanline(curve_node * scanlinelist, curve * curve, curve_point * point);
+void addCurveToGeometry(curves * geometry, curve * curve, curve_point * point);
+curve_node * findCurveAt(curves * curves, pxl_pos x, pxl_pos y);
 curve_node * findNextCurveOnScanline(curve_node * node, curve * curve, int skip);
 curve_node * findNextCurveOnLine(curves * curves, pxl_pos y, curve * curve);
 curve_node * findPrevCurve(curve_point * point, curve * curve);
-conserve_direction conserveDirection(const curve_node * scanline, curvep curve);
+conserve_direction conserveDirection(const curve_node * scanline, curve * curve);
 pxl_pos findNextEnd(const tpxl * typePixels, pxl_pos y, pxl_size width, int * outTerminate);
 void findNextPixel(const tpxl * typePixels, pxl_pos startX, pxl_pos currentY, pxl_size width, pxl_pos * outX,
                                  pixel_find * found);
-void tryAddCurve(curvesp geometry, alpha_type type, alpha_type lastType, const tpxl * typePixels, float x,
+void tryAddCurve(curves * geometry, alpha_type type, alpha_type lastType, const tpxl * typePixels, float x,
                                float y, pxl_size width, pxl_size height);
-void protectRightPoint(curve_pointp point);
-void protectSubdividingPoints(curvesp curves, pxl_size width);
-float getNewX(curve_pointp point);
+void protectRightPoint(curve_point * point);
+void protectSubdividingPoints(curves * curves, pxl_size width);
+float getNewX(curve_point * point);
 int validateScanlines(const curve_node * scanLines, size_t count);
 int validateScanline(curve_node * scanLine);
 int validateCurves(const curves * curves);
-float optimise(curve_pointp orig1, curve_pointp orig2, curve_pointp orig3, conserve_direction conserve);
+float optimise(curve_point * orig1, curve_point * orig2, curve_point * orig3, conserve_direction conserve);
 float calculateAverageDifference(vertp orig1, vertp orig2, float startX, float startY, float newX, float endY);
-float calculateMaxDifferenceOnCurve(curve_pointp orig1, curve_pointp orig3, float new23);
-float findXAt(curve_nodep curveNode, float y);
-float limitPoint(float x, curve_pointp point, float width);
-curve_pointp findNextRemoveablePoint(curve_pointp point, curve_pointp * previous);
-curve_pointp findNextNonRemovedPoint(curve_pointp point);
-curve_nodep findYRelativePoint(curvesp curves, float x, float y, int32_t step, size_t height);
-void removePoints(curvep curve);
-curve_nodep findMasterNode(curvesp curves, curvep curve);
-curve_pointp addPoint(curve_node * left, curve_node * right, float newX, float newY, curves * curves, pxl_diff step,
+float calculateMaxDifferenceOnCurve(curve_point * orig1, curve_point * orig3, float new23);
+float findXAt(curve_node * curveNode, float y);
+float limitPoint(float x, curve_point * point, float width);
+curve_point * findNextRemoveablePoint(curve_point * point, curve_point * * previous);
+curve_point * findNextNonRemovedPoint(curve_point * point);
+curve_node * findYRelativePoint(curves * curves, float x, float y, int32_t step, size_t height);
+void removePoints(curve * curve);
+curve_node * findMasterNode(curves * curves, curve * curve);
+curve_point * addPoint(curve_node * left, curve_node * right, float newX, float newY, curves * curves, pxl_diff step,
                       curve_point * lastPoint);
 int isAnEndPoint(const curve_node * node, pxl_diff step);
 int comesBefore(const curve_node * scanLine, const curve * a, const curve * b);
 void fixCurveEnding(curve_point * ending, curve_node * node, curves * curves, pxl_diff step, pxl_size width,
                     pxl_size height, pxl_size bleed);
-void fixCurveEndings(curvesp curves, size_t scanlines, pxl_size width, pxl_size height, pxl_size bleed);
+void fixCurveEndings(curves * curves, size_t scanlines, pxl_size width, pxl_size height, pxl_size bleed);
 void collapseCurveEnding(curve_point * ending, curve * curve, curves * curves, pxl_diff step, pxl_size width,
                          pxl_size height, pxl_size bleed);
-void collapseCurveEndings(curvesp curves, size_t scanlines, pxl_size width, pxl_size height, pxl_size bleed);
-void smoothFixUp(curvesp curves, size_t scanlines);
+void collapseCurveEndings(curves * curves, size_t scanlines, pxl_size width, pxl_size height, pxl_size bleed);
+void smoothFixUp(curves * curves, size_t scanlines);
 
 // Exposed functions
 ///////////////////////////////////////////////////////////////////////////////
 // Take the image lines and return segments of vertex boundaries between different alpha types.
 // Note: imageLines can be destroyed safely after this operation.
-curvesp buildCurves(const tpxl * typePixels, pxl_size width, pxl_size height) {
+curves * buildCurves(const tpxl * typePixels, pxl_size width, pxl_size height) {
         // Alocate curve linked lists for each scanline.
-        curvesp curves = createCurveGeometry(height);
+        curves * curves = createCurveGeometry(height);
         // For each scanline except the last.
         // No new curves can start on the last line to reduce complications.
         const tpxl * pixel = typePixels;
@@ -108,13 +108,13 @@ curvesp buildCurves(const tpxl * typePixels, pxl_size width, pxl_size height) {
 
 // Try to remove middle points of 3 point sets sequentially in a curve
 // while avoiding points marked for preservation.
-size_t smoothCurve(curvep curve, float width, float maxBleed) {
+size_t smoothCurve(curve * curve, float width, float maxBleed) {
         size_t removeCount = 0;
-        curve_pointp point = curve->pointList;
+        curve_point * point = curve->pointList;
         point->newX = point->vertex.x;
-        curve_pointp point2 = findNextRemoveablePoint(point, &point);
+        curve_point * point2 = findNextRemoveablePoint(point, &point);
         if (point2 == NULL) return 0;
-        curve_pointp point3 = findNextNonRemovedPoint(point2);
+        curve_point * point3 = findNextNonRemovedPoint(point2);
         while (point3) {
                 if (point2->preserve == TRUE) {
                         point2->newX = point2->vertex.x;
@@ -145,7 +145,7 @@ size_t smoothCurve(curvep curve, float width, float maxBleed) {
 }
 
 // Iteratively reduce vertices for all curves.
-void smoothCurves(curvesp curves, float maxBleed, pxl_size width, pxl_size scanlines) {
+void smoothCurves(curves * curves, float maxBleed, pxl_size width, pxl_size scanlines) {
         assert(validateScanlines(curves->scanlines, scanlines));
         assert(validateCurves(curves));
         fixCurveEndings(curves, scanlines, width, scanlines, maxBleed);
@@ -157,7 +157,7 @@ void smoothCurves(curvesp curves, float maxBleed, pxl_size width, pxl_size scanl
         protectSubdividingPoints(curves, width);
         assert(validateScanlines(curves->scanlines, scanlines));
         assert(validateCurves(curves));
-        curve_nodep curve = curves->head->next;
+        curve_node * curve = curves->head->next;
         while(curve) {
                 size_t removeCount = 0;
                 do {
@@ -173,8 +173,8 @@ void smoothCurves(curvesp curves, float maxBleed, pxl_size width, pxl_size scanl
 
 // Internal functions
 ///////////////////////////////////////////////////////////////////////////////
-curve_pointp newPoint(float x, float y, curve_nodep scanline) {
-        curve_pointp point = (curve_pointp)malloc(curve_point_size);
+curve_point * newPoint(float x, float y, curve_node * scanline) {
+        curve_point * point = (curve_point *)malloc(curve_point_size);
         point->vertex.x = x;
         point->vertex.y = y;
         point->index = 0;
@@ -186,16 +186,16 @@ curve_pointp newPoint(float x, float y, curve_nodep scanline) {
         return point;
 }
 
-curve_pointp initCurve(curvep curve, float x, float y, curvesp curves, alpha_type alphaType) {
-        curve_nodep scanline = curves->scanlines + (size_t)y;
+curve_point * initCurve(curve * curve, float x, float y, curves * curves, alpha_type alphaType) {
+        curve_node * scanline = curves->scanlines + (size_t)y;
         curve->alphaType = alphaType;
-        curve_pointp point = newPoint(x, y, scanline);
+        curve_point * point = newPoint(x, y, scanline);
         curve->pointList = point;
         return point;
 }
 
-curve_pointp getLastPoint(curvep curve) {
-        curve_pointp point = curve->pointList;
+curve_point * getLastPoint(curve * curve) {
+        curve_point * point = curve->pointList;
         while (point->next) {
                 point = point->next;
         }
@@ -210,33 +210,33 @@ int isLastPoint(const curve_point * point) {
         return point->next == NULL;
 }
 
-curve_pointp appendCurvePoint(curve_pointp lastPoint, curvesp curves, float x, float y) {
+curve_point * appendCurvePoint(curve_point * lastPoint, curves * curves, float x, float y) {
         assert(lastPoint->next == NULL);
-        curve_nodep scanline = curves->scanlines + (size_t)y;
-        curve_pointp point = newPoint(x, y, scanline);
+        curve_node * scanline = curves->scanlines + (size_t)y;
+        curve_point * point = newPoint(x, y, scanline);
         lastPoint->next = point;
         return point;
 }
 
-curve_pointp appendCurvePoint2(curvep curve, curvesp curves, float x, float y) {
-        curve_pointp lastPoint = getLastPoint(curve);
+curve_point * appendCurvePoint2(curve * curve, curves * curves, float x, float y) {
+        curve_point * lastPoint = getLastPoint(curve);
         return appendCurvePoint(lastPoint, curves, x, y);
 }
 
-curve_pointp prependCurvePoint(curve_nodep node, float x, float y, curvesp curves) {
-        curvep curve = node->curve;
-        curve_nodep scanline = curves->scanlines + (size_t)y;
-        curve_pointp point = newPoint(x, y, scanline);
+curve_point * prependCurvePoint(curve_node * node, float x, float y, curves * curves) {
+        curve * curve = node->curve;
+        curve_node * scanline = curves->scanlines + (size_t)y;
+        curve_point * point = newPoint(x, y, scanline);
         point->next = curve->pointList;
         curve->pointList = point;
         node->point = point;
         return point;
 }
 
-curvep destroyCurveDesc(curvep desc) {
-        curve_pointp point = desc->pointList;
+curve * destroyCurveDesc(curve * desc) {
+        curve_point * point = desc->pointList;
         while (point) {
-                curve_pointp nextPoint = point->next;
+                curve_point * nextPoint = point->next;
                 free(point);
                 point = nextPoint;
         }
@@ -244,15 +244,15 @@ curvep destroyCurveDesc(curvep desc) {
         return NULL;
 }
 
-curvesp createCurveGeometry(size_t scanlines) {
-        curvesp geometry = (curvesp)malloc(curves_size);
+curves * createCurveGeometry(size_t scanlines) {
+        curves * geometry = (curves *)malloc(curves_size);
         geometry->scanlines = (curve_node_list)malloc(curve_node_size * scanlines);
-        geometry->head = (curve_nodep)malloc(curve_node_size);
+        geometry->head = (curve_node *)malloc(curve_node_size);
         geometry->head->next = NULL;
         geometry->lastCurve = geometry->head;
         for (size_t i = 0; i < scanlines; i++) {
                 // First node has dummy information and will be ignored
-                curve_nodep scanline = geometry->scanlines + i;
+                curve_node * scanline = geometry->scanlines + i;
                 scanline->curve = NULL;
                 scanline->next = NULL;
                 scanline->point = NULL;
@@ -260,33 +260,33 @@ curvesp createCurveGeometry(size_t scanlines) {
         return geometry;
 }
 
-curvesp destroyCurveGeometry(curvesp geometry) {
+curves * destroyCurveGeometry(curves * geometry) {
         free(geometry->scanlines);
         geometry->scanlines = NULL;
-        curve_nodep node = geometry->head;
+        curve_node * node = geometry->head;
         while (node) {
-                curve_nodep next = node->next;
+                curve_node * next = node->next;
                 free(node);
                 node = next;
         }
         return NULL;
 }
 
-curve_nodep createCurveNode(curvep curve, curve_pointp point) {
-        curve_nodep node = (curve_nodep)malloc(curve_node_size);
+curve_node * createCurveNode(curve * curve, curve_point * point) {
+        curve_node * node = (curve_node *)malloc(curve_node_size);
         node->curve = curve;
         node->point = point;
         node->next = NULL;
         return node;
 }
 
-curve_nodep addCurveToScanline(curvesp geometry, size_t index, curvep curve, curve_pointp point) {
+curve_node * addCurveToScanline(curves * geometry, size_t index, curve * curve, curve_point * point) {
         curve_node_list scanlines = geometry->scanlines;
-        curve_nodep node = (curve_nodep)malloc(curve_node_size);
+        curve_node * node = (curve_node *)malloc(curve_node_size);
         node->curve = curve;
         node->point = point;
-        curve_nodep prev = scanlines + index;
-        curve_nodep next = prev->next;
+        curve_node * prev = scanlines + index;
+        curve_node * next = prev->next;
         while (next) {
                 int before = point->vertex.x < next->point->vertex.x;
                 if (before || (point->vertex.x == next->point->vertex.x))
@@ -299,8 +299,8 @@ curve_nodep addCurveToScanline(curvesp geometry, size_t index, curvep curve, cur
         return node;
 }
 
-void removeCurveFromScanline(curve_nodep scanlinelist, curvep curve, curve_pointp point) {
-        curve_nodep node = scanlinelist->next;
+void removeCurveFromScanline(curve_node * scanlinelist, curve * curve, curve_point * point) {
+        curve_node * node = scanlinelist->next;
         while (node) {
                 if (node->curve == curve) {
                         assert(node->point == point && "Point does not exist in scanline");
@@ -313,8 +313,8 @@ void removeCurveFromScanline(curve_nodep scanlinelist, curvep curve, curve_point
         assert(FALSE && "Trying to remove curve reference from scanline more than once");
 }
 
-void addCurveToGeometry(curvesp geometry, curvep curve, curve_pointp point) {
-        curve_nodep node = (curve_nodep)malloc(curve_node_size);
+void addCurveToGeometry(curves * geometry, curve * curve, curve_point * point) {
+        curve_node * node = (curve_node *)malloc(curve_node_size);
         node->curve = curve;
         node->point = point;
         node->next = NULL;
@@ -322,8 +322,8 @@ void addCurveToGeometry(curvesp geometry, curvep curve, curve_pointp point) {
         geometry->lastCurve = node;
 }
 
-curve_nodep findCurveAt(curvesp curves, pxl_pos x, pxl_pos y) {
-        curve_nodep node = curves->scanlines[y].next;
+curve_node * findCurveAt(curves * curves, pxl_pos x, pxl_pos y) {
+        curve_node * node = curves->scanlines[y].next;
         while (node) {
                 if (node->point->vertex.x == x) return node;
                 node = node->next;
@@ -387,12 +387,12 @@ int pointLineHasCurve(const curve_point * point, const curve * curve) {
 }
 
 // Mark to protect curve from clipping through side with partial-alpha
-conserve_direction conserveDirection(const curve_node * scanline, curvep curve) {
+conserve_direction conserveDirection(const curve_node * scanline, curve * curve) {
         alpha_type thisType = curve->alphaType;
         if (thisType == ALPHA_PARTIAL) return CONSERVE_RIGHT;
         if (thisType == ALPHA_ZERO) return CONSERVE_LEFT;
         const curve_node * prev = scanline;
-        curve_nodep this = prev->next;
+        curve_node * this = prev->next;
         if (this != NULL && this->curve == curve) return CONSERVE_RIGHT;
         while (this != NULL) {
                 if (this->curve == curve) {
@@ -491,17 +491,17 @@ void findNextPixel(const tpxl * typePixels, pxl_pos startX, pxl_pos currentY, px
 // Will look at curves currently on the scanline, and if none found at x location
 // trace curve downwards and add all left border pixels, adding curve to scanline
 // records and also to the main list.
-void tryAddCurve(curvesp geometry, alpha_type type, alpha_type lastType, const tpxl * typePixels, float x,
+void tryAddCurve(curves * geometry, alpha_type type, alpha_type lastType, const tpxl * typePixels, float x,
                         float y, pxl_size width, pxl_size height) {
         assert(y < height-1);
         if (type == lastType) {
                 return;
         }
-        curve_nodep existing = findCurveAt(geometry, x, y);
+        curve_node * existing = findCurveAt(geometry, x, y);
         if (existing) return;
-        curve_nodep node = (curve_nodep)malloc(curve_node_size);
-        curvep desc = (curvep)malloc(curve_desc_size);
-        curve_pointp lastPoint = initCurve(desc, x, y, geometry, type);
+        curve_node * node = (curve_node *)malloc(curve_node_size);
+        curve * desc = (curve *)malloc(curve_desc_size);
+        curve_point * lastPoint = initCurve(desc, x, y, geometry, type);
         node->curve = desc;
         addCurveToGeometry(geometry, desc, lastPoint);
         addCurveToScanline(geometry, y, desc, lastPoint);
@@ -520,10 +520,10 @@ void tryAddCurve(curvesp geometry, alpha_type type, alpha_type lastType, const t
 
 // Ensure the subsequent point on the scanline is protected
 // from being removed.
-void protectRightPoint(curve_pointp point) {
+void protectRightPoint(curve_point * point) {
         float x = point->vertex.x;
         const curve_node * scanline = point->scanlineList;
-        curve_nodep lineNode = scanline->next;
+        curve_node * lineNode = scanline->next;
         int pointHit = FALSE;
         while (lineNode) {
                 if (pointHit == TRUE && lineNode->point->vertex.x >= x) {
@@ -541,12 +541,12 @@ void protectRightPoint(curve_pointp point) {
 // Beginnings of curves should make sure the curve to the right preserves
 // it's point on the same scanline to fullfil the assumptions of the
 // triangulate function.
-void protectSubdividingPoints(curvesp curves, pxl_size width) {
-        curve_nodep node = curves->head->next;
+void protectSubdividingPoints(curves * curves, pxl_size width) {
+        curve_node * node = curves->head->next;
         while (node) {
                 protectRightPoint(node->point);
-                curve_pointp point = node->curve->pointList;
-                curve_pointp last = NULL;
+                curve_point * point = node->curve->pointList;
+                curve_point * last = NULL;
                 int wasBorder = FALSE;
                 while (point) {
                         int border = point->vertex.x == 0 || point->vertex.x == width;
@@ -569,7 +569,7 @@ void protectSubdividingPoints(curvesp curves, pxl_size width) {
 
 // There are probably more elegant ways I could have done this
 // Like making a new curve each optimisation run... maybe later.
-float getNewX(curve_pointp point) {
+float getNewX(curve_point * point) {
         if (point->moved == TRUE) {
                 return point->newX;
         }
@@ -642,7 +642,7 @@ int validateCurves(const curves * curves) {
 // Find a new x position for the 3rd point supposing we
 // had to skip the 2nd point but avoid clipping to one
 // side.
-float optimise(curve_pointp orig1, curve_pointp orig2, curve_pointp orig3, conserve_direction conserve) {
+float optimise(curve_point * orig1, curve_point * orig2, curve_point * orig3, conserve_direction conserve) {
         assert(orig2->preserve != PRESERVE_DONOTREMOVE);
         if (conserve == CONSERVE_NONE) {return getNewX(orig3);}
         float slope2 = (getNewX(orig2) - getNewX(orig1))/(float)(orig2->vertex.y - orig1->vertex.y);
@@ -667,9 +667,9 @@ float calculateAverageDifference(vertp orig1, vertp orig2, float startX, float s
 
 // Calculate the average absolute pixel error of the new shortcut line (o1->n23) compared
 // to the original (o1->o2->o3).
-float calculateMaxDifferenceOnCurve(curve_pointp orig1, curve_pointp orig3, float new23) {
-        curve_pointp point1 = orig1;
-        curve_pointp point2 = orig1->next;
+float calculateMaxDifferenceOnCurve(curve_point * orig1, curve_point * orig3, float new23) {
+        curve_point * point1 = orig1;
+        curve_point * point2 = orig1->next;
         float startX = getNewX(orig1);
         float startY = orig1->vertex.y;
         float endY = orig3->vertex.y;
@@ -687,10 +687,10 @@ float calculateMaxDifferenceOnCurve(curve_pointp orig1, curve_pointp orig3, floa
 }
 
 // Find the corresponding x value in curve at y location
-float findXAt(curve_nodep curveNode, float y) {
-        curvep curve = curveNode->curve;
-        curve_pointp point = curve->pointList;
-        curve_pointp prevPoint = NULL;
+float findXAt(curve_node * curveNode, float y) {
+        curve * curve = curveNode->curve;
+        curve_point * point = curve->pointList;
+        curve_point * prevPoint = NULL;
         while (point) {
                 float pointX = getNewX(point);
                 float pointY = point->vertex.y;
@@ -713,12 +713,12 @@ float findXAt(curve_nodep curveNode, float y) {
 
 // Ensure that the x location does not overlap the borders
 // or prior left and right curves
-float limitPoint(float x, curve_pointp point, float width) {
+float limitPoint(float x, curve_point * point, float width) {
         float prevX = 0;
         float nextX = width;
         float y = point->vertex.y;
-        curve_nodep prevCurveNode = NULL;
-        curve_nodep curveNode = point->scanlineList->next;
+        curve_node * prevCurveNode = NULL;
+        curve_node * curveNode = point->scanlineList->next;
         while (curveNode) {
                 if (curveNode->point == point) {
                         break;
@@ -730,7 +730,7 @@ float limitPoint(float x, curve_pointp point, float width) {
         if (prevCurveNode) {
                 prevX = findXAt(prevCurveNode, y);
         }
-        curve_nodep nextCurveNode = curveNode->next;
+        curve_node * nextCurveNode = curveNode->next;
         if (nextCurveNode) {
                 nextX = findXAt(nextCurveNode, y);
         }
@@ -741,9 +741,9 @@ float limitPoint(float x, curve_pointp point, float width) {
 
 // Find following point on the curve that is permitted
 // to be removed, optionally returning the previous point.
-curve_pointp findNextRemoveablePoint(curve_pointp point, curve_pointp * previous) {
+curve_point * findNextRemoveablePoint(curve_point * point, curve_point * * previous) {
         assert(point->preserve != PRESERVE_WILLREMOVE);
-        curve_pointp prev = point;
+        curve_point * prev = point;
         point = prev->next;
         while (point) {
                 if (point->preserve == PRESERVE_CANREMOVE) {
@@ -761,7 +761,7 @@ curve_pointp findNextRemoveablePoint(curve_pointp point, curve_pointp * previous
 }
 
 // Find following point that has not been removed.
-curve_pointp findNextNonRemovedPoint(curve_pointp point) {
+curve_point * findNextNonRemovedPoint(curve_point * point) {
         point = point->next;
         while (point) {
                 if (point->preserve != PRESERVE_WILLREMOVE) {
@@ -773,16 +773,16 @@ curve_pointp findNextNonRemovedPoint(curve_pointp point) {
 }
 
 // Find curve point above or below given coordinates.
-curve_nodep findYRelativePoint(curvesp curves, float x, float y, int32_t step, size_t height) {
+curve_node * findYRelativePoint(curves * curves, float x, float y, int32_t step, size_t height) {
         assert(step == -1 || step == 1);
         size_t yAbove = (size_t)y;
         assert(yAbove != 0);
         do {
                 yAbove += step;
-                curve_nodep scanline = curves->scanlines + yAbove;
-                curve_nodep curve = scanline->next;
+                curve_node * scanline = curves->scanlines + yAbove;
+                curve_node * curve = scanline->next;
                 while (curve) {
-                        curve_pointp point = curve->point;
+                        curve_point * point = curve->point;
                         if (point && point->preserve != PRESERVE_WILLREMOVE) {
                                 float thisX = getNewX(point);
                                 if (thisX == x) {
@@ -796,9 +796,9 @@ curve_nodep findYRelativePoint(curvesp curves, float x, float y, int32_t step, s
 }
 
 // Iterate through curves and alter linked lists to skip remove points.
-void removePoints(curvep curve) {
-        curve_pointp point = curve->pointList;
-        curve_pointp point2 = findNextNonRemovedPoint(point);
+void removePoints(curve * curve) {
+        curve_point * point = curve->pointList;
+        curve_point * point2 = findNextNonRemovedPoint(point);
         assert(point->preserve != PRESERVE_WILLREMOVE);
         if (point2 == NULL) {
                 assert(point->next == NULL);
@@ -818,8 +818,8 @@ void removePoints(curvep curve) {
 }
 
 // Find the curve node-point from the curves list
-curve_nodep findMasterNode(curvesp curves, curvep curve) {
-        curve_nodep node = curves->head->next;
+curve_node * findMasterNode(curves * curves, curve * curve) {
+        curve_node * node = curves->head->next;
         while (node) {
                 if (node->curve == curve) {
                         return node;
@@ -831,9 +831,9 @@ curve_nodep findMasterNode(curvesp curves, curvep curve) {
 
 // Prepend/append the left curve above or below according to the step
 // variable.
-curve_pointp addPoint(curve_node * left, curve_node * right, float newX, float newY, curves * curves, pxl_diff step,
+curve_point * addPoint(curve_node * left, curve_node * right, float newX, float newY, curves * curves, pxl_diff step,
                       curve_point * lastPoint) {
-        curve_pointp point;
+        curve_point * point;
         left = findMasterNode(curves, left->curve);
         right = findMasterNode(curves, right->curve);
         assert(left && right);
@@ -842,9 +842,9 @@ curve_pointp addPoint(curve_node * left, curve_node * right, float newX, float n
         } else {
                 point = appendCurvePoint(lastPoint, curves, newX, newY);
         }
-        curve_nodep node = addCurveToScanline(curves, newY, left->curve, point);
+        curve_node * node = addCurveToScanline(curves, newY, left->curve, point);
         if (node->next == NULL) {
-                curve_pointp next;
+                curve_point * next;
                 if (step < 0) {
                         assert(validateCurves(curves));
                         next = prependCurvePoint(right, newX, newY, curves);
@@ -852,7 +852,7 @@ curve_pointp addPoint(curve_node * left, curve_node * right, float newX, float n
                 } else {
                         next = appendCurvePoint2(right->curve, curves, newX, newY);
                 }
-                curve_nodep nextNode = createCurveNode(right->curve, next);
+                curve_node * nextNode = createCurveNode(right->curve, next);
                 assert(nextNode);
                 node->next = nextNode;
         }
@@ -936,13 +936,13 @@ void fixCurveEnding(curve_point * ending, curve_node * node, curves * curves, px
 }
 
 // Fixes top and bottom end of curves to account for disconnection between curves
-void fixCurveEndings(curvesp curves, size_t scanlines, pxl_size width, pxl_size height, pxl_size bleed) {
-        curve_nodep node = curves->head->next;
+void fixCurveEndings(curves * curves, size_t scanlines, pxl_size width, pxl_size height, pxl_size bleed) {
+        curve_node * node = curves->head->next;
         while (node) {
-                curvep curve = node->curve;
-                curve_pointp first = curve->pointList;
+                curve * curve = node->curve;
+                curve_point * first = curve->pointList;
                 fixCurveEnding(first, node, curves, -1, width, height, bleed);
-                curve_pointp last = getLastPoint(curve);
+                curve_point * last = getLastPoint(curve);
                 fixCurveEnding(last, node, curves, 1, width, height, bleed);
                 node = node->next;
         }
@@ -986,25 +986,25 @@ void collapseCurveEnding(curve_point * ending, curve * curve, curves * curves, p
 }
 
 // Collapse curve endings for all curves.
-void collapseCurveEndings(curvesp curves, size_t scanlines, pxl_size width, pxl_size height, pxl_size bleed) {
-        curve_nodep node = curves->head->next;
+void collapseCurveEndings(curves * curves, size_t scanlines, pxl_size width, pxl_size height, pxl_size bleed) {
+        curve_node * node = curves->head->next;
         while (node) {
-                curvep curve = node->curve;
-                curve_pointp first = curve->pointList;
+                curve * curve = node->curve;
+                curve_point * first = curve->pointList;
                 collapseCurveEnding(first, curve, curves, -1, width, height, bleed);
-                curve_pointp last = getLastPoint(curve);
+                curve_point * last = getLastPoint(curve);
                 collapseCurveEnding(last, curve, curves, 1, width, height, bleed);
                 node = node->next;
         }
 }
 
 // Remove superfluous curves
-void smoothFixUp(curvesp curves, size_t scanlines) {
-//        curve_nodep scanline = curves->scanlines;
+void smoothFixUp(curves * curves, size_t scanlines) {
+//        curve_node * scanline = curves->scanlines;
 //        for (size_t i = 0; i < scanlines; i++) {
-//                curve_nodep prev = scanline->next;
+//                curve_node * prev = scanline->next;
 //                if (prev != NULL) {
-//                        curve_nodep linePoint = prev->next;
+//                        curve_node * linePoint = prev->next;
 //                        while (linePoint) {
 //                                if (linePoint->point == NULL || prev->point == NULL) {
 //                                        goto next;
@@ -1023,8 +1023,8 @@ void smoothFixUp(curvesp curves, size_t scanlines) {
 //                }
 //                scanline++;
 //        }
-        curve_nodep prev = curves->head;
-        curve_nodep curve = prev->next;
+        curve_node * prev = curves->head;
+        curve_node * curve = prev->next;
         while (curve) {
                 if (curve->point == NULL || curve->point->next == NULL) {
                         prev->next = curve->next;

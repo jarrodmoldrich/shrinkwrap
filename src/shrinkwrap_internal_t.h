@@ -75,26 +75,13 @@ typedef enum pixel_find_enum {
 
 // Structs
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-struct line_border_struct {
-        pxl_pos x;
-        alpha_type type;
-};
-static const size_t line_border_size = sizeof(line_border);
-
-struct image_line_struct {
-        line_borderp lineBorders;
-        size_t numBorders;
-};
-static const size_t image_line_size = sizeof(image_line);
-
 typedef size_t idx;
 static const pxl_size c_pixelSize = 4;
 static const uch c_default_threshold = 255;
 
 struct curve_node_struct;
 typedef struct curve_node_struct curve_node;
-typedef curve_node * curve_nodep;
-typedef curve_nodep curve_node_list;
+typedef curve_node * curve_node_list;
 
 typedef struct curve_point_struct {
         vert vertex;
@@ -105,11 +92,10 @@ typedef struct curve_point_struct {
         uch moved;
         float newX;
 } curve_point;
-typedef curve_point * curve_pointp;
 static const size_t curve_point_size = sizeof(curve_point);
 
 typedef struct curve_struct {
-        curve_pointp pointList;
+        curve_point * pointList;
         alpha_type alphaType;
 } curve;
 typedef curve * curvep;
@@ -117,7 +103,7 @@ static const size_t curve_desc_size = sizeof(curve);
 
 struct curve_node_struct {
         curvep curve;
-        curve_pointp point;
+        curve_point * point;
         struct curve_node_struct * next;
 };
 static const size_t curve_node_size = sizeof(curve_node);
@@ -127,8 +113,8 @@ static const size_t curve_node_size = sizeof(curve_node);
 // 2) a linked list of all curves
 struct curves_struct {
         curve_node_list scanlines;
-        curve_nodep head;
-        curve_nodep lastCurve;
+        curve_node * head;
+        curve_node * lastCurve;
 };
 static const size_t curves_size = sizeof(curves);
 #endif
