@@ -125,7 +125,7 @@ void processImageList(FILE * output, xml_imagep firstImage, uch * imageAtlasRGBA
         int i = 0;
         while (image) {
                 i++;
-                printf("%d\n", i);
+//                printf("%d\n", i);
                 const pxl_pos x = image->x;
                 const pxl_pos y = image->y;
                 const pxl_pos width = image->width;

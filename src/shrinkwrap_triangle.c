@@ -309,10 +309,10 @@ int intersect(const vert * a1, const vert * b1, const vert * a2, const vert * b2
         if(t <= 0 || t >= 1) return FALSE;
         float u = (cx * by - cy * bx) / b_dot_d_perp;
         int result = (u > 0 && u < 1);
-        if (result) {
-                printf("Intersection (%5.3f, %5.3f) (%5.3f, %5.3f) (%5.3f, %5.3f) (%5.3f, %5.3f)\n",
-                       a1->x, a1->y, b1->x, b1->y, a2->x, a2->y, b2->x, b2->y);
-        }
+//        if (result) {
+//                printf("Intersection (%5.3f, %5.3f) (%5.3f, %5.3f) (%5.3f, %5.3f) (%5.3f, %5.3f)\n",
+//                       a1->x, a1->y, b1->x, b1->y, a2->x, a2->y, b2->x, b2->y);
+//        }
         return result;
 }
 
