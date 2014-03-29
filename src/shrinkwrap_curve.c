@@ -125,7 +125,6 @@ size_t smoothCurve(curvep curve, float width, float maxBleed) {
                         float avg = calculateMaxDifferenceOnCurve(point, point3, newX);
                         if (avg < maxBleed) {
                                 assert(point2->preserve != PRESERVE_DONOTREMOVE);
-                                printf("%f %f\n", point2->vertex.x, point3->vertex.x);
                                 point2->preserve = PRESERVE_WILLREMOVE;
                                 point3->newX = newX;
                                 point3->moved = TRUE;
@@ -684,7 +683,6 @@ float calculateMaxDifferenceOnCurve(curve_pointp orig1, curve_pointp orig3, floa
                 point1 = point2;
                 point2 = point2->next;
         }
-        printf("+%f\n", max);
         return max;
 }
 

@@ -285,8 +285,8 @@ void addTriangle(shrinkwrap_geometryp shrinkwrap, alpha_type type, const curve_p
                  const curve_point * p3) {
         assert(type != ALPHA_ZERO && type != ALPHA_INVALID);
         array_descp array = (type == ALPHA_FULL) ? shrinkwrap->indicesFullAlpha : shrinkwrap->indicesPartialAlpha;
-        printf("%6.3f %6.3f -> %6.3f %6.3f -> %6.3f %6.3f\n", p1->vertex.x, p1->vertex.y, p2->vertex.x, p2->vertex.y,
-               p3->vertex.x, p3->vertex.y);
+//        printf("%6.3f %6.3f -> %6.3f %6.3f -> %6.3f %6.3f\n", p1->vertex.x, p1->vertex.y, p2->vertex.x, p2->vertex.y,
+//               p3->vertex.x, p3->vertex.y);
         if (triangleIsDegenerate(p1, p2, p3)) return;
         *addIndex(array) = p1->index;
         *addIndex(array) = p2->index;
