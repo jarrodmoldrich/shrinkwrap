@@ -26,36 +26,42 @@ typedef struct xml_context_struct {
 typedef xml_context * xml_contextp;
 static const size_t xml_context_size = sizeof(xml_context);
 
-static xml_image_parse_info createImageParseInfo(const char * name, size_t offset) {
+static xml_image_parse_info createImageParseInfo(const char * name, size_t offset)
+{
         xml_image_parse_info info;
         info.name = name;
         info.offset = offset;
         return info;
 }
 
-static xml_contextp createXmlContext() {
+static xml_contextp createXmlContext()
+{
         xml_contextp newContext = (xml_contextp)malloc(xml_context_size);
         newContext->lastImage = NULL;
         newContext->firstImage = NULL;
         return newContext;
 }
 
-static void destroyXmlContext(xml_contextp context) {
+static void destroyXmlContext(xml_contextp context)
+{
         free(context);
 }
 
-static xml_image * createXmlImage() {
+static xml_image * createXmlImage()
+{
         xml_image * newImage = (xml_image *)malloc(xml_image_size);
         memset(newImage, 0, xml_image_size);
         newImage->next = NULL;
         return newImage;
 }
 
-xml_image * getNextImage(xml_image * current) {
+xml_image * getNextImage(xml_image * current)
+{
         return current->next;
 }
 
-static void addImageToContext(xml_contextp xmlContext, xml_image * imageData) {
+static void addImageToContext(xml_contextp xmlContext, xml_image * imageData)
+{
         imageData->next = NULL;
         xml_image * firstImage = xmlContext->firstImage;
         if (firstImage == NULL) {
@@ -69,7 +75,8 @@ static void addImageToContext(xml_contextp xmlContext, xml_image * imageData) {
 
 static xml_image_parse_info * xmlParseInfo = NULL;
 
-void initXMLParseInfos() {
+void initXMLParseInfos()
+{
         if (xmlParseInfo != NULL) return;
         xmlParseInfo = malloc(xml_image_parse_size * xml_image_parse_num_elements);
         size_t num = 0;
@@ -84,12 +91,14 @@ void initXMLParseInfos() {
         assert(num == xml_image_parse_num_elements);
 };
 
-void deinitXMLParseInfos() {
+void deinitXMLParseInfos()
+{
         free(xmlParseInfo);
 }
 
 void parseAttribute(const char * attrName, const char * attrValue, xml_image * outInfo,
-                    xml_image_parse_infop parseInfos, size_t parseInfoCount) {
+                    xml_image_parse_infop parseInfos, size_t parseInfoCount)
+{
         for (int x = 0; x < parseInfoCount; x++) {
                 xml_image_parse_infop parseInfo = parseInfos+x;
                 if (strcmp(attrName, parseInfo->name) == 0) {
@@ -101,7 +110,8 @@ void parseAttribute(const char * attrName, const char * attrValue, xml_image * o
 
 static const char element_name[]  = "SubTexture";
 static const size_t element_name_size = sizeof(element_name);
-static void XMLCALL start(void *data, const char *el, const char **attr) {
+static void XMLCALL start(void *data, const char *el, const char **attr)
+{
         xml_contextp context = (xml_contextp)data;
         
         if (strncmp(el, "SubTexture", element_name_size) == 0) {
@@ -115,10 +125,12 @@ static void XMLCALL start(void *data, const char *el, const char **attr) {
         }
 }
 
-static void XMLCALL end(void *data, const char *el) {
+static void XMLCALL end(void *data, const char *el)
+{
 }
 
-xml_image * processXML(FILE * file, size_t bufferSize) {
+xml_image * processXML(FILE * file, size_t bufferSize)
+{
         char * buffer = (char *)malloc(bufferSize);
         
         initXMLParseInfos();
@@ -160,7 +172,8 @@ xml_image * processXML(FILE * file, size_t bufferSize) {
         return context->firstImage;
 }
 
-void destroyImageStructList(xml_image * toDestroy) {
+void destroyImageStructList(xml_image * toDestroy)
+{
         while (toDestroy) {
                 xml_image * next = toDestroy->next;
                 free(toDestroy);

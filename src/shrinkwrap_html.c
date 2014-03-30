@@ -22,7 +22,8 @@
 #include <assert.h>
 #include "shrinkwrap_html.h"
 
-void html_prologue(FILE * output, pxl_size width, pxl_size height) {
+void html_prologue(FILE * output, pxl_size width, pxl_size height)
+{
         fprintf(output, "<!DOCTYPE HTML>\n");
         fprintf(output, "<html>\n");
         fprintf(output, "\t<head>\n");
@@ -45,22 +46,26 @@ void html_prologue(FILE * output, pxl_size width, pxl_size height) {
 //        fprintf(output, "\t\t\tctx.drawImage(img,0,0);\n");
 }
 
-void html_epilogue(FILE * output) {
+void html_epilogue(FILE * output)
+{
         fprintf(output, "\t\t</script>\n");
         fprintf(output, "\t</body>\n");
         fprintf(output, "</html>\n");
 }
 
-void move(FILE * output, float x, float y) {
+void move(FILE * output, float x, float y)
+{
         fprintf(output, "\t\t\tcontext.moveTo(%f, %f);\n", x * 4, y * 4);
 }
 
-void line(FILE * output, float x, float y) {
+void line(FILE * output, float x, float y)
+{
         fprintf(output, "\t\t\tcontext.lineTo(%f, %f);\n", x * 4, y * 4);
 }
 
 void html_draw_triangles(FILE * output, array_descp vertArray, array_descp indexArray, const char * colour, float x,
-                       float y) {
+                       float y)
+{
         size_t index = 0;
         size_t numIndices = array_size(indexArray);
         if (numIndices == 0) return;
@@ -89,7 +94,8 @@ void html_draw_triangles(FILE * output, array_descp vertArray, array_descp index
         }
 }
 
-void htmlDrawCurve(FILE * out, curve * c, float x, float y) {
+void htmlDrawCurve(FILE * out, curve * c, float x, float y)
+{
         static const char * const c_colours[] = {"0, 255, 255", "0, 255, 0", "0, 0, 255",
                 "255, 0, 0"};
         curvep * p = c->pointList;
@@ -132,7 +138,8 @@ void htmlDrawCurve(FILE * out, curve * c, float x, float y) {
         fprintf(out, "\t\t\tcontext.fill();\n");
 }
 
-void html_draw_curves(FILE * output, curve_list * curves, float x, float y) {
+void html_draw_curves(FILE * output, curve_list * curves, float x, float y)
+{
         curven * n = curves->head->next;
         while (n) {
                 curve * c = n->curve;
@@ -141,7 +148,8 @@ void html_draw_curves(FILE * output, curve_list * curves, float x, float y) {
         }
 }
 
-void save_diagnostic_html(FILE * out, shrinkwrap ** shrinkwraps, size_t count, pxl_size w, pxl_size h) {
+void save_diagnostic_html(FILE * out, shrinkwrap ** shrinkwraps, size_t count, pxl_size w, pxl_size h)
+{
         html_prologue(out, w, h);
         while (count) {
                 shrinkwrap * sw = *shrinkwraps;

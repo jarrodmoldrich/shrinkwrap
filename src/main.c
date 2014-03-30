@@ -39,7 +39,8 @@
 #endif
 
 static const size_t XML_BUFFER_SIZE = 8192;
-xml_image * loadXML(FILE ** file, const char * filename) {
+xml_image * loadXML(FILE ** file, const char * filename)
+{
         if (!(*file = fopen(filename, "r"))) {
                 fprintf(stderr, PROGNAME ":  can't open xml file [%s]\n", filename);
                 return NULL;
@@ -48,7 +49,8 @@ xml_image * loadXML(FILE ** file, const char * filename) {
 }
 
 void loadPNG(readpng_contextp context, FILE ** file, const char * filename, uch ** outPixels, size_t * outWidth,
-             size_t * outHeight) {
+             size_t * outHeight)
+{
         *outPixels = NULL;
         *outWidth = 0;
         *outHeight = 0;
@@ -111,7 +113,8 @@ void loadPNG(readpng_contextp context, FILE ** file, const char * filename, uch 
 }
 
 void processImageList(FILE * output, xml_image * firstImage, uch * imageAtlasRGBA, pxl_size atlasWidth,
-                      pxl_size atlasHeight) {
+                      pxl_size atlasHeight)
+{
         char * outFilename = "data/curves.html";
         FILE * outFile = fopen(outFilename, "w");
         html_prologue(outFile, (float)atlasWidth, (float)atlasHeight);
@@ -162,7 +165,8 @@ void processImageList(FILE * output, xml_image * firstImage, uch * imageAtlasRGB
         save_diagnostic_html(output, first, count, (float)atlasWidth, (float)atlasHeight);
 }
 
-size_t stringLen(const char * str, size_t max) {
+size_t stringLen(const char * str, size_t max)
+{
         size_t size = 0;
         while (*str != '\0' && size < max) {
                 size++;
@@ -170,7 +174,8 @@ size_t stringLen(const char * str, size_t max) {
         return size;
 }
 
-int stringEqual(const char * a, const char * b) {
+int stringEqual(const char * a, const char * b)
+{
         size_t lenA = stringLen(a, 256);
         size_t lenB = stringLen(b, 256);
         if (lenA == lenB) {
@@ -179,7 +184,8 @@ int stringEqual(const char * a, const char * b) {
         return FALSE;
 }
 
-int helpRequested(int argc, const char ** argv) {
+int helpRequested(int argc, const char ** argv)
+{
         if (argc != 2) return FALSE;
         const char * arg = argv[1];
         int requested;
@@ -188,7 +194,8 @@ int helpRequested(int argc, const char ** argv) {
         return requested;
 }
 
-int main(int argc, const char ** argv) {
+int main(int argc, const char ** argv)
+{
         if (argc != 4 || helpRequested(argc, argv)) {
                 system("nroff -man shrinkwrap.1 | more");
                 exit(2);

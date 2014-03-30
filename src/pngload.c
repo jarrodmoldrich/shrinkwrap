@@ -39,16 +39,19 @@ typedef struct readpng_context_struct {
 } readpng_context;
 static const size_t readpng_context_size = sizeof(readpng_context);
 
-readpng_contextp readpng_createcontext() {
+readpng_contextp readpng_createcontext()
+{
         return (readpng_contextp)malloc(readpng_context_size);
 }
 
-void readpng_destroycontext(readpng_contextp context) {
+void readpng_destroycontext(readpng_contextp context)
+{
         if (context != NULL) free(context);
 }
 
 // return value = 0 for success, 1 for bad sig, 2 for bad IHDR, 4 for no mem
-int readpng_init(readpng_contextp context, FILE *infile, ulg *pWidth, ulg *pHeight) {
+int readpng_init(readpng_contextp context, FILE *infile, ulg *pWidth, ulg *pHeight)
+{
         uch sig[8];
         
         // first do a quick check that the file really is a PNG image; could
@@ -102,7 +105,8 @@ int readpng_init(readpng_contextp context, FILE *infile, ulg *pWidth, ulg *pHeig
 
 // returns 0 if succeeds, 1 if fails due to no bKGD chunk, 2 if libpng error;
 // scales values to 8-bit if necessary
-int readpng_get_bgcolor(readpng_contextp context, uch *red, uch *green, uch *blue) {
+int readpng_get_bgcolor(readpng_contextp context, uch *red, uch *green, uch *blue)
+{
         png_color_16p pBackground;
         
         
@@ -225,7 +229,8 @@ uch *readpng_get_image(readpng_contextp context, double display_exponent, int *p
         return context->image_data;
 }
 
-void readpng_cleanup(readpng_contextp context, int free_image_data) {
+void readpng_cleanup(readpng_contextp context, int free_image_data)
+{
         if (free_image_data && context->image_data) {
                 free(context->image_data);
                 context->image_data = NULL;

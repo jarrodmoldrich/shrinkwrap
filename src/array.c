@@ -35,7 +35,8 @@ struct array_desc_struct {
 };
 static const size_t array_desc_size = sizeof(array_desc);
 
-array_descp array_create(size_t startCapacity, size_t stride) {
+array_descp array_create(size_t startCapacity, size_t stride)
+{
         assert(stride > 0);
         assert(startCapacity > 0);
         array_descp array = malloc(array_desc_size);
@@ -46,7 +47,8 @@ array_descp array_create(size_t startCapacity, size_t stride) {
         return array;
 }
 
-void array_resize(array_descp desc, size_t capacity) {
+void array_resize(array_descp desc, size_t capacity)
+{
         assert(capacity > 0);
         void * elements = malloc(desc->stride * capacity);
         size_t count = (capacity < desc->count) ? capacity : desc->count;
@@ -56,7 +58,8 @@ void array_resize(array_descp desc, size_t capacity) {
         desc->capacity = capacity;
 }
 
-void * array_push(array_descp desc) {
+void * array_push(array_descp desc)
+{
         if (desc->count == desc->capacity) {
                 array_resize(desc, desc->capacity * 2);
         }
@@ -65,11 +68,13 @@ void * array_push(array_descp desc) {
         return (void *)pos;
 }
 
-void * array_get(array_descp desc, size_t i) {
+void * array_get(array_descp desc, size_t i)
+{
         assert(i < desc->count);
         return (void*)((ptrdiff_t)desc->elements + i * desc->stride);
 }
 
-size_t array_size(array_descp desc) {
+size_t array_size(array_descp desc)
+{
         return desc->count;
 }

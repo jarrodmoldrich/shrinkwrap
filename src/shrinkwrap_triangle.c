@@ -48,7 +48,9 @@ curvep * getNextRight(curvep * pr, const curvep * pl, curve * left, const curven
 // Iterates through each downward vertex list of each section and creates 2 indexed triangle lists for full and partial
 // alpha with one final vertex list
 // Note: Safe to destroy geometrySections after this process
-shrinkwrap * triangulate(curve_list * cl) {
+shrinkwrap * triangulate(curve_list * cl)
+
+{
         uint32_t numVerts = assignIndices(cl);
         shrinkwrap * sw = createShrinkWrap(numVerts);
         addVertices(sw, cl);
@@ -132,7 +134,8 @@ shrinkwrap * triangulate(curve_list * cl) {
 // Set UV's to frame in texture space and translate geometry by the frame offset if desired.
 // Note: Will mutate geometry.
 void set_texture_coordinates(shrinkwrap * geometry, float framex, float framey, float texturewidth,
-                                 float textureheight, float frameoffsetx, float frameoffsety) {
+                                 float textureheight, float frameoffsetx, float frameoffsety)
+{
         array_descp verts = geometry->vertices;
         // Small optimisation - find reciprocal to avoid divide in loop.
         // Could cause inaccuracy - if so divide in loop.
@@ -154,7 +157,8 @@ void set_texture_coordinates(shrinkwrap * geometry, float framex, float framey, 
 // Internal functions
 ///////////////////////////////////////////////////////////////////////////////
 // Determine if line 2 faces in to line 1's normal - usually 'down-facing' in terms of the curve.
-float lineInwards(const vert * a1, const vert * b1, const vert * a2, const vert * b2, int right) {
+float lineInwards(const vert * a1, const vert * b1, const vert * a2, const vert * b2, int right)
+{
         float diff1X = a1->y - b1->y;
         float diff1Y = b1->x - a1->x;
         float diff2X = b2->x - a2->x;
@@ -169,7 +173,8 @@ float lineInwards(const vert * a1, const vert * b1, const vert * a2, const vert 
 
 // Determine if line intersects with any line segments continuing from the left curve point provided.
 // TODO: Merge left and right implementation using function pointer and context data.
-int selfIntersectionCurveLeft(const vert * a1, const vert * b1, float stopy, const curvep * first) {
+int selfIntersectionCurveLeft(const vert * a1, const vert * b1, float stopy, const curvep * first)
+{
         const curvep * prev = first;
         const curvep * next = prev->next;
         int start = TRUE;
@@ -193,7 +198,8 @@ int selfIntersectionCurveLeft(const vert * a1, const vert * b1, float stopy, con
 // TODO: Merge left and right implementation using function pointer and context data.
 int selfIntersectionCurveRight(const vert * a1, const vert * b1, float stopy, curve * left,
                                const curven * right, const vert * before2, const vert * before,
-                               curvep * first, const curvep * l) {
+                               curvep * first, const curvep * l)
+{
         if (before2 != NULL && intersect(a1, b1, before2, before)) return TRUE;
         curvep * prev = first;
         curvep * next = getNextRight(prev, l, left, &right);
@@ -216,7 +222,8 @@ int selfIntersectionCurveRight(const vert * a1, const vert * b1, float stopy, cu
 
 // Determine if the left and right curve_list intersect the line provided.
 int selfIntersection(const curvep * l, curvep * r, const curvep * rprev2,
-                     const curvep * rprev, curve * left, const curven * right) {
+                     const curvep * rprev, curve * left, const curven * right)
+{
         const vert * a1 = &l->vertex;
         const vert * b1 = &r->vertex;
         float maxy = (a1->y > b1->y) ? a1->y : b1->y;
@@ -229,7 +236,8 @@ int selfIntersection(const curvep * l, curvep * r, const curvep * rprev2,
 }
 
 // Sequentially visit curve_list and their points and add incrementing indices.
-uint32_t assignIndices(curve_list * cl) {
+uint32_t assignIndices(curve_list * cl)
+{
         curven * n = cl->head->next;
         uint32_t i = 0;
         while(n) {
@@ -244,7 +252,8 @@ uint32_t assignIndices(curve_list * cl) {
         return i;
 }
 
-shrinkwrap * createShrinkWrap(uint32_t numverts) {
+shrinkwrap * createShrinkWrap(uint32_t numverts)
+{
         shrinkwrap * sw = (shrinkwrap *)malloc(shrinkwrap_size);
         uint32_t estimate = numverts + numverts/3 * 2;
         sw->vertices = array_create(numverts, sizeof(vert));
@@ -254,7 +263,8 @@ shrinkwrap * createShrinkWrap(uint32_t numverts) {
 }
 
 // Visit each curve and their points and add vertices to shrinkwrap.
-void addVertices(shrinkwrap * sw, curve_list * cl) {
+void addVertices(shrinkwrap * sw, curve_list * cl)
+{
         curven * node = cl->head->next;
         while(node) {
                 curvep * point = node->point;
@@ -269,20 +279,23 @@ void addVertices(shrinkwrap * sw, curve_list * cl) {
 }
 
 // Determine if two points share the exact same floating-point coordinates.
-int pointIsSame(const curvep * a, const curvep * b) {
+int pointIsSame(const curvep * a, const curvep * b)
+{
         const vert * va = &a->vertex;
         const vert * vb = &b->vertex;
         return va->x == vb->x && va->y == vb->y;
 }
 
 // Determine if any of the points on the triangle are the same.
-int triangleIsDegenerate(const curvep * p1, const curvep * p2, const curvep * p3) {
+int triangleIsDegenerate(const curvep * p1, const curvep * p2, const curvep * p3)
+{
         return pointIsSame(p1, p2) || pointIsSame(p2, p3) || pointIsSame(p3, p1);
 }
 
 // Add triangle indices to shrinkwrap.
 void addTriangle(shrinkwrap * sw, alpha a, const curvep * p1, const curvep * p2,
-                 const curvep * p3) {
+                 const curvep * p3)
+{
         assert(a != ALPHA_ZERO && a != ALPHA_INVALID);
         array_descp array = (a == ALPHA_FULL) ? sw->indicesFullAlpha : sw->indicesPartialAlpha;
 //        printf("%6.3f %6.3f -> %6.3f %6.3f -> %6.3f %6.3f\n", p1->vertex.x, p1->vertex.y, p2->vertex.x, p2->vertex.y,
@@ -294,7 +307,8 @@ void addTriangle(shrinkwrap * sw, alpha a, const curvep * p1, const curvep * p2,
 }
 
 // Returns TRUE if ray 1 and 2 are intersecting.
-int intersect(const vert * a1, const vert * b1, const vert * a2, const vert * b2) {
+int intersect(const vert * a1, const vert * b1, const vert * a2, const vert * b2)
+{
         // Lifted from: http://wiki.processing.org/w/Line-Line_intersection
         // @author Ryan Alexander
         float bx = b1->x - a1->x;
@@ -319,7 +333,8 @@ int intersect(const vert * a1, const vert * b1, const vert * a2, const vert * b2
 // Find next point on the right with y equal/greater and directly subsequent
 // to the left hand curve (unless curve is ending).
 curvep * getNextRight(curvep * pr, const curvep * pl, curve * left,
-                                 const curven ** inOutRight) {
+                                 const curven ** inOutRight)
+{
         const curven * newRight = find_next_curve(pr, left, TRUE);
         const curven * rightCurve = *inOutRight;
         curvep * pr2;

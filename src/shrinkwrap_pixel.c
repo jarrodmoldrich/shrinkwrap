@@ -27,19 +27,23 @@
 
 // Inline functions
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-static inline alpha alphaType(const uch alpha, const uch threshold) {
+static inline alpha alphaType(const uch alpha, const uch threshold)
+{
         return (alpha == 0) ? ALPHA_ZERO : ((alpha >= threshold) ? ALPHA_FULL : ALPHA_PARTIAL);
 }
 
-static inline uch getAlpha(const uch * pixel) {
+static inline uch getAlpha(const uch * pixel)
+{
         return pixel[3];
 }
 
-static inline const uch * incrementPosition(const uch * pixels, pxl_size count) {
+static inline const uch * incrementPosition(const uch * pixels, pxl_size count)
+{
         return pixels + count * c_pixelSize;
 }
 
-static inline const uch * nextPixel(const uch * pixel) {
+static inline const uch * nextPixel(const uch * pixel)
+{
         return pixel + c_pixelSize;
 }
 
@@ -50,7 +54,8 @@ tpxl * yshift_alpha(const tpxl * typePixels, pxl_size width, pxl_size height);
 // Functions
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 tpxl * generate_typemap(const uch * imageAtlasRGBA, pxl_pos x, pxl_pos y, pxl_size width, pxl_size height,
-                            pxl_size rowWidth) {
+                            pxl_size rowWidth)
+{
         assert(width > 0);
         assert(height > 0);
         
@@ -80,7 +85,8 @@ tpxl * generate_typemap(const uch * imageAtlasRGBA, pxl_pos x, pxl_pos y, pxl_si
 // -------X***** // ------XX***** // ------XXXXXX*
 // ------X****** // --XXXXX****** // --XXXXXX*****
 // --XXXXX****** // -XXXXXX****** // -XXXXXXX*****
-tpxl * dilate_alpha(const tpxl * typePixels, pxl_size width, pxl_size height, pxl_size bleed) {
+tpxl * dilate_alpha(const tpxl * typePixels, pxl_size width, pxl_size height, pxl_size bleed)
+{
         assert(bleed > 0);
         assert(width > 0);
         assert(height > 0);
@@ -147,7 +153,8 @@ tpxl * dilate_alpha(const tpxl * typePixels, pxl_size width, pxl_size height, px
 // Step by step, traverse 2D pixel area and turn quick alternations between state on each line
 // to a contiguous partial alpha region.
 void reduceStateDitherInternal(const tpxl * typePixels, tpxl * newTypePixels, pxl_size width, pxl_size height,
-                               pxl_size bleed, pxl_size move, pxl_size lineMove, alpha mask) {
+                               pxl_size bleed, pxl_size move, pxl_size lineMove, alpha mask)
+{
         const tpxl * currentSrc = typePixels;
         tpxl * current = newTypePixels;
         // for each line
@@ -191,7 +198,8 @@ void reduceStateDitherInternal(const tpxl * typePixels, tpxl * newTypePixels, px
 }
 
 // Combine high frequency changes on the x and y axis scanlines to contiguous partial alpha sections
-tpxl * reduce_dither(const tpxl * typePixels, pxl_size width, pxl_size height, pxl_size bleed) {
+tpxl * reduce_dither(const tpxl * typePixels, pxl_size width, pxl_size height, pxl_size bleed)
+{
         assert(bleed > 0);
         assert(width > 0);
         assert(height > 0);
@@ -218,7 +226,8 @@ tpxl * reduce_dither(const tpxl * typePixels, pxl_size width, pxl_size height, p
 }
 
 
-static inline pxl_pos findPartialAlphaBefore(pxl_pos x, const tpxl * otherLine) {
+static inline pxl_pos findPartialAlphaBefore(pxl_pos x, const tpxl * otherLine)
+{
         if (x == 0) return 0;
         const tpxl * pixel = otherLine + x;
         while (*pixel == ALPHA_PARTIAL) {
@@ -229,7 +238,8 @@ static inline pxl_pos findPartialAlphaBefore(pxl_pos x, const tpxl * otherLine) 
         return x+1;
 }
 
-static inline pxl_pos findPartialAlphaAfter(pxl_pos x, const tpxl * otherLine, pxl_size width) {
+static inline pxl_pos findPartialAlphaAfter(pxl_pos x, const tpxl * otherLine, pxl_size width)
+{
         pxl_pos end = width-1;
         if (x == end) return width-1;
         const tpxl * pixel = otherLine + x;
@@ -241,7 +251,8 @@ static inline pxl_pos findPartialAlphaAfter(pxl_pos x, const tpxl * otherLine, p
         return x-1;
 }
 
-tpxl * yshift_alpha(const tpxl * typePixels, pxl_size width, pxl_size height) {
+tpxl * yshift_alpha(const tpxl * typePixels, pxl_size width, pxl_size height)
+{
         assert(width > 0);
         assert(height > 0);
         // create new image_line_array
