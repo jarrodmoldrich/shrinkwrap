@@ -22,7 +22,7 @@
 #include <assert.h>
 #include "shrinkwrap_html.h"
 
-void htmlPrologue(FILE * output, pxl_size width, pxl_size height) {
+void html_prologue(FILE * output, pxl_size width, pxl_size height) {
         fprintf(output, "<!DOCTYPE HTML>\n");
         fprintf(output, "<html>\n");
         fprintf(output, "\t<head>\n");
@@ -45,21 +45,21 @@ void htmlPrologue(FILE * output, pxl_size width, pxl_size height) {
 //        fprintf(output, "\t\t\tctx.drawImage(img,0,0);\n");
 }
 
-void htmlMoveTo(FILE * output, float x, float y) {
-        fprintf(output, "\t\t\tcontext.moveTo(%f, %f);\n", x * 4, y * 4);
-}
-
-void htmlLineTo(FILE * output, float x, float y) {
-        fprintf(output, "\t\t\tcontext.lineTo(%f, %f);\n", x * 4, y * 4);
-}
-
-void htmlEpilogue(FILE * output) {
+void html_epilogue(FILE * output) {
         fprintf(output, "\t\t</script>\n");
         fprintf(output, "\t</body>\n");
         fprintf(output, "</html>\n");
 }
 
-void htmlDrawTriangles(FILE * output, array_descp vertArray, array_descp indexArray, const char * colour, float x,
+void move(FILE * output, float x, float y) {
+        fprintf(output, "\t\t\tcontext.moveTo(%f, %f);\n", x * 4, y * 4);
+}
+
+void line(FILE * output, float x, float y) {
+        fprintf(output, "\t\t\tcontext.lineTo(%f, %f);\n", x * 4, y * 4);
+}
+
+void html_draw_triangles(FILE * output, array_descp vertArray, array_descp indexArray, const char * colour, float x,
                        float y) {
         size_t index = 0;
         size_t numIndices = array_size(indexArray);
@@ -72,16 +72,16 @@ void htmlDrawTriangles(FILE * output, array_descp vertArray, array_descp indexAr
                 fprintf(output, "\t\t\tcontext.fillStyle=\"rgba(%s, .5)\"\n", colour);
                 fprintf(output, "\t\t\tcontext.strokeStyle=\"rgba(%s, 1)\"\n", colour);
                 fprintf(output, "\t\t\tcontext.beginPath();\n");
-                indices[0] = getIndex(indexArray, index);
-                indices[1] = getIndex(indexArray, index+1);
-                indices[2] = getIndex(indexArray, index+2);
-                verts[0] = getVert(vertArray, indices[0]);
-                verts[1] = getVert(vertArray, indices[1]);
-                verts[2] = getVert(vertArray, indices[2]);
-                htmlMoveTo(output, verts[0]->x + x, verts[0]->y + y);
-                htmlLineTo(output, verts[1]->x + x, verts[1]->y + y);
-                htmlLineTo(output, verts[2]->x + x, verts[2]->y + y);
-                htmlLineTo(output, verts[0]->x + x, verts[0]->y + y);
+                indices[0] = get_index(indexArray, index);
+                indices[1] = get_index(indexArray, index+1);
+                indices[2] = get_index(indexArray, index+2);
+                verts[0] = get_vert(vertArray, indices[0]);
+                verts[1] = get_vert(vertArray, indices[1]);
+                verts[2] = get_vert(vertArray, indices[2]);
+                move(output, verts[0]->x + x, verts[0]->y + y);
+                line(output, verts[1]->x + x, verts[1]->y + y);
+                line(output, verts[2]->x + x, verts[2]->y + y);
+                line(output, verts[0]->x + x, verts[0]->y + y);
                 index += 3;
                 fprintf(output, "\t\t\tcontext.closePath();\n");
                 fprintf(output, "\t\t\tcontext.fill();\n");
@@ -89,69 +89,68 @@ void htmlDrawTriangles(FILE * output, array_descp vertArray, array_descp indexAr
         }
 }
 
-void htmlDrawCurve(FILE * output, curvep curve, float posX, float posY) {
+void htmlDrawCurve(FILE * out, curve * c, float x, float y) {
         static const char * const c_colours[] = {"0, 255, 255", "0, 255, 0", "0, 0, 255",
                 "255, 0, 0"};
-        curve_point * point = curve->pointList;
-        const char * const colour = c_colours[curve->alphaType];
-        fprintf(output, "\t\t\tcontext.fillStyle=\"rgba(%s, 1)\"\n", colour);
-        fprintf(output, "\t\t\tcontext.beginPath();\n");
-        float sx = point->vertex.x + posX;
-        float sy = point->vertex.y + posY;
-        htmlMoveTo(output, sx - 2, sy - 2);
-        htmlLineTo(output, sx + 2, sy - 2);
-        htmlLineTo(output, sx - 2, sy + 2);
-        fprintf(output, "\t\t\tcontext.closePath();\n");
-        fprintf(output, "\t\t\tcontext.fill();\n");
-        fprintf(output, "\t\t\tcontext.strokeStyle=\"rgba(%s, 1)\"\n", colour);
-        fprintf(output, "\t\t\tcontext.beginPath();\n");
+        curvep * p = c->pointList;
+        const char * const colour = c_colours[c->alphaType];
+        fprintf(out, "\t\t\tcontext.fillStyle=\"rgba(%s, 1)\"\n", colour);
+        fprintf(out, "\t\t\tcontext.beginPath();\n");
+        float sx = p->vertex.x + x;
+        float sy = p->vertex.y + y;
+        move(out, sx - 2, sy - 2);
+        line(out, sx + 2, sy - 2);
+        line(out, sx - 2, sy + 2);
+        fprintf(out, "\t\t\tcontext.closePath();\n");
+        fprintf(out, "\t\t\tcontext.fill();\n");
+        fprintf(out, "\t\t\tcontext.strokeStyle=\"rgba(%s, 1)\"\n", colour);
+        fprintf(out, "\t\t\tcontext.beginPath();\n");
         int first = TRUE;
         vertp vert = NULL;
-        assert(point);
-        while (point) {
-                vert = &point->vertex;
-                float x = vert->x + posX;
-                float y = vert->y + posY;
+        assert(p);
+        while (p) {
+                vert = &p->vertex;
+                float px = vert->x + x;
+                float py = vert->y + y;
                 if (first) {
                         first = FALSE;
-                        htmlMoveTo(output, x, y);
+                        move(out, px, py);
                 } else {
-                        htmlLineTo(output, x, y);
+                        line(out, px, py);
                 }
-                point = point->next;
+                p = p->next;
         }
-        fprintf(output, "\t\t\tcontext.stroke();\n");
-        fprintf(output, "\t\t\tcontext.fillStyle=\"rgba(%s, 1)\"\n", colour);
-        fprintf(output, "\t\t\tcontext.beginPath();\n");
-        sx = vert->x + posX;
-        sy = vert->y + posY;
-        htmlLineTo(output, sx + 2, sy - 2);
-        htmlLineTo(output, sx + 2, sy + 2);
-        htmlLineTo(output, sx - 2, sy + 2);
-        fprintf(output, "\t\t\tcontext.closePath();\n");
-        fprintf(output, "\t\t\tcontext.fill();\n");
+        fprintf(out, "\t\t\tcontext.stroke();\n");
+        fprintf(out, "\t\t\tcontext.fillStyle=\"rgba(%s, 1)\"\n", colour);
+        fprintf(out, "\t\t\tcontext.beginPath();\n");
+        sx = vert->x + x;
+        sy = vert->y + y;
+        line(out, sx + 2, sy - 2);
+        line(out, sx + 2, sy + 2);
+        line(out, sx - 2, sy + 2);
+        fprintf(out, "\t\t\tcontext.closePath();\n");
+        fprintf(out, "\t\t\tcontext.fill();\n");
 }
 
-void htmlDrawCurves(FILE * output, curvesp curves, float x, float y) {
-        curve_node * curveNode = curves->head->next;
-        while (curveNode) {
-                curvep curve = curveNode->curve;
-                htmlDrawCurve(output, curve, x, y);
-                curveNode = curveNode->next;
+void html_draw_curves(FILE * output, curve_list * curves, float x, float y) {
+        curven * n = curves->head->next;
+        while (n) {
+                curve * c = n->curve;
+                htmlDrawCurve(output, c, x, y);
+                n = n->next;
         }
 }
 
-void saveDiagnosticHtml(FILE * output, shrinkwrap_geometryp * geometry_list, size_t count, pxl_size width,
-                        pxl_size height) {
-        htmlPrologue(output, width, height);
+void save_diagnostic_html(FILE * out, shrinkwrap ** shrinkwraps, size_t count, pxl_size w, pxl_size h) {
+        html_prologue(out, w, h);
         while (count) {
-                shrinkwrap_geometryp geometry = *geometry_list;
-                float x = geometry->origX;
-                float y = geometry->origY;
-                htmlDrawTriangles(output, geometry->vertices, geometry->indicesPartialAlpha, "0, 255, 255", x, y);
-                htmlDrawTriangles(output, geometry->vertices, geometry->indicesFullAlpha, "255, 255, 0", x, y);
-                geometry_list++;
+                shrinkwrap * sw = *shrinkwraps;
+                float x = sw->origX;
+                float y = sw->origY;
+                html_draw_triangles(out, sw->vertices, sw->indicesPartialAlpha, "0, 255, 255", x, y);
+                html_draw_triangles(out, sw->vertices, sw->indicesFullAlpha, "255, 255, 0", x, y);
+                shrinkwraps++;
                 count--;
         }
-        htmlEpilogue(output);
+        html_epilogue(out);
 }

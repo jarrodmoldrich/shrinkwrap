@@ -26,20 +26,14 @@
 #include "shrinkwrap_internal_t.h"
 #include "pixel_t.h"
 
-void htmlPrologue(FILE * output, pxl_size width, pxl_size height);
-
-void htmlMoveTo(FILE * output, float x, float y);
-
-void htmlLineTo(FILE * output, float x, float y);
-
-void htmlEpilogue(FILE * output);
-
-void htmlDrawTriangles(FILE * output, array_descp vertArray, array_descp indexArray, const char * colour, float x,
+void html_prologue(FILE * output, pxl_size width, pxl_size height);
+void html_epilogue(FILE * output);
+void html_draw_triangles(FILE * output, array_descp vertArray, array_descp indexArray, const char * colour, float x,
                        float y);
 
-void htmlDrawCurves(FILE * output, curvesp curves, float x, float y);
+void html_draw_curves(FILE * output, curve_list * curves, float x, float y);
 
-void saveDiagnosticHtml(FILE * output, shrinkwrap_geometryp * geometry_list, size_t count, pxl_size width,
+void save_diagnostic_html(FILE * output, shrinkwrap ** geometry_list, size_t count, pxl_size width,
                         pxl_size height);
 
 

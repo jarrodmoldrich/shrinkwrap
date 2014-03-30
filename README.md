@@ -25,13 +25,26 @@ The basic procedure for `shrinkwrap` goes thusly:
 
 A number of functions are supplied to transform the bitmap into geometries.  Some are optional, but this order should be followed:
 
-1. generateTypePixelMap: Convert bitmap into pixels with 3 alpha states - none/partial/full.
-2. reduceStateDither (optional): Reduce high-frequency alpha state changes to reduce complexity.
-3. dilateAlpha (optional): Bleed semi-alpha state to surrounding pixels to avoid artefacts.              
-4. buildCurves: Use X-axis scan-line edge detection to generate curves.
-5. smoothCurves (optional): Reduce complexity of curves by removing superfluous points.
-6. triangulate: Iterate through all curves and generate triangles for final geometry
-7. fixGeometriesInTextureSpace: Assign texture UVs to geometry
+1. `generate_typemap`  
+Convert bitmap into pixels with 3 alpha states - none/partial/full.  
+
+2. `reduce_dither` (optional)  
+Reduce high-frequency alpha state changes to reduce complexity.  
+
+3. `dilate_alpha` (optional)  
+Bleed semi-alpha state to surrounding pixels to avoid artefacts.  
+              
+4. `build_curves`  
+Use X-axis scan-line edge detection to generate curves.  
+
+5. `smooth_curves` (optional)  
+Reduce complexity of curves by removing superfluous points.  
+
+6. `triangulate`  
+Iterate through all curves and generate triangles for final geometry.  
+
+7. `set_texture_coordinates`  
+Assign texture UV coordinates to geometry
 
 # Future
                                               
@@ -40,6 +53,20 @@ Outline generation, optimisation and triangulation are very simplistic and work 
 One alternative would be to start with a partial-alpha supporting quad and use recursively divided convex hulls to determine the shapes of no-alpha and full-alpha regions.  Stitch the shapes together and use conventional polygon optimisation and triangulation techniques from other open source libraries.
 
 Another alternative would be to use a stochastic method of generating polygons and evolve to good fit by mutating and selecting points sets incrementally.  The fitness function would be the fewest points and triangles possible with the least error for the alpha states compared to the original image.  This could be an optimisation process applied after the original method, to then find a 'better fit'.
+
+# Code conventions
+
+* Line width: 120
+* Tabs: 8 spaces
+* Identifiers
+  * Struct names: `snake_case`  
+  * Enum names: `snake_case`
+  * Variable names: `lowercase`  
+  * Enum entries: `SNAKE_UPPER_CASE`  
+  * Macros: `SNAKE_UPPER_CASE`
+  * No type prefixes or suffixes
+* Code comments: //
+* Braces: K&R style
 
 # License
 

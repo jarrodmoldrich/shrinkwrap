@@ -27,7 +27,7 @@
 
 // Inline functions
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-static inline alpha_type alphaType(const uch alpha, const uch threshold) {
+static inline alpha alphaType(const uch alpha, const uch threshold) {
         return (alpha == 0) ? ALPHA_ZERO : ((alpha >= threshold) ? ALPHA_FULL : ALPHA_PARTIAL);
 }
 
@@ -45,11 +45,11 @@ static inline const uch * nextPixel(const uch * pixel) {
 
 static inline pxl_pos findPartialAlphaBefore(pxl_pos x, const tpxl * otherLine);
 static inline pxl_pos findPartialAlphaAfter(pxl_pos x, const tpxl * otherLine, pxl_size width);
-tpxl * yShiftAlpha(const tpxl * typePixels, pxl_size width, pxl_size height);
+tpxl * yshift_alpha(const tpxl * typePixels, pxl_size width, pxl_size height);
 
 // Functions
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-tpxl * generateTypePixelMap(const uch * imageAtlasRGBA, pxl_pos x, pxl_pos y, pxl_size width, pxl_size height,
+tpxl * generate_typemap(const uch * imageAtlasRGBA, pxl_pos x, pxl_pos y, pxl_size width, pxl_size height,
                             pxl_size rowWidth) {
         assert(width > 0);
         assert(height > 0);
@@ -80,7 +80,7 @@ tpxl * generateTypePixelMap(const uch * imageAtlasRGBA, pxl_pos x, pxl_pos y, px
 // -------X***** // ------XX***** // ------XXXXXX*
 // ------X****** // --XXXXX****** // --XXXXXX*****
 // --XXXXX****** // -XXXXXX****** // -XXXXXXX*****
-tpxl * dilateAlpha(const tpxl * typePixels, pxl_size width, pxl_size height, pxl_size bleed) {
+tpxl * dilate_alpha(const tpxl * typePixels, pxl_size width, pxl_size height, pxl_size bleed) {
         assert(bleed > 0);
         assert(width > 0);
         assert(height > 0);
@@ -94,12 +94,12 @@ tpxl * dilateAlpha(const tpxl * typePixels, pxl_size width, pxl_size height, pxl
         for (size_t line = 0; line < height; line++) {
                 tpxl * pixel = current;
                 const tpxl * pixelSrc = currentSrc;
-                alpha_type lastType = *pixelSrc;
+                alpha lastType = *pixelSrc;
                 *pixel = *pixelSrc;
                 pixel++; pixelSrc++;
                 // for each pixel
                 for (pxl_pos p = 1; p < width; p++) {
-                        alpha_type thisType = *pixelSrc;
+                        alpha thisType = *pixelSrc;
                         if (thisType != lastType) {
                                 if (thisType == ALPHA_PARTIAL) {
                                         pxl_pos bleedLeft = (p > bleed) ? (p-bleed) : 0;
@@ -147,7 +147,7 @@ tpxl * dilateAlpha(const tpxl * typePixels, pxl_size width, pxl_size height, pxl
 // Step by step, traverse 2D pixel area and turn quick alternations between state on each line
 // to a contiguous partial alpha region.
 void reduceStateDitherInternal(const tpxl * typePixels, tpxl * newTypePixels, pxl_size width, pxl_size height,
-                               pxl_size bleed, pxl_size move, pxl_size lineMove, alpha_type mask) {
+                               pxl_size bleed, pxl_size move, pxl_size lineMove, alpha mask) {
         const tpxl * currentSrc = typePixels;
         tpxl * current = newTypePixels;
         // for each line
@@ -156,10 +156,10 @@ void reduceStateDitherInternal(const tpxl * typePixels, tpxl * newTypePixels, px
                 const tpxl * pixelSrc = currentSrc;
                 pxl_pos lastBorder = 0;
                 pxl_pos thisBorder = 0;
-                alpha_type lastState = (alpha_type)*pixelSrc;
+                alpha lastState = (alpha)*pixelSrc;
                 for (pxl_pos x = 0; x < width; x++) {
                         // if pixel state has changed
-                        alpha_type thisState = (alpha_type)*pixelSrc;
+                        alpha thisState = (alpha)*pixelSrc;
                         if (thisState != lastState) {
                                 // if distance since previous state change is less than bleed
                                 if (thisBorder != 0 && x - thisBorder < bleed && thisBorder - lastBorder < bleed) {
@@ -191,7 +191,7 @@ void reduceStateDitherInternal(const tpxl * typePixels, tpxl * newTypePixels, px
 }
 
 // Combine high frequency changes on the x and y axis scanlines to contiguous partial alpha sections
-tpxl * reduceStateDither(const tpxl * typePixels, pxl_size width, pxl_size height, pxl_size bleed) {
+tpxl * reduce_dither(const tpxl * typePixels, pxl_size width, pxl_size height, pxl_size bleed) {
         assert(bleed > 0);
         assert(width > 0);
         assert(height > 0);
@@ -241,7 +241,7 @@ static inline pxl_pos findPartialAlphaAfter(pxl_pos x, const tpxl * otherLine, p
         return x-1;
 }
 
-tpxl * yShiftAlpha(const tpxl * typePixels, pxl_size width, pxl_size height) {
+tpxl * yshift_alpha(const tpxl * typePixels, pxl_size width, pxl_size height) {
         assert(width > 0);
         assert(height > 0);
         // create new image_line_array

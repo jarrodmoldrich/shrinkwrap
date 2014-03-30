@@ -20,8 +20,8 @@ static const size_t xml_image_parse_size = sizeof(xml_image_parse_info);
 static const size_t xml_image_parse_num_elements = 8;
 
 typedef struct xml_context_struct {
-        xml_imagep firstImage;
-        xml_imagep lastImage;
+        xml_image * firstImage;
+        xml_image * lastImage;
 } xml_context;
 typedef xml_context * xml_contextp;
 static const size_t xml_context_size = sizeof(xml_context);
@@ -44,20 +44,20 @@ static void destroyXmlContext(xml_contextp context) {
         free(context);
 }
 
-static xml_imagep createXmlImage() {
-        xml_imagep newImage = (xml_imagep)malloc(xml_image_size);
+static xml_image * createXmlImage() {
+        xml_image * newImage = (xml_image *)malloc(xml_image_size);
         memset(newImage, 0, xml_image_size);
         newImage->next = NULL;
         return newImage;
 }
 
-xml_imagep getNextImage(xml_imagep current) {
+xml_image * getNextImage(xml_image * current) {
         return current->next;
 }
 
-static void addImageToContext(xml_contextp xmlContext, xml_imagep imageData) {
+static void addImageToContext(xml_contextp xmlContext, xml_image * imageData) {
         imageData->next = NULL;
-        xml_imagep firstImage = xmlContext->firstImage;
+        xml_image * firstImage = xmlContext->firstImage;
         if (firstImage == NULL) {
                 xmlContext->firstImage = imageData;
         }
@@ -88,7 +88,7 @@ void deinitXMLParseInfos() {
         free(xmlParseInfo);
 }
 
-void parseAttribute(const char * attrName, const char * attrValue, xml_imagep outInfo,
+void parseAttribute(const char * attrName, const char * attrValue, xml_image * outInfo,
                     xml_image_parse_infop parseInfos, size_t parseInfoCount) {
         for (int x = 0; x < parseInfoCount; x++) {
                 xml_image_parse_infop parseInfo = parseInfos+x;
@@ -106,7 +106,7 @@ static void XMLCALL start(void *data, const char *el, const char **attr) {
         
         if (strncmp(el, "SubTexture", element_name_size) == 0) {
                 // Found a sub texture element - discover dimensions
-                xml_imagep newImage = createXmlImage();
+                xml_image * newImage = createXmlImage();
                 while (*attr != NULL) {
                         parseAttribute(attr[0], attr[1], newImage, xmlParseInfo, xml_image_parse_num_elements);
                         attr++;
@@ -118,7 +118,7 @@ static void XMLCALL start(void *data, const char *el, const char **attr) {
 static void XMLCALL end(void *data, const char *el) {
 }
 
-xml_imagep processXML(FILE * file, size_t bufferSize) {
+xml_image * processXML(FILE * file, size_t bufferSize) {
         char * buffer = (char *)malloc(bufferSize);
         
         initXMLParseInfos();
@@ -160,9 +160,9 @@ xml_imagep processXML(FILE * file, size_t bufferSize) {
         return context->firstImage;
 }
 
-void destroyImageStructList(xml_imagep toDestroy) {
+void destroyImageStructList(xml_image * toDestroy) {
         while (toDestroy) {
-                xml_imagep next = toDestroy->next;
+                xml_image * next = toDestroy->next;
                 free(toDestroy);
                 toDestroy = next;
         }

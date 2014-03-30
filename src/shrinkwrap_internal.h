@@ -22,7 +22,7 @@
 #ifndef shrinkwrap_shrinkwrap_internal_h
 #define shrinkwrap_shrinkwrap_internal_h
 
-curve_node * findNextCurve(curve_point * point, curve * curve, int skip);
-int pointLineHasCurve(const curve_point * point, const curve * curve);
+curven * find_next_curve(curvep * p, curve * c, int skip);
+int point_line_has_curve(const curvep * p, const curve * c);
 
 #endif

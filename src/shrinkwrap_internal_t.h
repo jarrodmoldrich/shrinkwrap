@@ -36,7 +36,7 @@
 
 // Enumerations
 ///////////////////////////////
-typedef enum alpha_type_enum {
+typedef enum alpha_enum {
         ALPHA_ZERO = 0x00,
         ALPHA_PARTIAL = 0x01,
         ALPHA_FULL = 0x02,
@@ -45,20 +45,14 @@ typedef enum alpha_type_enum {
         ALPHA_FLAG_MARKDITHER_Y = 0x10,
         ALPHA_FLAG_MARKDITHER_FULL = ALPHA_FLAG_MARKDITHER_X | ALPHA_FLAG_MARKDITHER_Y,
         ALPHA_ANYALPHA = ALPHA_PARTIAL | ALPHA_FULL
-} alpha_type;
-static inline int isAlpha(alpha_type value) {return (value & ALPHA_ANYALPHA) != 0;}
+} alpha;
+static inline int isAlpha(alpha value) {return (value & ALPHA_ANYALPHA) != 0;}
 
-typedef enum bleed_direction_enum {
-        BLEED_NONE,
-        BLEED_LEFT,
-        BLEED_RIGHT
-} bleed_direction;
-
-typedef enum conserve_direction_enum {
+typedef enum conserve_enum {
         CONSERVE_NONE,
         CONSERVE_LEFT,
         CONSERVE_RIGHT
-} conserve_direction;
+} conserve;
 
 typedef enum preserve_enum {
         PRESERVE_CANREMOVE = 0,
@@ -80,41 +74,45 @@ static const pxl_size c_pixelSize = 4;
 static const uch c_default_threshold = 255;
 
 struct curve_node_struct;
-typedef struct curve_node_struct curve_node;
-typedef curve_node * curve_node_list;
+typedef struct curve_node_struct curven;
 
-typedef struct curve_point_struct {
+struct curve_point_struct;
+typedef struct curve_point_struct curvep;
+
+struct curve_struct;
+typedef struct curve_struct curve;
+        
+struct curve_point_struct {
         vert vertex;
         uint32_t index;
-        struct curve_point_struct * next;
-        curve_node * scanlineList;
+        curvep * next;
+        curven * scanlineList;
         uch preserve;
         uch moved;
-        float newX;
-} curve_point;
-static const size_t curve_point_size = sizeof(curve_point);
+        float newx;
+};
+static const size_t curvep_size = sizeof(curvep);
 
-typedef struct curve_struct {
-        curve_point * pointList;
-        alpha_type alphaType;
-} curve;
-typedef curve * curvep;
-static const size_t curve_desc_size = sizeof(curve);
+struct curve_struct {
+        curvep * pointList;
+        alpha alphaType;
+};
+static const size_t curve_size = sizeof(curve);
 
 struct curve_node_struct {
-        curvep curve;
-        curve_point * point;
+        curve * curve;
+        curvep * point;
         struct curve_node_struct * next;
 };
-static const size_t curve_node_size = sizeof(curve_node);
+static const size_t curven_size = sizeof(curven);
 
 // Curve geometry contains:
 // 1) a linked list of all intersecting curves of each scanline in order of x position
 // 2) a linked list of all curves
-struct curves_struct {
-        curve_node_list scanlines;
-        curve_node * head;
-        curve_node * lastCurve;
+struct curves_list_struct {
+        curven * scanlines;
+        curven * head;
+        curven * lastCurve;
 };
-static const size_t curves_size = sizeof(curves);
+static const size_t curves_size = sizeof(curve_list);
 #endif
