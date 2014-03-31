@@ -120,7 +120,7 @@ void processImageList(FILE * output, xml_image * firstImage, uch * imageAtlasRGB
         char * outFilename2 = "data/curves-smooth.html";
         FILE * outFile2 = fopen(outFilename2, "w");
         html_prologue(outFile2, (float)atlasWidth, (float)atlasHeight);
-        array * geometries = array_create(64, sizeof(shrinkwrap *));
+        array * shrinkwraps = array_create(64, sizeof(shrinkwrap *));
         xml_image * image = firstImage;
         const pxl_size bleed = 3;
         const float smoothBleed = 4.0;
@@ -151,7 +151,7 @@ void processImageList(FILE * output, xml_image * firstImage, uch * imageAtlasRGB
                 shrinkwrap * sw = triangulate(cl);
                 set_texture_coordinates(sw, frameX, frameY, atlasWidth, atlasHeight, frameOffsetX,
                                             frameOffsetY - 0.5);
-                shrinkwrap * * entry = (shrinkwrap * *)array_push(geometries);
+                shrinkwrap ** entry = (shrinkwrap **)array_push(shrinkwraps);
                 sw->origX = frameX;
                 sw->origY = frameY;
                 *entry = sw;
@@ -164,8 +164,8 @@ void processImageList(FILE * output, xml_image * firstImage, uch * imageAtlasRGB
         }
         html_epilogue(outFile);
         html_epilogue(outFile2);
-        shrinkwrap ** first = array_get(geometries, 0);
-        size_t count = array_size(geometries);
+        shrinkwrap ** first = array_get(shrinkwraps, 0);
+        size_t count = array_size(shrinkwraps);
         save_diagnostic_html(output, first, count, (float)atlasWidth, (float)atlasHeight);
         shrinkwrap ** sw = first;
         for (int j = 0; j < count; j++) {
@@ -173,6 +173,7 @@ void processImageList(FILE * output, xml_image * firstImage, uch * imageAtlasRGB
                 *sw = NULL;
                 sw++;
         }
+        array_destroy(shrinkwraps);
 }
 
 size_t stringLen(const char * str, size_t max)

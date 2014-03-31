@@ -264,6 +264,7 @@ void destroy_shrinkwrap(shrinkwrap * sw) {
         array_destroy(sw->indicesFullAlpha);
         array_destroy(sw->indicesPartialAlpha);
         array_destroy(sw->vertices);
+        free(sw);
 }
 
 // Visit each curve and their points and add vertices to shrinkwrap.

@@ -228,10 +228,9 @@ tpxl * reduce_dither(const tpxl * typePixels, pxl_size width, pxl_size height, p
 
 static inline pxl_pos findPartialAlphaBefore(pxl_pos x, const tpxl * otherLine)
 {
-        if (x == 0) return 0;
+        x--;
         const tpxl * pixel = otherLine + x;
-        while (*pixel == ALPHA_PARTIAL) {
-                if (x == 0) return 0;
+        while (x >= 0 && *pixel == ALPHA_PARTIAL) {
                 x--;
                 pixel--;
         }
@@ -240,11 +239,9 @@ static inline pxl_pos findPartialAlphaBefore(pxl_pos x, const tpxl * otherLine)
 
 static inline pxl_pos findPartialAlphaAfter(pxl_pos x, const tpxl * otherLine, pxl_size width)
 {
-        pxl_pos end = width-1;
-        if (x == end) return width-1;
+        x++;
         const tpxl * pixel = otherLine + x;
-        while (*pixel == ALPHA_PARTIAL) {
-                if (x == end) return width-1;
+        while (x < width && *pixel == ALPHA_PARTIAL) {
                 x++;
                 pixel++;
         }

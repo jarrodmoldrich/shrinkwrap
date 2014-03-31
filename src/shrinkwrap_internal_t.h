@@ -95,6 +95,7 @@ static const size_t curvep_size = sizeof(curvep);
 
 struct curve_struct {
         curvep * pointList;
+        curvep * removed;
         alpha alphaType;
 };
 static const size_t curve_size = sizeof(curve);
