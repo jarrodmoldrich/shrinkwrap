@@ -27,53 +27,53 @@
 
 // Inline functions
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-static inline alpha alphaType(const uch alpha, const uch threshold)
+static inline alpha alpha_type(const uch alpha, const uch threshold)
 {
         return (alpha == 0) ? ALPHA_ZERO : ((alpha >= threshold) ? ALPHA_FULL : ALPHA_PARTIAL);
 }
 
-static inline uch getAlpha(const uch * pixel)
+static inline uch get_alpha(const uch * pixel)
 {
         return pixel[3];
 }
 
-static inline const uch * incrementPosition(const uch * pixels, pxl_size count)
+static inline const uch * increment_position(const uch * pixels, pxl_size count)
 {
         return pixels + count * c_pixelSize;
 }
 
-static inline const uch * nextPixel(const uch * pixel)
+static inline const uch * next_pixel(const uch * pixel)
 {
         return pixel + c_pixelSize;
 }
 
-static inline pxl_pos findPartialAlphaBefore(pxl_pos x, const tpxl * otherLine);
-static inline pxl_pos findPartialAlphaAfter(pxl_pos x, const tpxl * otherLine, pxl_size width);
-tpxl * yshift_alpha(const tpxl * typePixels, pxl_size width, pxl_size height);
+static inline pxl_pos find_partial_before(pxl_pos x, const tpxl * otherLine);
+static inline pxl_pos find_partial_after(pxl_pos x, const tpxl * otherLine, pxl_size w);
+tpxl * yshift_alpha(const tpxl * typePixels, pxl_size w, pxl_size h);
 
 // Functions
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-tpxl * generate_typemap(const uch * imageAtlasRGBA, pxl_pos x, pxl_pos y, pxl_size width, pxl_size height,
-                            pxl_size rowWidth)
+tpxl * generate_typemap(const uch * rgba, pxl_pos x, pxl_pos y, pxl_size w, pxl_size h,
+                            pxl_size row)
 {
-        assert(width > 0);
-        assert(height > 0);
+        assert(w > 0);
+        assert(h > 0);
         
-        tpxl * typePixels = (tpxl *)malloc(sizeof(tpxl) * width * height);
-        tpxl * typePixel = typePixels;
-        const uch * lineStart = incrementPosition(imageAtlasRGBA, y * rowWidth + x);
+        tpxl * tpixels = (tpxl *)malloc(sizeof(tpxl) * w * h);
+        tpxl * tpixel = tpixels;
+        const uch * lineStart = increment_position(rgba, y * row + x);
         // for each row
-        for (idx i = 0; i < height; i++) {
+        for (idx i = 0; i < h; i++) {
                 const uch * pixel = lineStart;
-                for (pxl_pos p = 0; p < width; p++) {
-                        uch alpha = getAlpha(pixel);
-                        *typePixel = alphaType(alpha, c_default_threshold);
-                        pixel = nextPixel(pixel);
-                        typePixel++;
+                for (pxl_pos p = 0; p < w; p++) {
+                        uch a = get_alpha(pixel);
+                        *tpixel = alpha_type(a, c_default_threshold);
+                        pixel = next_pixel(pixel);
+                        tpixel++;
                 }
-                lineStart = incrementPosition(lineStart, rowWidth);
+                lineStart = increment_position(lineStart, row);
         }
-        return typePixels;
+        return tpixels;
 }
 
 // Using scan lines above and below to determine bleed distance.
@@ -85,151 +85,151 @@ tpxl * generate_typemap(const uch * imageAtlasRGBA, pxl_pos x, pxl_pos y, pxl_si
 // -------X***** // ------XX***** // ------XXXXXX*
 // ------X****** // --XXXXX****** // --XXXXXX*****
 // --XXXXX****** // -XXXXXX****** // -XXXXXXX*****
-tpxl * dilate_alpha(const tpxl * typePixels, pxl_size width, pxl_size height, pxl_size bleed)
+tpxl * dilate_alpha(const tpxl * tpixels, pxl_size w, pxl_size h, pxl_size bleed)
 {
         assert(bleed > 0);
-        assert(width > 0);
-        assert(height > 0);
+        assert(w > 0);
+        assert(h > 0);
         // create new image_line_array
-        tpxl * newTypePixels = (tpxl *)malloc(sizeof(tpxl) * width * height);
-        const tpxl * currentSrc = typePixels;
-        tpxl * current = newTypePixels;
+        tpxl * newtpixels = (tpxl *)malloc(sizeof(tpxl) * w * h);
+        const tpxl * src = tpixels;
+        tpxl * dest = newtpixels;
         const tpxl * prev = NULL;
-        const tpxl * next = currentSrc + width;
+        const tpxl * next = src + w;
         // for each line
-        for (size_t line = 0; line < height; line++) {
-                tpxl * pixel = current;
-                const tpxl * pixelSrc = currentSrc;
-                alpha lastType = *pixelSrc;
-                *pixel = *pixelSrc;
-                pixel++; pixelSrc++;
+        for (size_t line = 0; line < h; line++) {
+                tpxl * pix = dest;
+                const tpxl * srcpix = src;
+                alpha last = *srcpix;
+                *pix = *srcpix;
+                pix++; srcpix++;
                 // for each pixel
-                for (pxl_pos p = 1; p < width; p++) {
-                        alpha thisType = *pixelSrc;
-                        if (thisType != lastType) {
-                                if (thisType == ALPHA_PARTIAL) {
-                                        pxl_pos bleedLeft = (p > bleed) ? (p-bleed) : 0;
-                                        if (prev) bleedLeft = findPartialAlphaBefore(bleedLeft, prev);
-                                        if (next) bleedLeft = findPartialAlphaBefore(bleedLeft, next);
-                                        tpxl * left = current + bleedLeft;
-                                        while (left != pixel) {
+                for (pxl_pos p = 1; p < w; p++) {
+                        alpha type = *srcpix;
+                        if (type != last) {
+                                if (type == ALPHA_PARTIAL) {
+                                        pxl_pos lbleed = (p > bleed) ? (p-bleed) : 0;
+                                        if (prev) lbleed = find_partial_before(lbleed, prev);
+                                        if (next) lbleed = find_partial_before(lbleed, next);
+                                        tpxl * left = dest + lbleed;
+                                        while (left != pix) {
                                                 *left = ALPHA_PARTIAL;
                                                 left++;
                                         }
-                                } else if (lastType == ALPHA_PARTIAL) {
-                                        pxl_pos bleedRight = (p < width-bleed-1) ? (p+bleed) : (width-1);
-                                        if (prev) bleedRight = findPartialAlphaAfter(bleedRight, prev, width);
-                                        if (next) bleedRight = findPartialAlphaAfter(bleedRight, next, width);
-                                        tpxl * begin = pixel;
-                                        tpxl * right = current + bleedRight;
+                                } else if (last == ALPHA_PARTIAL) {
+                                        pxl_pos rbleed = (p < w-bleed-1) ? (p+bleed) : (w-1);
+                                        if (prev) rbleed = find_partial_after(rbleed, prev, w);
+                                        if (next) rbleed = find_partial_after(rbleed, next, w);
+                                        tpxl * begin = pix;
+                                        tpxl * right = dest + rbleed;
                                         // Skip ahead
-                                        pixel = right + 1;
-                                        pixelSrc = currentSrc + bleedRight + 1;
-                                        p = bleedRight; // Will +1 on continue
+                                        pix = right + 1;
+                                        srcpix = src + rbleed + 1;
+                                        p = rbleed; // Will +1 on continue
                                         do {
                                                 *right = ALPHA_PARTIAL;
                                                 right--;
                                         } while (right >= begin);
-                                        lastType = thisType;
+                                        last = type;
                                         continue;
                                 }
-                                lastType = thisType;
+                                last = type;
                         }
-                        *pixel = *pixelSrc;
-                        pixel++; pixelSrc++;
+                        *pix = *srcpix;
+                        pix++; srcpix++;
                 }
-                prev = currentSrc;
-                current += width;
-                currentSrc += width;
-                if (line < height - 1) {
-                        next += width;
+                prev = src;
+                dest += w;
+                src += w;
+                if (line < h - 1) {
+                        next += w;
                 } else {
                         next = NULL;
                 }
         }
-        return newTypePixels;
+        return newtpixels;
 }
 
 // Step by step, traverse 2D pixel area and turn quick alternations between state on each line
 // to a contiguous partial alpha region.
-void reduceStateDitherInternal(const tpxl * typePixels, tpxl * newTypePixels, pxl_size width, pxl_size height,
+void reduce_state_dither_internal(const tpxl * tpixels, tpxl * dest_tpixels, pxl_size w, pxl_size h,
                                pxl_size bleed, pxl_size move, pxl_size lineMove, alpha mask)
 {
-        const tpxl * currentSrc = typePixels;
-        tpxl * current = newTypePixels;
+        const tpxl * src = tpixels;
+        tpxl * dest = dest_tpixels;
         // for each line
-        for (pxl_size y = 0; y < height; y++) {
-                tpxl * pixel = current;
-                const tpxl * pixelSrc = currentSrc;
-                pxl_pos lastBorder = 0;
-                pxl_pos thisBorder = 0;
-                alpha lastState = (alpha)*pixelSrc;
-                for (pxl_pos x = 0; x < width; x++) {
+        for (pxl_size y = 0; y < h; y++) {
+                tpxl * pix = dest;
+                const tpxl * srcpix = src;
+                pxl_pos last = 0;
+                pxl_pos border = 0;
+                alpha laststate = (alpha)*srcpix;
+                for (pxl_pos x = 0; x < w; x++) {
                         // if pixel state has changed
-                        alpha thisState = (alpha)*pixelSrc;
-                        if (thisState != lastState) {
+                        alpha state = (alpha)*srcpix;
+                        if (state != laststate) {
                                 // if distance since previous state change is less than bleed
-                                if (thisBorder != 0 && x - thisBorder < bleed && thisBorder - lastBorder < bleed) {
-                                        tpxl * writePixel = current + lastBorder;
-                                        const tpxl * readPixel = currentSrc + lastBorder;
-                                        pxl_pos p = lastBorder;
-                                        for (; p < x || (p < width && *readPixel == thisState); p++) {
-                                                *writePixel |= mask;
-                                                writePixel += move;
-                                                readPixel += move;
+                                if (border != 0 && x - border < bleed && border - last < bleed) {
+                                        tpxl * write = dest + last;
+                                        const tpxl * read = src + last;
+                                        pxl_pos p = last;
+                                        for (; p < x || (p < w && *read == state); p++) {
+                                                *write |= mask;
+                                                write += move;
+                                                read += move;
                                         }
                                         // Skip ahead
-                                        lastBorder = x;
-                                        thisBorder = p;
+                                        last = x;
+                                        border = p;
                                         x = p;
-                                        pixel = writePixel;
-                                        pixelSrc = readPixel;
+                                        pix = write;
+                                        srcpix = read;
                                         continue;
                                 }
-                                lastBorder = thisBorder;
-                                thisBorder = x;
-                                lastState = *pixelSrc;
+                                last = border;
+                                border = x;
+                                laststate = *srcpix;
                         }
-                        pixel += move; pixelSrc += move;
+                        pix += move; srcpix += move;
                 }
-                current += lineMove;
-                currentSrc += lineMove;
+                dest += lineMove;
+                src += lineMove;
         }
 }
 
 // Combine high frequency changes on the x and y axis scanlines to contiguous partial alpha sections
-tpxl * reduce_dither(const tpxl * typePixels, pxl_size width, pxl_size height, pxl_size bleed)
+tpxl * reduce_dither(const tpxl * tpixels, pxl_size w, pxl_size h, pxl_size bleed)
 {
         assert(bleed > 0);
-        assert(width > 0);
-        assert(height > 0);
-        size_t size = sizeof(tpxl) * width * height;
-        tpxl * newTypePixels = (tpxl *)malloc(size);
-        memset(newTypePixels, 0, size);
-        reduceStateDitherInternal(typePixels, newTypePixels, width, height, bleed, 1, width, ALPHA_FLAG_MARKDITHER_X);
-        reduceStateDitherInternal(typePixels, newTypePixels, height, width, bleed, width, 1, ALPHA_FLAG_MARKDITHER_Y);
-        const tpxl * currentSrc = typePixels;
-        tpxl * current = newTypePixels;
+        assert(w > 0);
+        assert(h > 0);
+        size_t size = sizeof(tpxl) * w * h;
+        tpxl * dest_tpixels = (tpxl *)malloc(size);
+        memset(dest_tpixels, 0, size);
+        reduce_state_dither_internal(tpixels, dest_tpixels, w, h, bleed, 1, w, ALPHA_FLAG_MARKDITHER_X);
+        reduce_state_dither_internal(tpixels, dest_tpixels, h, w, bleed, w, 1, ALPHA_FLAG_MARKDITHER_Y);
+        const tpxl * src = tpixels;
+        tpxl * dest = dest_tpixels;
         // for each line
-        for (pxl_size y = 0; y < height; y++) {
-                const tpxl * pixelSrc = currentSrc;
-                tpxl * pixel = current;
-                for (pxl_pos x = 0; x < width; x++) {
-                        *pixel = (*pixel == ALPHA_FLAG_MARKDITHER_FULL) ? ALPHA_PARTIAL : *pixelSrc;
-                        pixel++;
-                        pixelSrc++;
+        for (pxl_size y = 0; y < h; y++) {
+                const tpxl * srcpix = src;
+                tpxl * pix = dest;
+                for (pxl_pos x = 0; x < w; x++) {
+                        *pix = (*pix == ALPHA_FLAG_MARKDITHER_FULL) ? ALPHA_PARTIAL : *srcpix;
+                        pix++;
+                        srcpix++;
                 }
-                currentSrc += width;
-                current += width;
+                src += w;
+                dest += w;
         }
-        return newTypePixels;
+        return dest_tpixels;
 }
 
 
-static inline pxl_pos findPartialAlphaBefore(pxl_pos x, const tpxl * otherLine)
+static inline pxl_pos find_partial_before(pxl_pos x, const tpxl * otherline)
 {
         x--;
-        const tpxl * pixel = otherLine + x;
+        const tpxl * pixel = otherline + x;
         while (x >= 0 && *pixel == ALPHA_PARTIAL) {
                 x--;
                 pixel--;
@@ -237,45 +237,45 @@ static inline pxl_pos findPartialAlphaBefore(pxl_pos x, const tpxl * otherLine)
         return x+1;
 }
 
-static inline pxl_pos findPartialAlphaAfter(pxl_pos x, const tpxl * otherLine, pxl_size width)
+static inline pxl_pos find_partial_after(pxl_pos x, const tpxl * otherline, pxl_size w)
 {
         x++;
-        const tpxl * pixel = otherLine + x;
-        while (x < width && *pixel == ALPHA_PARTIAL) {
+        const tpxl * pix = otherline + x;
+        while (x < w && *pix == ALPHA_PARTIAL) {
                 x++;
-                pixel++;
+                pix++;
         }
         return x-1;
 }
 
-tpxl * yshift_alpha(const tpxl * typePixels, pxl_size width, pxl_size height)
+tpxl * yshift_alpha(const tpxl * tpixels, pxl_size w, pxl_size h)
 {
-        assert(width > 0);
-        assert(height > 0);
+        assert(w > 0);
+        assert(h > 0);
         // create new image_line_array
-        tpxl * newTypePixels = (tpxl *)malloc(sizeof(tpxl) * width * height);
-        const tpxl * aboveSrc = NULL;
-        const tpxl * currentSrc = typePixels;
-        tpxl * current = newTypePixels;
+        tpxl * dest_tpix = (tpxl *)malloc(sizeof(tpxl) * w * h);
+        const tpxl * above = NULL;
+        const tpxl * src = tpixels;
+        tpxl * dest = dest_tpix;
         // for each line
-        for (size_t line = 0; line < height; line++) {
-                tpxl * pixel = current;
-                const tpxl * pixelAbove = aboveSrc;
-                const tpxl * pixelSrc = currentSrc;
+        for (size_t line = 0; line < h; line++) {
+                tpxl * pixel = dest;
+                const tpxl * abovepix = above;
+                const tpxl * srcpix = src;
                 // for each pixel
-                for (pxl_pos p = 0; p < width; p++) {
-                        if (aboveSrc == NULL) {
-                                *pixel = *currentSrc;
+                for (pxl_pos p = 0; p < w; p++) {
+                        if (above == NULL) {
+                                *pixel = *src;
                         } else {
-                                int bleedAbove = (isAlpha(*pixelAbove) && isAlpha(*pixelSrc) == FALSE);
-                                *pixel = (bleedAbove) ? *pixelAbove : *pixelSrc;
-                                aboveSrc++;
+                                int bleed = (isAlpha(*abovepix) && isAlpha(*srcpix) == FALSE);
+                                *pixel = (bleed) ? *abovepix : *srcpix;
+                                above++;
                         }
-                        pixel++; currentSrc++;
+                        pixel++; src++;
                 }
-                aboveSrc = currentSrc;
-                current += width;
-                currentSrc += width;
+                above = src;
+                dest += w;
+                src += w;
         }
-        return newTypePixels;
+        return dest_tpix;
 }
