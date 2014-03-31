@@ -28,7 +28,7 @@
 
 void html_prologue(FILE * output, pxl_size width, pxl_size height);
 void html_epilogue(FILE * output);
-void html_draw_triangles(FILE * output, array_descp vertArray, array_descp indexArray, const char * colour, float x,
+void html_draw_triangles(FILE * output, array * vertArray, array * indexArray, const char * colour, float x,
                        float y);
 
 void html_draw_curves(FILE * output, curve_list * curves, float x, float y);

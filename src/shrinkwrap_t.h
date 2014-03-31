@@ -35,9 +35,9 @@ typedef struct vert_struct vert;
 typedef vert * vertp;
 
 typedef struct shrinkwrap_struct {
-        array_descp vertices;
-        array_descp indicesPartialAlpha;
-        array_descp indicesFullAlpha;
+        array * vertices;
+        array * indicesPartialAlpha;
+        array * indicesFullAlpha;
         float origX;
         float origY;
 } shrinkwrap;
@@ -47,10 +47,10 @@ typedef struct shrinkwrap_struct {
 struct curves_list_struct;
 typedef struct curves_list_struct curve_list;
 
-static inline vertp get_vert(array_descp array, size_t i) {return (vertp)array_get(array, i);}
-static inline uint32_t get_index(array_descp array, size_t i) {return *(uint32_t *)array_get(array, i);}
-static inline vertp add_vert(array_descp array) {return (vertp)array_push(array);}
-static inline uint32_t * add_index(array_descp array) {return (uint32_t *)array_push(array);}
+static inline vertp get_vert(array * array, size_t i) {return (vertp)array_get(array, i);}
+static inline uint32_t get_index(array * array, size_t i) {return *(uint32_t *)array_get(array, i);}
+static inline vertp add_vert(array * array) {return (vertp)array_push(array);}
+static inline uint32_t * add_index(array * array) {return (uint32_t *)array_push(array);}
 
 static const size_t shrinkwrap_size = sizeof(shrinkwrap);
 #endif

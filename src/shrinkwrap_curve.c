@@ -36,7 +36,6 @@ curvep * append_point_to_curve(curvep * lastPoint, curve_list * cl, float x, flo
 curvep * prepend_point_to_curve(curven * n, float x, float y, curve_list * cl);
 curve * destroy_curve(curve * c);
 curve_list * create_curve_list(size_t scanlines);
-curve_list * destroy_curve_list(curve_list * cl);
 curven * create_node(curve * c, curvep * p);
 curven * add_curve_to_scanline(curve_list * cl, size_t index, curve * c, curvep * p);
 void remove_curve_from_scanline(curven * scanlinelist, curve * c, curvep * p);

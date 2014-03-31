@@ -27,19 +27,19 @@
 #include <assert.h>
 #include "array.h"
 
-struct array_desc_struct {
+struct array_struct {
         void * elements;
         size_t count;
         size_t capacity;
         size_t stride;
 };
-static const size_t array_desc_size = sizeof(array_desc);
+static const size_t array_desc_size = sizeof(array);
 
-array_descp array_create(size_t startCapacity, size_t stride)
+array * array_create(size_t startCapacity, size_t stride)
 {
         assert(stride > 0);
         assert(startCapacity > 0);
-        array_descp array = malloc(array_desc_size);
+        array * array = malloc(array_desc_size);
         array->stride = stride;
         array->count = 0;
         array->elements = malloc(stride * startCapacity);
@@ -47,18 +47,28 @@ array_descp array_create(size_t startCapacity, size_t stride)
         return array;
 }
 
-void array_resize(array_descp desc, size_t capacity)
+void array_destroy(array * desc) {
+        free(desc->elements);
+        desc->elements = NULL;
+        desc->count = 0x0;
+        desc->capacity = 0x0;
+        desc->stride = 0;
+        free(desc);
+}
+
+void array_resize(array * desc, size_t capacity)
 {
         assert(capacity > 0);
         void * elements = malloc(desc->stride * capacity);
         size_t count = (capacity < desc->count) ? capacity : desc->count;
         memcpy(elements, desc->elements, count * desc->stride);
+        free(desc->elements);
         desc->elements = elements;
         desc->count = count;
         desc->capacity = capacity;
 }
 
-void * array_push(array_descp desc)
+void * array_push(array * desc)
 {
         if (desc->count == desc->capacity) {
                 array_resize(desc, desc->capacity * 2);
@@ -68,13 +78,13 @@ void * array_push(array_descp desc)
         return (void *)pos;
 }
 
-void * array_get(array_descp desc, size_t i)
+void * array_get(array * desc, size_t i)
 {
         assert(i < desc->count);
         return (void*)((ptrdiff_t)desc->elements + i * desc->stride);
 }
 
-size_t array_size(array_descp desc)
+size_t array_size(array * desc)
 {
         return desc->count;
 }

@@ -63,7 +63,7 @@ void line(FILE * output, float x, float y)
         fprintf(output, "\t\t\tcontext.lineTo(%f, %f);\n", x * 4, y * 4);
 }
 
-void html_draw_triangles(FILE * output, array_descp vertArray, array_descp indexArray, const char * colour, float x,
+void html_draw_triangles(FILE * output, array * vertArray, array * indexArray, const char * colour, float x,
                        float y)
 {
         size_t index = 0;

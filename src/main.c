@@ -77,8 +77,7 @@ void loadPNG(readpng_contextp context, FILE ** file, const char * filename, uch 
                                         fprintf(stderr, PROGNAME ":  insufficient memory\n");
                                         break;
                                 default:
-                                        fprintf(stderr, PROGNAME
-                                                ":  unknown readpng_init() error\n");
+                                        fprintf(stderr, PROGNAME ":  unknown readpng_init() error\n");
                                         break;
                         }
                         ++error;
@@ -121,48 +120,58 @@ void processImageList(FILE * output, xml_image * firstImage, uch * imageAtlasRGB
         char * outFilename2 = "data/curves-smooth.html";
         FILE * outFile2 = fopen(outFilename2, "w");
         html_prologue(outFile2, (float)atlasWidth, (float)atlasHeight);
-        array_descp geometries = array_create(64, sizeof(shrinkwrap *));
+        array * geometries = array_create(64, sizeof(shrinkwrap *));
         xml_image * image = firstImage;
         const pxl_size bleed = 3;
         const float smoothBleed = 4.0;
         int i = 0;
         while (image) {
                 i++;
-//                printf("%d\n", i);
                 const pxl_pos x = image->x;
                 const pxl_pos y = image->y;
-                const pxl_pos width = image->width;
+                const pxl_pos w = image->width;
                 const pxl_pos height = image->height;
                 const pxl_diff frameOffsetX = image->xOffset;
                 const pxl_diff frameOffsetY = image->yOffset;
                 const pxl_pos frameX = ((pxl_diff)x + frameOffsetX < 0) ? 0 : (x + frameOffsetX);
                 const pxl_pos frameY = ((pxl_diff)y + frameOffsetY < 0) ? 0 : (y + frameOffsetY);
-                tpxl * typePixels = generate_typemap(imageAtlasRGBA, x, y, width, height, atlasWidth);
-                tpxl * antiDither = reduce_dither(typePixels, width, height, bleed);
-                tpxl * dilated = dilate_alpha(antiDither, width, height, bleed);
+                tpxl * typePixels = generate_typemap(imageAtlasRGBA, x, y, w, height, atlasWidth);
+                tpxl * antiDither = reduce_dither(typePixels, w, height, bleed);
+                tpxl * dilated = dilate_alpha(antiDither, w, height, bleed);
                 tpxl * finalPixels = dilated;
-                curve_list * curves = build_curves(finalPixels, width, height);
-                html_draw_curves(outFile, curves, x, y);
+                curve_list * cl = build_curves(finalPixels, w, height);
+                html_draw_curves(outFile, cl, x, y);
+                // TEMP: WIP
                 if (i == 30 || i == 31) {
                         image = getNextImage(image);
                         continue;
                 }
-                smooth_curves(curves, smoothBleed, width, height);
-                html_draw_curves(outFile2, curves, x, y);
-                shrinkwrap * geometry = triangulate(curves);
-                set_texture_coordinates(geometry, frameX, frameY, atlasWidth, atlasHeight, frameOffsetX,
+                smooth_curves(cl, smoothBleed, w, height);
+                html_draw_curves(outFile2, cl, x, y);
+                shrinkwrap * sw = triangulate(cl);
+                set_texture_coordinates(sw, frameX, frameY, atlasWidth, atlasHeight, frameOffsetX,
                                             frameOffsetY - 0.5);
                 shrinkwrap * * entry = (shrinkwrap * *)array_push(geometries);
-                geometry->origX = frameX;
-                geometry->origY = frameY;
-                *entry = geometry;
+                sw->origX = frameX;
+                sw->origY = frameY;
+                *entry = sw;
                 image = getNextImage(image);
+                free(typePixels);
+                free(antiDither);
+                free(dilated);
+                destroy_curve_list(cl);
         }
         html_epilogue(outFile);
         html_epilogue(outFile2);
-        shrinkwrap * * first = array_get(geometries, 0);
+        shrinkwrap ** first = array_get(geometries, 0);
         size_t count = array_size(geometries);
         save_diagnostic_html(output, first, count, (float)atlasWidth, (float)atlasHeight);
+        shrinkwrap ** sw = first;
+        for (int j = 0; j < count; j++) {
+                destroy_shrinkwrap(*sw);
+                *sw = NULL;
+                sw++;
+        }
 }
 
 size_t stringLen(const char * str, size_t max)

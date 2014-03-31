@@ -1,5 +1,4 @@
-# shrinkwrap![shrinkwrap logo](shrinkwraplogo.png "shrinkwrap")
-***                                                                                         
+# shrinkwrap![shrinkwrap logo](shrinkwraplogo.png "shrinkwrap")                                                                       
 
 `shrinkwrap` is a tool for creating triangle meshes from the alpha mask of a sprite sheet.  The final geometry is economised to have as few polygons as possible and can be either a composite of two meshes for partial alpha and full alpha, or the full alpha separately.
 

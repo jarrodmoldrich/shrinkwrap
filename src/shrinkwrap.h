@@ -64,6 +64,6 @@ void set_texture_coordinates(shrinkwrap * geometry, float framex, float framey, 
 
 // Destructors
 ///////////////////////////////
-void destroy_curves(curve_list * todestroy);
+void destroy_curve_list(curve_list * todestroy);
 void destroy_shrinkwrap(shrinkwrap * todestroy);
 #endif

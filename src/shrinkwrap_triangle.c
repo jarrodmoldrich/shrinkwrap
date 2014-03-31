@@ -27,21 +27,21 @@
 
 // Internal functions (forward declaration)
 ///////////////////////////////////////////////////////////////////////////////
-int selfIntersectionCurveLeft(const vert * a1, const vert * b1, float stopy, const curvep * first);
-int selfIntersectionCurveRight(const vert * a1, const vert * b1, float stopy, curve * left,
+int self_intersection_curve_left(const vert * a1, const vert * b1, float stopy, const curvep * first);
+int self_intersection_curve_right(const vert * a1, const vert * b1, float stopy, curve * left,
                                const curven * right, const vert * before2, const vert * before,
                                curvep * first, const curvep * l);
-int selfIntersection(const curvep * l, curvep * r, const curvep * rprev2,
+int self_intersection(const curvep * l, curvep * r, const curvep * rprev2,
                      const curvep * rprev, curve * left, const curven * right);
-shrinkwrap * createShrinkWrap(uint32_t numVertices);
-uint32_t assignIndices(curve_list * cl);
-void addVertices(shrinkwrap * sw, curve_list * cl);
-int pointIsSame(const curvep * a, const curvep * b);
-int triangleIsDegenerate(const curvep * p1, const curvep * p2, const curvep * p3);
-void addTriangle(shrinkwrap * shrinkwrap, alpha a, const curvep * p1, const curvep * p2,
+shrinkwrap * create_shrink_wrap(uint32_t numVertices);
+uint32_t assign_indices(curve_list * cl);
+void add_vertices(shrinkwrap * sw, curve_list * cl);
+int point_is_same(const curvep * a, const curvep * b);
+int triangle_is_degenerate(const curvep * p1, const curvep * p2, const curvep * p3);
+void add_triangle(shrinkwrap * shrinkwrap, alpha a, const curvep * p1, const curvep * p2,
                  const curvep * p3);
 int intersect(const vert * a1, const vert * b1, const vert * a2, const vert * b2);
-curvep * getNextRight(curvep * pr, const curvep * pl, curve * left, const curven ** inOutRight);
+curvep * get_next_right(curvep * pr, const curvep * pl, curve * left, const curven ** inOutRight);
 
 // Exposed functions
 ///////////////////////////////////////////////////////////////////////////////
@@ -49,11 +49,10 @@ curvep * getNextRight(curvep * pr, const curvep * pl, curve * left, const curven
 // alpha with one final vertex list
 // Note: Safe to destroy geometrySections after this process
 shrinkwrap * triangulate(curve_list * cl)
-
 {
-        uint32_t numVerts = assignIndices(cl);
-        shrinkwrap * sw = createShrinkWrap(numVerts);
-        addVertices(sw, cl);
+        uint32_t numVerts = assign_indices(cl);
+        shrinkwrap * sw = create_shrink_wrap(numVerts);
+        add_vertices(sw, cl);
         // Iterate through each curve
         curven * left = cl->head->next;
         while(left) {
@@ -73,24 +72,24 @@ shrinkwrap * triangulate(curve_list * cl)
                 while (TRUE) {
                         if (rightSide) {
                                 while (pr2) {
-                                        addTriangle(sw, a, pl, pr, pr2);
+                                        add_triangle(sw, a, pl, pr, pr2);
                                         const curvep * prprev2 = prprev;
                                         prprev = pr;
                                         pr = pr2;
                                         pl2 = pl->next;
                                         if (pl2 != NULL) {
-                                                int intersect = selfIntersection(pl2, pr, prprev2, prprev, left->curve,
+                                                int intersect = self_intersection(pl2, pr, prprev2, prprev, left->curve,
                                                                                  right);
                                                 if (intersect == FALSE) break;
                                                 if (pr->vertex.y > pl2->vertex.y) {
                                                         const curvep * pl3 = pl2->next;
                                                         assert(pl3 != NULL);
-                                                        addTriangle(sw, a, pl, pl2, pl3);
+                                                        add_triangle(sw, a, pl, pl2, pl3);
                                                         pl2 = pl3;
                                                         break;
                                                 }
                                         }
-                                        pr2 = getNextRight(pr, pl, left->curve, &right);
+                                        pr2 = get_next_right(pr, pl, left->curve, &right);
                                         if (pr2 == NULL) {
                                                 assert(pl2 == NULL);
                                                 goto nextCurve;
@@ -99,18 +98,18 @@ shrinkwrap * triangulate(curve_list * cl)
                                 rightSide = FALSE;
                         } else {
                                 while (pl2) {
-                                        addTriangle(sw, a, pl, pr, pl2);
+                                        add_triangle(sw, a, pl, pr, pl2);
                                         pl = pl2;
                                         const curven * prevRight = right;
-                                        pr2 = getNextRight(pr, pl, left->curve, &right);
+                                        pr2 = get_next_right(pr, pl, left->curve, &right);
                                         if (pr2 != NULL) {
-                                                int intersect = selfIntersection(pl, pr2, prprev, pr, left->curve,
+                                                int intersect = self_intersection(pl, pr2, prprev, pr, left->curve,
                                                                                  right);
                                                 if (intersect == FALSE) break;
                                                 if (pl->vertex.y > pr2->vertex.y) {
-                                                        curvep * pr3 = getNextRight(pr2, pr, left->curve, &right);
+                                                        curvep * pr3 = get_next_right(pr2, pr, left->curve, &right);
                                                         assert(pr3 != NULL);
-                                                        addTriangle(sw, a, pr, pr2, pr3);
+                                                        add_triangle(sw, a, pr, pr2, pr3);
                                                         pr2 = pr3;
                                                         break;
                                                 }
@@ -136,7 +135,7 @@ shrinkwrap * triangulate(curve_list * cl)
 void set_texture_coordinates(shrinkwrap * geometry, float framex, float framey, float texturewidth,
                                  float textureheight, float frameoffsetx, float frameoffsety)
 {
-        array_descp verts = geometry->vertices;
+        array * verts = geometry->vertices;
         // Small optimisation - find reciprocal to avoid divide in loop.
         // Could cause inaccuracy - if so divide in loop.
         float invwidth = 1.0 / texturewidth;
@@ -152,7 +151,6 @@ void set_texture_coordinates(shrinkwrap * geometry, float framex, float framey, 
                 vert->y -= frameoffsety;
         }
 }
-
 
 // Internal functions
 ///////////////////////////////////////////////////////////////////////////////
@@ -173,7 +171,7 @@ float lineInwards(const vert * a1, const vert * b1, const vert * a2, const vert 
 
 // Determine if line intersects with any line segments continuing from the left curve point provided.
 // TODO: Merge left and right implementation using function pointer and context data.
-int selfIntersectionCurveLeft(const vert * a1, const vert * b1, float stopy, const curvep * first)
+int self_intersection_curve_left(const vert * a1, const vert * b1, float stopy, const curvep * first)
 {
         const curvep * prev = first;
         const curvep * next = prev->next;
@@ -196,13 +194,13 @@ int selfIntersectionCurveLeft(const vert * a1, const vert * b1, float stopy, con
 
 // Determine if line intersects with any line segments continuing from the right curve provided.
 // TODO: Merge left and right implementation using function pointer and context data.
-int selfIntersectionCurveRight(const vert * a1, const vert * b1, float stopy, curve * left,
+int self_intersection_curve_right(const vert * a1, const vert * b1, float stopy, curve * left,
                                const curven * right, const vert * before2, const vert * before,
                                curvep * first, const curvep * l)
 {
         if (before2 != NULL && intersect(a1, b1, before2, before)) return TRUE;
         curvep * prev = first;
-        curvep * next = getNextRight(prev, l, left, &right);
+        curvep * next = get_next_right(prev, l, left, &right);
         int start = TRUE;
         while (next) {
                 const vert * vert1 = &prev->vertex;
@@ -215,28 +213,28 @@ int selfIntersectionCurveRight(const vert * a1, const vert * b1, float stopy, cu
                 if (vert1->y >= stopy && vert2->y >= stopy) return FALSE;
                 if (intersect(a1, b1, vert1, vert2)) return TRUE;
                 prev = next;
-                next = getNextRight(prev, l, left, &right);
+                next = get_next_right(prev, l, left, &right);
         }
         return FALSE;
 }
 
 // Determine if the left and right curve_list intersect the line provided.
-int selfIntersection(const curvep * l, curvep * r, const curvep * rprev2,
+int self_intersection(const curvep * l, curvep * r, const curvep * rprev2,
                      const curvep * rprev, curve * left, const curven * right)
 {
         const vert * a1 = &l->vertex;
         const vert * b1 = &r->vertex;
         float maxy = (a1->y > b1->y) ? a1->y : b1->y;
         int intersection = 0;
-        intersection = selfIntersectionCurveLeft(a1, b1, maxy, l);
+        intersection = self_intersection_curve_left(a1, b1, maxy, l);
         if (intersection) return TRUE;
         const vert * prevvert = &rprev->vertex;
         const vert * prev2vert = (rprev2) ? &rprev2->vertex : NULL;
-        return selfIntersectionCurveRight(a1, b1, maxy, left, right, prev2vert, prevvert, r, l);
+        return self_intersection_curve_right(a1, b1, maxy, left, right, prev2vert, prevvert, r, l);
 }
 
 // Sequentially visit curve_list and their points and add incrementing indices.
-uint32_t assignIndices(curve_list * cl)
+uint32_t assign_indices(curve_list * cl)
 {
         curven * n = cl->head->next;
         uint32_t i = 0;
@@ -252,7 +250,7 @@ uint32_t assignIndices(curve_list * cl)
         return i;
 }
 
-shrinkwrap * createShrinkWrap(uint32_t numverts)
+shrinkwrap * create_shrink_wrap(uint32_t numverts)
 {
         shrinkwrap * sw = (shrinkwrap *)malloc(shrinkwrap_size);
         uint32_t estimate = numverts + numverts/3 * 2;
@@ -262,8 +260,14 @@ shrinkwrap * createShrinkWrap(uint32_t numverts)
         return sw;
 }
 
+void destroy_shrinkwrap(shrinkwrap * sw) {
+        array_destroy(sw->indicesFullAlpha);
+        array_destroy(sw->indicesPartialAlpha);
+        array_destroy(sw->vertices);
+}
+
 // Visit each curve and their points and add vertices to shrinkwrap.
-void addVertices(shrinkwrap * sw, curve_list * cl)
+void add_vertices(shrinkwrap * sw, curve_list * cl)
 {
         curven * node = cl->head->next;
         while(node) {
@@ -279,7 +283,7 @@ void addVertices(shrinkwrap * sw, curve_list * cl)
 }
 
 // Determine if two points share the exact same floating-point coordinates.
-int pointIsSame(const curvep * a, const curvep * b)
+int point_is_same(const curvep * a, const curvep * b)
 {
         const vert * va = &a->vertex;
         const vert * vb = &b->vertex;
@@ -287,20 +291,20 @@ int pointIsSame(const curvep * a, const curvep * b)
 }
 
 // Determine if any of the points on the triangle are the same.
-int triangleIsDegenerate(const curvep * p1, const curvep * p2, const curvep * p3)
+int triangle_is_degenerate(const curvep * p1, const curvep * p2, const curvep * p3)
 {
-        return pointIsSame(p1, p2) || pointIsSame(p2, p3) || pointIsSame(p3, p1);
+        return point_is_same(p1, p2) || point_is_same(p2, p3) || point_is_same(p3, p1);
 }
 
 // Add triangle indices to shrinkwrap.
-void addTriangle(shrinkwrap * sw, alpha a, const curvep * p1, const curvep * p2,
+void add_triangle(shrinkwrap * sw, alpha a, const curvep * p1, const curvep * p2,
                  const curvep * p3)
 {
         assert(a != ALPHA_ZERO && a != ALPHA_INVALID);
-        array_descp array = (a == ALPHA_FULL) ? sw->indicesFullAlpha : sw->indicesPartialAlpha;
+        array * array = (a == ALPHA_FULL) ? sw->indicesFullAlpha : sw->indicesPartialAlpha;
 //        printf("%6.3f %6.3f -> %6.3f %6.3f -> %6.3f %6.3f\n", p1->vertex.x, p1->vertex.y, p2->vertex.x, p2->vertex.y,
 //               p3->vertex.x, p3->vertex.y);
-        if (triangleIsDegenerate(p1, p2, p3)) return;
+        if (triangle_is_degenerate(p1, p2, p3)) return;
         *add_index(array) = p1->index;
         *add_index(array) = p2->index;
         *add_index(array) = p3->index;
@@ -332,7 +336,7 @@ int intersect(const vert * a1, const vert * b1, const vert * a2, const vert * b2
 
 // Find next point on the right with y equal/greater and directly subsequent
 // to the left hand curve (unless curve is ending).
-curvep * getNextRight(curvep * pr, const curvep * pl, curve * left,
+curvep * get_next_right(curvep * pr, const curvep * pl, curve * left,
                                  const curven ** inOutRight)
 {
         const curven * newRight = find_next_curve(pr, left, TRUE);

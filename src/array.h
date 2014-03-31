@@ -23,14 +23,14 @@
 #ifndef shrinkwrap_array_h
 #define shrinkwrap_array_h
 
-struct array_desc_struct;
-typedef struct array_desc_struct array_desc;
-typedef array_desc * array_descp;
+struct array_struct;
+typedef struct array_struct array;
 
-array_descp array_create(size_t startCapacity, size_t stride);
-void array_resize(array_descp desc, size_t capacity);
-void * array_push(array_descp desc);
-void * array_get(array_descp desc, size_t i);
-size_t array_size(array_descp desc);
+array * array_create(size_t startCapacity, size_t stride);
+void array_destroy(array * desc);
+void array_resize(array * desc, size_t capacity);
+void * array_push(array * desc);
+void * array_get(array * desc, size_t i);
+size_t array_size(array * desc);
 
 #endif
