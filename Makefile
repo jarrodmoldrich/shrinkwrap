@@ -2,7 +2,7 @@ PROJDIRS = .
 
 CC = gcc
 DEPFLAGS = -MM
-CFLAGS = -c -g -std=c99 -O
+CFLAGS = -c -g -std=c99 -O0
 LDFLAGS = -g
 INCLUDES := -I .
 DEFINES := -D MACOS_CLASSIC

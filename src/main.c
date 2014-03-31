@@ -144,7 +144,7 @@ void processImageList(FILE * output, xml_image * firstImage, uch * imageAtlasRGB
                 // TEMP: WIP
                 if (i == 30 || i == 31) {
                         image = getNextImage(image);
-                        continue;
+                        goto cleanup;
                 }
                 smooth_curves(cl, smoothBleed, w, height);
                 html_draw_curves(outFile2, cl, x, y);
@@ -156,6 +156,7 @@ void processImageList(FILE * output, xml_image * firstImage, uch * imageAtlasRGB
                 sw->origY = frameY;
                 *entry = sw;
                 image = getNextImage(image);
+        cleanup:
                 free(typePixels);
                 free(antiDither);
                 free(dilated);

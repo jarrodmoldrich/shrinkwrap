@@ -54,7 +54,7 @@ void try_add_curve(curve_list * cl, alpha type, alpha lastType, const tpxl * tpi
 void protect_right_point(curvep * p);
 void protect_subdivision_points(curve_list * cl, pxl_size w);
 float getnewx(curvep * p);
-int validate_scanlines(const curven * scanLines, size_t count);
+int validate_scanlines(const curve_list * cl);
 int validate_scanline(curven * scanLine);
 int validate_curves(const curve_list * cl);
 float optimise(curvep * p1, curvep * p2, curvep * p3, conserve conserve);
@@ -73,11 +73,11 @@ int is_end_point(const curven * n, pxl_diff step);
 int comes_before(const curven * scanLine, const curve * a, const curve * b);
 void fix_curve_ending(curvep * ending, curven * n, curve_list * cl, pxl_diff step, pxl_size w,
                     pxl_size h, pxl_size bleed);
-void fix_curve_endings(curve_list * cl, size_t scanlines, pxl_size w, pxl_size h, pxl_size bleed);
+void fix_curve_endings(curve_list * cl, pxl_size w, pxl_size h, pxl_size bleed);
 void collapse_curve_ending(curvep * ending, curve * c, curve_list * cl, pxl_diff step, pxl_size w,
                          pxl_size h, pxl_size bleed);
-void collapse_curve_endings(curve_list * cl, size_t scanlines, pxl_size w, pxl_size h, pxl_size bleed);
-void smooth_fix_up(curve_list * cl, size_t scanlines);
+void collapse_curve_endings(curve_list * cl, pxl_size w, pxl_size h, pxl_size bleed);
+void smooth_fix_up(curve_list * cl);
 
 // Exposed functions
 ///////////////////////////////////////////////////////////////////////////////
@@ -145,18 +145,18 @@ size_t smoothCurve(curve * c, float w, float maxBleed)
 }
 
 // Iteratively reduce vertices for all curves.
-void smooth_curves(curve_list * cl, float bleed, pxl_size w, pxl_size scanlines)
+void smooth_curves(curve_list * cl, float bleed, pxl_size w)
 {
-        assert(validate_scanlines(cl->scanlines, scanlines));
+        assert(validate_scanlines(cl));
         assert(validate_curves(cl));
-        fix_curve_endings(cl, scanlines, w, scanlines, bleed);
-        assert(validate_scanlines(cl->scanlines, scanlines));
+        fix_curve_endings(cl, w, (pxl_size)cl->linecount, bleed);
+        assert(validate_scanlines(cl));
         assert(validate_curves(cl));
-        collapse_curve_endings(cl, scanlines, w, scanlines, bleed);
-        assert(validate_scanlines(cl->scanlines, scanlines));
+        collapse_curve_endings(cl, w, (pxl_size)cl->linecount, bleed);
+        assert(validate_scanlines(cl));
         assert(validate_curves(cl));
         protect_subdivision_points(cl, w);
-        assert(validate_scanlines(cl->scanlines, scanlines));
+        assert(validate_scanlines(cl));
         assert(validate_curves(cl));
         curven * c = cl->head->next;
         while(c) {
@@ -165,10 +165,10 @@ void smooth_curves(curve_list * cl, float bleed, pxl_size w, pxl_size scanlines)
                         remove = smoothCurve(c->curve, (float)w, bleed);
                 } while (remove > 0);
                 remove_points(c->curve);
-                assert(validate_scanlines(cl->scanlines, scanlines));
+                assert(validate_scanlines(cl));
                 c = c->next;
         }
-        smooth_fix_up(cl, scanlines);
+        smooth_fix_up(cl);
 }
 
 
@@ -252,6 +252,7 @@ curve_list * create_curve_list(size_t scanlines)
 {
         curve_list * cl = (curve_list *)malloc(curves_size);
         cl->scanlines = (curven *)malloc(curven_size * scanlines);
+        cl->linecount = scanlines;
         cl->head = (curven *)malloc(curven_size);
         cl->head->next = NULL;
         cl->lastCurve = cl->head;
@@ -265,16 +266,29 @@ curve_list * create_curve_list(size_t scanlines)
         return cl;
 }
 
+void destroy_scanline(curven * n) {
+        while (n->next) {
+                n = n->next;
+                free(n);
+        }
+}
 curve_list * destroy_curve_list(curve_list * cl)
 {
+        for (int i = 0; i < cl->linecount; i++) {
+                destroy_scanline(cl->scanlines+i);
+        }
         free(cl->scanlines);
         cl->scanlines = NULL;
         curven * n = cl->head;
         while (n) {
                 curven * next = n->next;
+                if (n != cl->head) {
+                        destroy_curve(n->curve);
+                }
                 free(n);
                 n = next;
         }
+        free(cl);
         return NULL;
 }
 
@@ -519,10 +533,8 @@ void try_add_curve(curve_list * cl, alpha a, alpha prev, const tpxl * tpixels, f
         }
         curven * existing = find_curve_at(cl, x, y);
         if (existing) return;
-        curven * n = (curven *)malloc(curven_size);
         curve * c = (curve *)malloc(curve_size);
         curvep * lastPoint = init_curve(c, x, y, cl, a);
-        n->curve = c;
         add_curve(cl, c, lastPoint);
         add_curve_to_scanline(cl, y, c, lastPoint);
         pixel_find found;
@@ -601,12 +613,13 @@ float getnewx(curvep * p)
 
 // Validates that all scan line points are ordered by
 // x coordinates.
-int validate_scanlines(const curven * scanLines, size_t count)
+int validate_scanlines(const curve_list * cl)
 {
-        const curven * prevLine = scanLines;
+        const curven * prevline = cl->scanlines;
+        size_t count = cl->linecount;
         for (size_t i = 1; i < count; i++) {
-                const curven * line  = prevLine+1;
-                const curven * prev = prevLine->next;
+                const curven * line  = prevline+1;
+                const curven * prev = prevline->next;
                 if (prev != NULL) {
                         const curven * n = prev->next;
                         while (n) {
@@ -617,7 +630,7 @@ int validate_scanlines(const curven * scanLines, size_t count)
                                 n = n->next;
                         }
                 }
-                prevLine++;
+                prevline++;
         }
         return TRUE;
 }
@@ -977,7 +990,7 @@ void fix_curve_ending(curvep * ending, curven * n, curve_list * cl, pxl_diff ste
 }
 
 // Fixes top and bottom end of curves to account for disconnection between curves
-void fix_curve_endings(curve_list * cl, size_t scanlines, pxl_size w, pxl_size h, pxl_size bleed)
+void fix_curve_endings(curve_list * cl, pxl_size w, pxl_size h, pxl_size bleed)
 {
         curven * n = cl->head->next;
         while (n) {
@@ -1029,7 +1042,7 @@ void collapse_curve_ending(curvep * ending, curve * c, curve_list * cl, pxl_diff
 }
 
 // Collapse curve endings for all curves.
-void collapse_curve_endings(curve_list * cl, size_t scanlines, pxl_size w, pxl_size h, pxl_size bleed)
+void collapse_curve_endings(curve_list * cl, pxl_size w, pxl_size h, pxl_size bleed)
 {
         curven * n = cl->head->next;
         while (n) {
@@ -1043,7 +1056,7 @@ void collapse_curve_endings(curve_list * cl, size_t scanlines, pxl_size w, pxl_s
 }
 
 // Remove superfluous curves
-void smooth_fix_up(curve_list * cl, size_t scanlines)
+void smooth_fix_up(curve_list * cl)
 {
 //        curve_node * scanline = curves->scanlines;
 //        for (size_t i = 0; i < scanlines; i++) {
@@ -1068,16 +1081,18 @@ void smooth_fix_up(curve_list * cl, size_t scanlines)
 //                }
 //                scanline++;
 //        }
-        curven * prev = cl->head;
-        curven * c = prev->next;
-        while (c) {
-                if (c->point == NULL || c->point->next == NULL) {
-                        prev->next = c->next;
-                        c = c->next;
-                        if (c == NULL) break;
-                }
-                prev = c;
-                c = prev->next;
-        }
+//        curven * prev = cl->head;
+//        curven * c = prev->next;
+//        while (c) {
+//                if (c->point == NULL || c->point->next == NULL) {
+//                        prev->next = c->next;
+////                        destroy_curve(c->curve);
+////                        free(c);
+//                        c = c->next;
+//                        if (c == NULL) break;
+//                }
+//                prev = c;
+//                c = prev->next;
+//        }
         
 }

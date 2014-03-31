@@ -111,6 +111,7 @@ static const size_t curven_size = sizeof(curven);
 // 2) a linked list of all curves
 struct curves_list_struct {
         curven * scanlines;
+        size_t linecount;
         curven * head;
         curven * lastCurve;
 };
