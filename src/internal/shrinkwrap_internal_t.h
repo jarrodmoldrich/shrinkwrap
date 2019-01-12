@@ -74,47 +74,47 @@ static const pxl_size c_pixelSize = 4;
 static const uch c_default_threshold = 255;
 
 struct curve_node_struct;
-typedef struct curve_node_struct curven;
+typedef struct curve_node_struct CN;
 
 struct curve_point_struct;
-typedef struct curve_point_struct curvep;
+typedef struct curve_point_struct CP;
 
 struct curve_struct;
-typedef struct curve_struct curve;
+typedef struct curve_struct C;
         
 struct curve_point_struct {
         vert vertex;
         uint32_t index;
-        curvep * next;
-        curven * scanlineList;
+        CP * next;
+        CN * scanlineList;
         uch preserve;
         uch moved;
         float newx;
 };
-static const size_t curvep_size = sizeof(curvep);
+static const size_t cp_size = sizeof(CP);
 
 struct curve_struct {
-        curvep * pointList;
-        curvep * removed;
+        CP * pointList;
+        CP * removed;
         alpha alphaType;
 };
-static const size_t curve_size = sizeof(curve);
+static const size_t c_size = sizeof(C);
 
 struct curve_node_struct {
-        curve * curve;
-        curvep * point;
+        C * curve;
+        CP * point;
         struct curve_node_struct * next;
 };
-static const size_t curven_size = sizeof(curven);
+static const size_t cn_size = sizeof(CN);
 
 // curve geometry contains:
 // 1) a linked list of all intersecting curves of each scanline in order of x position
 // 2) a linked list of all curves
 struct curves_list_struct {
-        curven * scanlines;
+        CN * scanlines;
         size_t linecount;
-        curven * head;
-        curven * lastCurve;
+        CN * head;
+        CN * lastCurve;
 };
 static const size_t curves_size = sizeof(curve_list);
 #endif

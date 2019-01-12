@@ -23,7 +23,7 @@
 #define shrinkwrap_shrinkwrap_html_h
 
 #include <stdio.h>
-#include "internal/shrinkwrap_internal_t.h"
+#include "shrinkwrap_t.h"
 #include "pixel_t.h"
 
 void html_prologue(FILE * output, pxl_size width, pxl_size height);

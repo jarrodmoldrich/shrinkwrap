@@ -54,12 +54,10 @@ add_library(lshrinkwrap
         src/internal/minunit.h
         src/internal/shrinkwrap_curve_internal.h
         src/internal/shrinkwrap_internal_t.h
-        src/internal/shrinkwrap_internal_tests.c
         src/internal/shrinkwrap_pixel_internal.h
         src/internal/shrinkwrap_triangle_internal.h
         src/array.c
         src/array.h
-        src/main.c
         src/pixel_t.h
         src/pngload.c
         src/pngload.h
@@ -99,9 +97,12 @@ add_library(lshrinkwrap
         zlib-1.2.8/zlib.h
         zlib-1.2.8/zutil.c
         zlib-1.2.8/zutil.h
-        src/types.h)
+        )
 
-add_executable(shrinkwrap_tests src/run_tests.c)
+add_executable(shrinkwrap_tests
+        src/internal/shrinkwrap_internal_tests.c
+        src/run_tests.c)
+
 add_executable(shrinkwrap src/main.c)
 
 target_link_libraries(shrinkwrap_tests lshrinkwrap)

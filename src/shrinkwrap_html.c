@@ -21,6 +21,7 @@
 //
 #include <assert.h>
 #include "shrinkwrap_html.h"
+#include "internal/shrinkwrap_internal_t.h"
 
 void html_prologue(FILE * output, pxl_size width, pxl_size height)
 {
@@ -94,11 +95,11 @@ void html_draw_triangles(FILE * output, array * vertArray, array * indexArray, c
         }
 }
 
-void htmlDrawCurve(FILE * out, curve * c, float x, float y)
+void htmlDrawCurve(FILE * out, C * c, float x, float y)
 {
         static const char * const c_colours[] = {"0, 255, 255", "0, 255, 0", "0, 0, 255",
                 "255, 0, 0"};
-        curvep * p = c->pointList;
+        CP * p = c->pointList;
         const char * const colour = c_colours[c->alphaType];
         fprintf(out, "\t\t\tcontext.fillStyle=\"rgba(%s, 1)\"\n", colour);
         fprintf(out, "\t\t\tcontext.beginPath();\n");
@@ -140,9 +141,9 @@ void htmlDrawCurve(FILE * out, curve * c, float x, float y)
 
 void html_draw_curves(FILE * output, curve_list * curves, float x, float y)
 {
-        curven * n = curves->head->next;
+        CN * n = curves->head->next;
         while (n) {
-                curve * c = n->curve;
+                C * c = n->curve;
                 htmlDrawCurve(output, c, x, y);
                 n = n->next;
         }

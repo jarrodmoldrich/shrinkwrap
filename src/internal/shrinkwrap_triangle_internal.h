@@ -23,42 +23,42 @@
 #define shrinkwrap_triangle_internal_h
 #include "shrinkwrap_internal_t.h"
 
-curven * find_next_curve(curvep * p, curve * c, int skip);
-int point_line_has_curve(const curvep * p, const curve * c);
+CN * find_next_curve(CP * p, C * c, int skip);
+int point_line_has_curve(const CP * p, const C * c);
 
-int self_intersection_curve_left(const vert * a1, const vert * b1, float stopy, const curvep * first);
-int self_intersection_curve_right(const vert * a1, const vert * b1, float stopy, curve * left,
-                               const curven * right, const vert * before2, const vert * before,
-                               curvep * first, const curvep * l);
-int self_intersection(const curvep * l, curvep * r, const curvep * rprev2,
-                     const curvep * rprev, curve * left, const curven * right);
+int self_intersection_curve_left(const vert * a1, const vert * b1, float stopy, const CP * first);
+int self_intersection_curve_right(const vert * a1, const vert * b1, float stopy, C * left,
+                               const CN * right, const vert * before2, const vert * before,
+                               CP * first, const CP * l);
+int self_intersection(const CP * l, CP * r, const CP * rprev2,
+                     const CP * rprev, C * left, const CN * right);
 shrinkwrap * create_shrink_wrap(uint32_t numVertices);
 uint32_t assign_indices(curve_list * cl);
 void add_vertices(shrinkwrap * sw, curve_list * cl);
-int point_is_same(const curvep * a, const curvep * b);
-int triangle_is_degenerate(const curvep * p1, const curvep * p2, const curvep * p3);
-void add_triangle(shrinkwrap * shrinkwrap, alpha a, const curvep * p1, const curvep * p2,
-                 const curvep * p3);
+int point_is_same(const CP * a, const CP * b);
+int triangle_is_degenerate(const CP * p1, const CP * p2, const CP * p3);
+void add_triangle(shrinkwrap * shrinkwrap, alpha a, const CP * p1, const CP * p2,
+                 const CP * p3);
 int intersect(const vert * a1, const vert * b1, const vert * a2, const vert * b2);
-curvep * get_next_right(curvep * pr, const curvep * pl, curve * left, const curven ** inOutRight);
+CP * get_next_right(CP * pr, const CP * pl, C * left, const CN ** inOutRight);
 
 float lineInwards(const vert * a1, const vert * b1, const vert * a2, const vert * b2, int right);
-int self_intersection_curve_left(const vert * a1, const vert * b1, float stopy, const curvep * first);
-int self_intersection_curve_right(const vert * a1, const vert * b1, float stopy, curve * left,
-                               const curven * right, const vert * before2, const vert * before,
-                               curvep * first, const curvep * l);
-int self_intersection(const curvep * l, curvep * r, const curvep * rprev2,
-                     const curvep * rprev, curve * left, const curven * right);
+int self_intersection_curve_left(const vert * a1, const vert * b1, float stopy, const CP * first);
+int self_intersection_curve_right(const vert * a1, const vert * b1, float stopy, C * left,
+                               const CN * right, const vert * before2, const vert * before,
+                               CP * first, const CP * l);
+int self_intersection(const CP * l, CP * r, const CP * rprev2,
+                     const CP * rprev, C * left, const CN * right);
 
 uint32_t assign_indices(curve_list * cl);
 shrinkwrap * create_shrink_wrap(uint32_t numverts);
 void destroy_shrinkwrap(shrinkwrap * sw);
 void add_vertices(shrinkwrap * sw, curve_list * cl);
-int point_is_same(const curvep * a, const curvep * b);
-int triangle_is_degenerate(const curvep * p1, const curvep * p2, const curvep * p3);
-void add_triangle(shrinkwrap * sw, alpha a, const curvep * p1, const curvep * p2,
-                 const curvep * p3);
+int point_is_same(const CP * a, const CP * b);
+int triangle_is_degenerate(const CP * p1, const CP * p2, const CP * p3);
+void add_triangle(shrinkwrap * sw, alpha a, const CP * p1, const CP * p2,
+                 const CP * p3);
 int intersect(const vert * a1, const vert * b1, const vert * a2, const vert * b2);
-curvep * get_next_right(curvep * pr, const curvep * pl, curve * left,
-                                 const curven ** inOutRight);
+CP * get_next_right(CP * pr, const CP * pl, C * left,
+                                 const CN ** inOutRight);
 #endif

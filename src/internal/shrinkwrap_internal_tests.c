@@ -3,8 +3,8 @@
 #include "shrinkwrap_curve_internal.h"
 
 typedef struct {
-        curvep * l;
-        curvep * r;
+        CP * l;
+        CP * r;
 } intersect_curve;
 
 void context_create_intersect_curve()
