@@ -22,26 +22,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
-#include "shrinkwrap_internal_t.h"
-#include "shrinkwrap_internal.h"
-
-// Internal functions (forward declaration)
-///////////////////////////////////////////////////////////////////////////////
-int self_intersection_curve_left(const vert * a1, const vert * b1, float stopy, const curvep * first);
-int self_intersection_curve_right(const vert * a1, const vert * b1, float stopy, curve * left,
-                               const curven * right, const vert * before2, const vert * before,
-                               curvep * first, const curvep * l);
-int self_intersection(const curvep * l, curvep * r, const curvep * rprev2,
-                     const curvep * rprev, curve * left, const curven * right);
-shrinkwrap * create_shrink_wrap(uint32_t numVertices);
-uint32_t assign_indices(curve_list * cl);
-void add_vertices(shrinkwrap * sw, curve_list * cl);
-int point_is_same(const curvep * a, const curvep * b);
-int triangle_is_degenerate(const curvep * p1, const curvep * p2, const curvep * p3);
-void add_triangle(shrinkwrap * shrinkwrap, alpha a, const curvep * p1, const curvep * p2,
-                 const curvep * p3);
-int intersect(const vert * a1, const vert * b1, const vert * a2, const vert * b2);
-curvep * get_next_right(curvep * pr, const curvep * pl, curve * left, const curven ** inOutRight);
+#include "internal/shrinkwrap_triangle_internal.h"
 
 // Exposed functions
 ///////////////////////////////////////////////////////////////////////////////
@@ -260,7 +241,8 @@ shrinkwrap * create_shrink_wrap(uint32_t numverts)
         return sw;
 }
 
-void destroy_shrinkwrap(shrinkwrap * sw) {
+void destroy_shrinkwrap(shrinkwrap * sw) 
+{
         array_destroy(sw->indicesFullAlpha);
         array_destroy(sw->indicesPartialAlpha);
         array_destroy(sw->vertices);

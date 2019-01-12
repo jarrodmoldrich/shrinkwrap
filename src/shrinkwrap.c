@@ -28,7 +28,7 @@
 #include <math.h>
 #include "shrinkwrap.h"
 #include "shrinkwrap_t.h"
-#include "shrinkwrap_internal_t.h"
+#include "internal/shrinkwrap_internal_t.h"
 
 // Shrink wrap methodology
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

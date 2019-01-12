@@ -31,5 +31,5 @@ clean: clean_intermediate
 	rm -f shrinkwrap 
 
 clean_intermediate:
-	rm -f src/*.o expat-2.1.0/*.o lpng169/*.o zlib-1.2.8/*.o src/*.d expat-2.1.0/*.d lpng169/*.d zlib-1.2.8/*.d
-
+	find . -type f -name '*.o' -exec rm {} +
+	find . -type f -name '*.d' -exec rm {} +

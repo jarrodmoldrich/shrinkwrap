@@ -2,3 +2,11 @@ shrinkwrap.xcodeproj
 project.xcworkspace
 *.d
 *.o
+*.swp
+tags
+
+# Jetbrains
+.idea/**/workspace.xml
+
+# CMake
+cmake-build-*/

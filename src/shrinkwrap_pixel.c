@@ -23,7 +23,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
-#include "shrinkwrap_internal_t.h"
+#include "internal/shrinkwrap_pixel_internal.h"
 
 // Inline functions
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -46,10 +46,6 @@ static inline const uch * next_pixel(const uch * pixel)
 {
         return pixel + c_pixelSize;
 }
-
-static inline pxl_pos find_partial_before(pxl_pos x, const tpxl * otherLine);
-static inline pxl_pos find_partial_after(pxl_pos x, const tpxl * otherLine, pxl_size w);
-tpxl * yshift_alpha(const tpxl * typePixels, pxl_size w, pxl_size h);
 
 // Functions
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

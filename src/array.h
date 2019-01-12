@@ -23,6 +23,8 @@
 #ifndef shrinkwrap_array_h
 #define shrinkwrap_array_h
 
+#include <stddef.h>
+
 struct array_struct;
 typedef struct array_struct array;
 

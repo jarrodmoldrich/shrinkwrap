@@ -22,8 +22,8 @@
 #ifndef shrinkwrap_shrinkwrap_internal_t_h
 #define shrinkwrap_shrinkwrap_internal_t_h
 
-#include "shrinkwrap_t.h"
-#include "pixel_t.h"
+#include "../shrinkwrap_t.h"
+#include "../pixel_t.h"
 
 // Defines
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -107,7 +107,7 @@ struct curve_node_struct {
 };
 static const size_t curven_size = sizeof(curven);
 
-// Curve geometry contains:
+// curve geometry contains:
 // 1) a linked list of all intersecting curves of each scanline in order of x position
 // 2) a linked list of all curves
 struct curves_list_struct {

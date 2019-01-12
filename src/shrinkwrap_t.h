@@ -22,6 +22,7 @@
 #ifndef shrinkwrap_shrinkwrap_t_h
 #define shrinkwrap_shrinkwrap_t_h
 
+#include <stddef.h>
 #include <stdint.h>
 #include "array.h"
 
