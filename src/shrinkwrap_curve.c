@@ -666,7 +666,7 @@ float calculate_average_difference(vertp v1, vertp v2, float startx, float start
         float subEndRatio = (v2->y - starty) / yDistance;
         float subStartNew = subStartRatio * xDistance + startx;
         float subEndNew = subEndRatio * xDistance + startx;
-        return fabsf(((subStartNew - v1->x) + (subEndNew - v2->x)) * 0.5);
+        return fabsf(((subStartNew - v1->x) + (subEndNew - v2->x)) * 0.5f);
 }
 
 // Calculate the average absolute pixel error of the new shortcut line (o1->n23) compared
@@ -994,7 +994,7 @@ void collapse_curve_ending(CP * ending, C * c, curve_list * cl, pxl_diff step, p
                 alpha nextType = next->curve->alphaType;
                 if (prevType == ALPHA_ZERO) {
                         if (nextType == ALPHA_ZERO) {
-                                newx = 0.5 * (nextX + x);
+                                newx = 0.5f * (nextX + x);
                         } else {
                                 newx = nextX;
                         }
