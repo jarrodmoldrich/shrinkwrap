@@ -61,7 +61,6 @@ add_library(lshrinkwrap
         src/pixel_t.h
         src/pngload.c
         src/pngload.h
-        src/shrinkwrap.c
         src/shrinkwrap.h
         src/shrinkwrap_curve.c
         src/shrinkwrap_html.c

@@ -21,6 +21,7 @@
 //
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <assert.h>
 #include <math.h>
 #include "internal/shrinkwrap_curve_internal.h"
@@ -32,7 +33,7 @@
 // Note: imageLines can be destroyed safely after this operation.
 curve_list * build_curves(const tpxl * tpixels, pxl_size w, pxl_size h)
 {
-        // Alocate curve linked lists for each scanline.
+        // Allocate curve linked lists for each scanline.
         curve_list * cl = create_curve_list(h);
         // For each scanline except the last.
         // No new curves can start on the last line to reduce complications.
@@ -63,14 +64,18 @@ size_t smoothCurve(C * c, float w, float maxBleed)
         if (p2 == NULL) return 0;
         CP * p3 = find_next_nonremoved(p2);
         while (p3) {
-                if (p2->preserve == TRUE) {
+                if (p2->preserve == PRESERVE_DONOTREMOVE) {
                         p2->newx = p2->vertex.x;
                 } else {
                         conserve dir = conserve_direction(p2->scanlineList, c);
-                        float newx = optimise(p, p2, p3, dir);
+                        float newx = optimise(p, p2, p3, dir, maxBleed);
+                        bool inflection = newx == -1.0f;
                         newx = limit_point(newx, p3, w);
                         float avg = calculate_max_difference_on_curve(p, p3, newx);
-                        if (avg < maxBleed) {
+                        bool tolerated = avg < maxBleed;
+                        if (inflection) {
+                                p2->preserve = PRESERVE_DONOTREMOVE;
+                        } else if (tolerated) {
                                 assert(p2->preserve != PRESERVE_DONOTREMOVE);
                                 p2->preserve = PRESERVE_WILLREMOVE;
                                 p3->newx = newx;
@@ -135,9 +140,11 @@ CP * new_point(float x, float y, CN * scanline)
         return p;
 }
 
-CP * init_curve(C * c, float x, float y, curve_list * cl, alpha a)
+CP * init_curve(C * c, float x, float y, const curve_list * cl, alpha a)
 {
-        CN * scanline = cl->scanlines + (size_t)y;
+        size_t line = (size_t)y;
+        assert(line < cl->linecount);
+        CN * scanline = cl->scanlines + line;
         c->alphaType = a;
         CP * p = new_point(x, y, scanline);
         c->pointList = p;
@@ -378,19 +385,23 @@ int point_line_has_curve(const CP * p, const C * c)
         return FALSE;
 }
 
-// Mark to protect curve from clipping through side with partial-alpha
-conserve conserve_direction(const CN * scanline, C * c)
+// If this curve represents the left edge of a:
+// ALPHA_FULL -> concave sections should BE EATEN into by whatever is to the left
+// ALPHA_PARTIAL -> convex sections should EAT into whatever came before it
+// ALPHA_ZERO -> if prior curve on scanline is ALPHA_ZERO, convex sections EAT, otherwise concave sections can BE EATEN
+conserve conserve_direction(const CN * scanline, const C * c)
 {
         alpha a = c->alphaType;
         if (a == ALPHA_PARTIAL) return CONSERVE_RIGHT;
-        if (a == ALPHA_ZERO) return CONSERVE_LEFT;
+        if (a == ALPHA_FULL) return CONSERVE_LEFT;
+        assert(a == ALPHA_ZERO);
         const CN * prev = scanline;
         CN * n = prev->next;
         if (n != NULL && n->curve == c) return CONSERVE_RIGHT;
         while (n != NULL) {
                 if (n->curve == c) {
                         alpha prevType = prev->curve->alphaType;
-                        if (prevType == ALPHA_ZERO) return CONSERVE_RIGHT;
+                        if (prevType == ALPHA_FULL) return CONSERVE_RIGHT;
                         return CONSERVE_LEFT;
                 }
                 prev = n;
@@ -641,17 +652,25 @@ int validate_curves(const curve_list * cl)
         return TRUE;
 }
 
-// Find a new x position for the 3rd point supposing we
-// had to skip the 2nd point but avoid clipping to one
-// side.
-float optimise(CP * p1, CP * p2, CP * p3, conserve conserve)
+// Requirements:
+// Find a new x position for the 3rd point supposing we had to skip the 2nd point
+// Avoid clipping of convex areas if CONSERVE_RIGHT is specified
+// Avoid clipping of concave areas if CONSERVE_LEFT is specified
+// For an inflection point (i.e. slope changes sign) of significant delta, -1.0 will be returned
+float optimise(CP * p1, CP * p2, CP * p3, conserve conserve, float maxBleed)
 {
         assert(p2->preserve != PRESERVE_DONOTREMOVE);
         if (conserve == CONSERVE_NONE) {return getnewx(p3);}
-        float slope2 = (getnewx(p2) - getnewx(p1))/(float)(p2->vertex.y - p1->vertex.y);
-        float slope3 = (getnewx(p3) - getnewx(p2))/(float)(p3->vertex.y - p2->vertex.y);
-        if ((conserve == CONSERVE_RIGHT && slope3 > slope2) || (conserve == CONSERVE_LEFT && slope3 <= slope2)) {
-                return slope2 * (p3->vertex.y - p1->vertex.y) + getnewx(p1);
+        float startX = getnewx(p1);
+        float xDiff1 = getnewx(p2) - startX;
+        float xDiff2 = getnewx(p3) - getnewx(p2);
+        float slope1 = xDiff1 / (p2->vertex.y - p1->vertex.y);
+        float slope2 = xDiff2 / (p3->vertex.y - p2->vertex.y);
+        bool tolerated = 0.5f * (fabsf(xDiff1) + fabsf(xDiff2)) > maxBleed;
+        bool inflection = (slope1 >= 0) != (slope2 >= 0) && slope1 != 0 && slope2 != 0;
+        if (inflection && tolerated) return -1.0f;
+        if ((conserve == CONSERVE_RIGHT && slope2 > slope1) || (conserve == CONSERVE_LEFT && slope2 <= slope1)) {
+                return slope1 * (p3->vertex.y - p1->vertex.y) + startX;
         }
         return getnewx(p3);
 }

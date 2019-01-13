@@ -36,7 +36,7 @@ CP * add_point(CN * left, CN * right, float newx, float newY, curve_list * cl, p
 void remove_point(C * c, CP * p);
 
 // Curve functions
-CP * init_curve(C * c, float x, float y, curve_list * cl, alpha a);
+CP * init_curve(C * c, float x, float y, const curve_list * cl, alpha a);
 CP * get_last_point(C * c);
 C * destroy_curve(C * c);
 
@@ -75,11 +75,11 @@ void collapse_curve_endings(curve_list * cl, pxl_size w, pxl_size h, pxl_size bl
 void smooth_fix_up(curve_list * cl);
 
 // Optimisation
-conserve conserve_direction(const CN * scanline, C * c);
+conserve conserve_direction(const CN * scanline, const C * c);
 void protect_right_point(CP * p);
 void protect_subdivision_points(curve_list * cl, pxl_size w);
 float getnewx(CP * p);
-float optimise(CP * p1, CP * p2, CP * p3, conserve conserve);
+float optimise(CP * p1, CP * p2, CP * p3, conserve conserve, float maxBleed);
 float calculate_average_difference(vertp p1, vertp p2, float startx, float starty, float newx, float endY);
 float calculate_max_difference_on_curve(CP * p1, CP * p3, float new23);
 float findx(CN * curveNode, float y);

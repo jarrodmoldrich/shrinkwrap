@@ -3,6 +3,10 @@
 - add unit test suite
 - create script for end-to-end testing harness
 - fix implementation to pass end-to-end testing harness
+- option for tri-stripped vertex lists
+- option to change bleed per image
+- option to change curve smoothing per image
+- use convolution for bleed
 - update `Makefile` to output library and link unit tests and executable
 - add autotools `.configure` and `make install` steps
 - move `libpng` and `expat` to package dependencies
